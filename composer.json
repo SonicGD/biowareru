@@ -1,0 +1,43 @@
+{
+    "name": "sonicgd/biowareru",
+    "description": "BioWare.ru",
+    "keywords": ["bioware", "cms", "yii2"],
+    "homepage": "http://www.bioware.ru/",
+    "type": "project",
+    "license": "BSD-3-Clause",
+    "support": {
+        "issues": "https://github.com/sonicgd/biowareru/issues?state=open",
+        "forum": "http://www.bioware.ru/forum/",
+        "source": "https://github.com/sonicgd/biowareru"
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.4.0",
+        "sonicgd/bioengine": "*"
+    },
+    "require-dev": {
+
+    },
+    "suggest": {
+
+    },
+    "scripts": {
+        "post-create-project-cmd": [
+            "yii\\composer\\Installer::setPermission"
+        ]
+    },
+    "config": {
+        "process-timeout": 1800
+    },
+    "extra": {
+        "writable": [
+
+        ]
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:sonicgd/bioengine.git"
+        }
+    ]
+}
