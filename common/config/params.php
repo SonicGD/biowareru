@@ -1,3 +1,5 @@
 <?php
 
-return [];
+return [
+    'db' => require_once('db.php')
+];

@@ -16,7 +16,7 @@
         "sonicgd/bioengine": "*"
     },
     "require-dev": {
-
+        "yiisoft/yii2-gii": "*"
     },
     "suggest": {
 

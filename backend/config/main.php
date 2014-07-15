@@ -12,29 +12,7 @@ $params = array_merge(
 );
 
 return [
-    'id'                  => 'app-backend',
-    'basePath'            => dirname(__DIR__),
-    'bootstrap'           => ['log'],
-    'controllerNamespace' => 'bioengine\backend\controllers',
-    'vendorPath'          => dirname(dirname(__DIR__)) . '/vendor',
-    'viewPath'            => '@bioengine/backend/views',
-    'components'          => [
-        'user'         => [
-            'identityClass'   => 'common\models\User',
-            'enableAutoLogin' => true,
-        ],
-        'log'          => [
-            'traceLevel' => YII_DEBUG ? 3 : 0,
-            'targets'    => [
-                [
-                    'class'  => 'yii\log\FileTarget',
-                    'levels' => ['error', 'warning'],
-                ],
-            ],
-        ],
-        'errorHandler' => [
-            'errorAction' => 'site/error',
-        ],
-    ],
-    'params'              => $params,
+    'components' => [
+        'db' => $params['db']
+    ]
 ];

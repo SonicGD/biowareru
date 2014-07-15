@@ -15,7 +15,7 @@ return [
     'id'                  => 'app-frontend',
     'basePath'            => dirname(__DIR__),
     'bootstrap'           => ['log'],
-    'controllerNamespace' => 'bioengine\frontend\controllers',
+    'controllerNamespace' => 'biowareru\frontend\controllers',
     'vendorPath'          => dirname(dirname(__DIR__)) . '/vendor',
     'components'          => [
         'user'         => [
