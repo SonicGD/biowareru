@@ -34,6 +34,14 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+        'db'           => $params['db'],
+        'request'      => [
+            'class'               => \yii\web\Request::className(),
+            'cookieValidationKey' => 'somesecretvalidationkey',
+            'parsers'             => [
+                'application/json' => 'yii\web\JsonParser',
+            ]
+        ],
     ],
     'params'              => $params,
 ];
