@@ -23,4 +23,6 @@ $config = yii\helpers\ArrayHelper::merge(
 );
 
 $application = new yii\web\Application($config);
+Yii::setAlias('bower', dirname(dirname(__DIR__)) . '/vendor/bower');
+Yii::setAlias('vendor', dirname(dirname(__DIR__)) . '/vendor');
 $application->run();
