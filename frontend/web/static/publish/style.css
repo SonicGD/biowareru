@@ -3886,20 +3886,20 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 .article-list__title {
   font-weight: bold;
   font-size: 1.5em;
   line-height: 1.4;
-  margin: 0 0 20px;
+  margin: 0 0 5px;
 }
 .article-list__permalink {
   color: inherit;
   text-decoration: underline;
 }
 .article-list__permalink:hover {
-  color: #0e7892;
+  color: #1fc1e9;
 }
 .article-list__date {
   font-size: 0.9em;
@@ -3940,6 +3940,39 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 }
 .auth__text {
   border-bottom: 1px solid rgba(255,255,255,0.5);
+}
+
+.b-text p {
+  margin: 1em 0;
+  font-size: 1em;
+  line-height: 1.2;
+}
+.b-text a {
+  color: #1298b9;
+  text-decoration: underline;
+}
+.b-text a:hover {
+  color: #1fc1e9;
+}
+.b-text a:visited {
+  color: #3c7f8f;
+}
+.b-text i {
+  font-style: italic;
+}
+.b-text b {
+  font-weight: bold;
+}
+.b-text h2,
+.b-text h3 {
+  font-weight: bold;
+  line-height: 1.4;
+}
+.b-text h2 {
+  font-size: 1.5em;
+}
+.b-text h3 {
+  font-size: 1.2em;
 }
 
 .body_me3 {
