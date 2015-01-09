@@ -3879,8 +3879,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 }
 
 .article-list__item {
-  padding: 35px 285px 35px 30px;
+  padding: 35px 325px 35px 30px;
   background-color: #ebebeb;
+  border-bottom: 4px solid #7d7d7d;
 }
 .article-list__header {
   display: -webkit-flex;
@@ -3909,6 +3910,47 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 .article-list__title-image {
   min-width: 150px;
   margin-left: 30px;
+}
+.article-list__news-illustration {
+  width: 100%;
+}
+.article-list__footer {
+  margin-top: 30px;
+}
+.article-list__morelink {
+  display: inline-block;
+  padding: 10px 25px;
+  background-color: #1298b9;
+  color: #fff;
+  text-decoration: none;
+}
+.article-list__morelink:hover {
+  background-color: #1fc1e9;
+}
+.article-list__footer-controls {
+  margin-top: 20px;
+}
+.article-list__share {
+  float: right;
+  height: 26px;
+  margin-top: -5px;
+}
+.article-list__comments {
+  color: #000;
+  text-decoration: underline;
+  line-height: 26px;
+}
+.article-list__comments:hover {
+  color: #1fc1e9;
+}
+.article-list__comments:before {
+  content: '';
+  display: inline-block;
+  background: url("article-list__balloon.png") 0 0 no-repeat;
+  width: 19px;
+  height: 19px;
+  margin-right: 7px;
+  margin-bottom: -4px;
 }
 
 .auth {
@@ -3951,11 +3993,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   color: #1298b9;
   text-decoration: underline;
 }
-.b-text a:hover {
-  color: #1fc1e9;
-}
 .b-text a:visited {
   color: #3c7f8f;
+}
+.b-text a:hover {
+  color: #1fc1e9;
 }
 .b-text i {
   font-style: italic;
@@ -3987,6 +4029,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   max-width: 1240px;
   min-width: 980px;
   margin: 0 auto;
+  padding-bottom: 200px;
 }
 .content-wrp:before,
 .content-wrp:after {
@@ -3995,6 +4038,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 }
 .content-wrp:after {
   clear: both;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #c1c1c1;
+  height: 200px;
 }
 
 html,
@@ -4009,6 +4061,7 @@ body {
   font-family: sans-serif;
   font-size: 1em;
   line-height: 1.2;
+  position: relative;
 }
 .upper {
   text-transform: uppercase;
@@ -4094,6 +4147,32 @@ body {
   color: #fff;
 }
 
+.pagination {
+  margin: 50px 0 30px -13px;
+}
+.pagination__item {
+  display: inline-block;
+  padding: 5px 13px;
+  font-weight: bold;
+}
+.pagination__item_link {
+  color: #1298b9;
+}
+.pagination__item_link:visited {
+  color: #3c7f8f;
+}
+.pagination__item_link:hover {
+  color: #1fc1e9;
+}
+.pagination__item_disabled {
+  color: #000;
+}
+.pagination__item_active {
+  color: #fff;
+  background: #36c8ec;
+  border-radius: 5px;
+}
+
 .search__input {
   vertical-align: top;
   background-color: #fff;
@@ -4166,6 +4245,10 @@ body {
   padding: 10px 20px;
   background-color: #898989;
   border: none;
+  cursor: pointer;
+}
+.sidebar__poll-submit:hover {
+  background-color: #1fc1e9;
 }
 
 .slider {
