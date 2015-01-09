@@ -3976,7 +3976,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 }
 
 .body_me3 {
-  background: linear-gradient(to bottom, rgba(0,0,0,0), #111 100px, #111 100%), url("../../tmp/bg.jpg");
+  background: linear-gradient(to bottom, rgba(0,0,0,0), #111 100px, #111 100%), url("../tmp/bg.jpg");
   background-position: 0 800px, 0 0;
   background-repeat: no-repeat;
 }
@@ -4116,7 +4116,7 @@ body {
 .sidebar {
   float: right;
   width: 225px;
-  margin: 35px 30px 0 0;
+  margin: 35px 30px 35px 0;
 }
 .sidebar__content-wrp {
   margin-top: 30px;
