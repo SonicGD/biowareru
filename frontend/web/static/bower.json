@@ -1,0 +1,8 @@
+{
+  "name": "bioware.ru",
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.1.3",
+    "owl.carousel": "*"
+  }
+}
