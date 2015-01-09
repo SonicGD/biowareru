@@ -1,50 +1,57 @@
 {
-    "name": "sonicgd/biowareru",
-    "description": "BioWare.ru",
-    "keywords": ["bioware", "cms", "yii2"],
-    "homepage": "http://www.bioware.ru/",
-    "type": "project",
-    "license": "BSD-3-Clause",
-    "support": {
-        "issues": "https://github.com/sonicgd/biowareru/issues?state=open",
-        "forum": "http://www.bioware.ru/forum/",
-        "source": "https://github.com/sonicgd/biowareru"
-    },
-    "minimum-stability": "dev",
-    "require": {
-        "php": ">=5.4.0",
-        "sonicgd/bioengine": "*"
-    },
-    "require-dev": {
-        "yiisoft/yii2-gii": "*"
-    },
-    "suggest": {
-
-    },
-    "scripts": {
-        "post-create-project-cmd": [
-            "yii\\composer\\Installer::setPermission"
-        ]
-    },
-    "config": {
-        "process-timeout": 1800
-    },
-    "extra": {
-        "writable": {
-            "backend/runtime": "0777",
-            "backend/web/assets": "0777",
-            "frontend/runtime": "0777",
-            "frontend/web/assets": "0777"
-        },
-        "asset-installer-paths": {
-            "npm-asset-library": "vendor/npm",
-            "bower-asset-library": "vendor/bower"
-        }
-    },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "git@github.com:sonicgd/bioengine.git"
-        }
+  "name": "sonicgd/biowareru",
+  "description": "BioWare.ru",
+  "keywords": [
+    "bioware",
+    "cms",
+    "yii2"
+  ],
+  "homepage": "http://www.bioware.ru/",
+  "type": "project",
+  "license": "BSD-3-Clause",
+  "support": {
+    "issues": "https://github.com/sonicgd/biowareru/issues?state=open",
+    "forum": "http://www.bioware.ru/forum/",
+    "source": "https://github.com/sonicgd/biowareru"
+  },
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=5.4.0",
+    "sonicgd/bioengine": "*"
+  },
+  "require-dev": {
+    "yiisoft/yii2-gii": "*"
+  },
+  "suggest": {
+  },
+  "scripts": {
+    "post-create-project-cmd": [
+      "yii\\composer\\Installer::setPermission"
     ]
+  },
+  "config": {
+    "process-timeout": 1800
+  },
+  "extra": {
+    "writable": {
+      "backend/runtime": "0777",
+      "backend/web/assets": "0777",
+      "frontend/runtime": "0777",
+      "frontend/web/assets": "0777"
+    },
+    "asset-installer-paths": {
+      "npm-asset-library": "vendor/npm",
+      "bower-asset-library": "vendor/bower"
+    }
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "git@github.com:sonicgd/bioengine.git"
+    },
+    {
+      "type": "vcs",
+      "url": "/var/www/bioengine"
+    }
+  ]
 }
