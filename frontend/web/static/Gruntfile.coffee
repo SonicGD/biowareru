@@ -1,6 +1,36 @@
 module.exports = (grunt) ->
   'use strict'
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+  _ = require('underscore')
+
+  skinList = ['default', 'dark', 'help', 'pony', 'soft']
+  skinConcatConfigCssFiles = {}
+
+  skinStylusConfig =
+    options:
+      compress: false
+      paths: ['blocks/']
+      import: [
+        'config.styl',
+        'mixins/i-mixins__clearfix.styl'
+      ]
+
+  skinStylusItemConfig =
+    expand: true
+    cwd:    'blocks/'
+    src:    [
+      '**/*.styl',
+      '!mixins/**/*.styl',
+      '!config*.styl',
+    ]
+    dest: 'blocks'
+    ext:  '.css'
+  
+  for skinName in skinList
+    do (skinName) ->
+      skinStylusConfig[skinName] = _.extend({}, skinStylusItemConfig, { options: { import: ['config.styl', 'mixins/**/*.styl', 'config_' + skinName + '.styl'] }, ext:  '_' + skinName + '.css' })
+      skinConcatConfigCssFiles['publish/style_' + skinName + '.css'] = ['lib/**/*.css', 'blocks/**/*_' + skinName + '.css' ]
+
 
   @initConfig
 
@@ -74,11 +104,8 @@ module.exports = (grunt) ->
         dest: 'publish/script.js'
 
       css:
-        src: [
-          'lib/**/*.css',
-          'blocks/**/*.css'
-        ]
-        dest: 'publish/style.css'
+        files:
+          skinConcatConfigCssFiles
 
     uglify:
       dist:
@@ -115,17 +142,24 @@ module.exports = (grunt) ->
         files: [
           'blocks/**/*.styl'
         ]
-        tasks: ['newer:stylus:dev', 'newer:concat:css','newer:autoprefixer']
+        tasks: ['stylus', 'newer:concat:css','newer:autoprefixer']
 
       js:
         options:
           livereload: true
         files: [
           'lib/**/*.js',
-          'blocks/**/*.js',
-          'Gruntfile.coffee'  # auto reload gruntfile config
+          'blocks/**/*.js'
         ]
         tasks: ['newer:concat:js']
+
+      grunt:
+        options:
+          livereload: true
+        files: [
+          'Gruntfile.coffee'  # auto reload gruntfile config
+        ]
+        tasks: ['newer:concat:js', 'stylus', 'newer:concat:css','newer:autoprefixer']
 
       html:
         options:
@@ -142,31 +176,17 @@ module.exports = (grunt) ->
 
 
     stylus:
-      options:
-        compress: false
-        paths: ['blocks/']
-        import: [
-          'config.styl',
-          'mixins/i-mixins__clearfix.styl'
-        ]
+      skinStylusConfig
 
-      dev:
-        expand: true
-        cwd:    'blocks/'
-        src:    [
-          '**/*.styl',
-          '!mixins/i-mixins__clearfix.styl',
-          '!config.styl',
-        ]
-        dest: 'blocks'
-        ext:  '.css'
 
-  
     autoprefixer:
       no_dest:
-        src: 'publish/style.css'
         options:
           browsers: ['> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1', 'ie 9']       #default
+        expand: true
+        cwd:    'publish/'
+        src:    '*.css'
+        dest:   'publish/'
 
 
     cssmin: {
@@ -195,6 +215,6 @@ module.exports = (grunt) ->
 
 
   
-  @registerTask( 'default',    [ 'concat:js', 'newer:stylus:dev',  'newer:concat:css', 'autoprefixer'])
+  @registerTask( 'default',    [ 'concat:js', 'stylus',  'newer:concat:css', 'autoprefixer'])
   @registerTask( 'livereload', [ 'default', 'connect', 'open', 'watch' ])
   @registerTask( 'publish',    [ 'prepublish', 'uglify', 'cssmin'])
