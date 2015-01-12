@@ -1,0 +1,23 @@
+.auth
+  background-color $authBlock
+  padding $sidebarInnerGap
+  border-radius 5px
+  color $onDarkTextColor
+.auth__login, .auth__reg
+  display block
+  font-size 16px
+  color $onDarkTextColor
+  margin-bottom 5px
+  text-decoration none
+  line-height 1
+  &:before
+    content ''
+    display inline-block
+    margin-right 10px
+    width 15px
+    height 17px
+    background url("auth__icons.png") 0 0 no-repeat
+.auth__login:before
+  background-position 0 -18px
+.auth__text
+  border-bottom 1px solid rgba($onDarkTextColor, 0.5)
