@@ -14,5 +14,8 @@ $params = array_merge(
 return [
     'components' => [
         'db' => $params['db']
+    ],
+    'modules'    => [
+
     ]
 ];

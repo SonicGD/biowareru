@@ -27,6 +27,10 @@
   "scripts": {
     "post-create-project-cmd": [
       "yii\\composer\\Installer::setPermission"
+    ],
+    "post-update-cmd": [
+      "cd vendor/studio-42/elfinder && npm install uglify-js csso && mkdir -p build && jake -C ./build elfinder",
+      "chown -R www-data:www-data *"
     ]
   },
   "config": {
@@ -52,6 +56,10 @@
     {
       "type": "vcs",
       "url": "/var/www/bioengine"
+    },
+    {
+      "type": "vcs",
+      "url": "git@github.com:sonicgd/elFinder.git"
     }
   ]
 }
