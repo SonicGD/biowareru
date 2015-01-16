@@ -4023,23 +4023,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   background-repeat: no-repeat;
 }
 
-.content-wrp {
-  zoom: 1;
-  width: 90%;
-  max-width: 1240px;
-  min-width: 980px;
-  margin: 0 auto;
-  padding-bottom: 100px;
-}
-.content-wrp:before,
-.content-wrp:after {
-  content: " ";
-  display: table;
-}
-.content-wrp:after {
-  clear: both;
-}
-
 .footer {
   position: absolute;
   bottom: 0;
@@ -4182,6 +4165,32 @@ body {
   color: #fff;
 }
 
+.page-layout {
+  zoom: 1;
+  width: 90%;
+  max-width: 1240px;
+  min-width: 980px;
+  margin: 0 auto;
+  padding-bottom: 100px;
+}
+.page-layout:before,
+.page-layout:after {
+  content: " ";
+  display: table;
+}
+.page-layout:after {
+  clear: both;
+}
+.page-layout__content {
+  float: left;
+  width: 100%;
+}
+.page-layout__sidebar {
+  float: right;
+  width: 225px;
+  margin: 35px 30px 35px -100%;
+}
+
 .pagination {
   margin: 50px 0 30px -13px;
 }
@@ -4227,11 +4236,6 @@ body {
   cursor: pointer;
 }
 
-.sidebar {
-  float: right;
-  width: 225px;
-  margin: 35px 30px 35px 0;
-}
 .sidebar__content-wrp {
   margin-top: 30px;
   border-radius: 5px;
