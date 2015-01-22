@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="publish/style_default.css" id="stylesheet">
 </head>
 <body class="body_me3">
-<video autoplay loop poster="tmp/bg.jpg" id="bgvid">
-    <source src="tmp/me_back.mp4" type="video/mp4">
-</video>
-<header class="header" style="position: fixed; right: 0; bottom: 0;
+<video style="position: fixed; right: 0; bottom: 0;
 min-width: 100%; min-height: 100%;
 width: auto; height: auto; z-index: -100;
 background: url(tmp/me_back.mp4) no-repeat;
-background-size: cover;">
+background-size: cover;" autoplay loop poster="tmp/bg.jpg" id="bgvid">
+    <source src="tmp/me_back.mp4" type="video/mp4">
+</video>
+<header class="header">
     <div class="header__content">
         <a href="/" class="header__logo-link"><img src="publish/header__logo.png" alt="logo"/></a>
         <nav class="header__menu">
