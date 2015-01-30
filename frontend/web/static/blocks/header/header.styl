@@ -48,6 +48,7 @@
   display none
 .header__submenu-item
   display block
+  position relative
 .header__submenu-link
   padding 10px 20px
   border-bottom 1px solid rgba(0,0,0,0.85)
@@ -56,9 +57,21 @@
   text-decoration none
   display block
   max-width 200px
+  box-sizing border-box
   &:hover
     color $accentColorHover
     background-color rgba($accentColor, 0.3)
 .header__menu-item_open
   & .header__menu-link
     color $accentColorHover
+.header__subsubmenu
+  display none
+  position absolute
+  top 0
+  left 100%
+  padding 0
+  background $submenuBGColor
+  border-left 1px solid rgba(255,255,255,0.3)
+.header__submenu-item:hover
+  .header__subsubmenu
+    display block
