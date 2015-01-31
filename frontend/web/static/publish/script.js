@@ -24,14 +24,35 @@ function closeSubmenu () {
 }
 $(function () {
     if ($('.auth__text').length) {
+        var popupOpened = false;
         var $auth = $('.auth');
         var $popup  = $('.popup');
 
-        var leftStart = $auth.offset().left;
-        var topStart = $auth.offset().top;
-
-
         $('.auth__text').on('click', function () {
+            showPopup();
+        });
+
+        $('.popup__wrp').on('click', function (event) {
+            if ($(event.target).closest('.popup').length == 0) {
+                closePopup();
+            }
+        });
+
+        $(document).on('keyup', function (event) {
+            var keyCode = event.keyCode;
+            if (keyCode == 27 && popupOpened) {
+                closePopup();
+            }
+        })
+    }
+
+    function showPopup () {
+
+            var leftStart = $auth.offset().left;
+            var topStart = $auth.offset().top;
+
+            popupOpened = true;
+
             $('.popup__wrp').addClass('show');
             $($auth).css('visibility', 'hidden');
 
@@ -56,15 +77,13 @@ $(function () {
                 'left': leftFinish,
                 'top': topFinish
             }, 600)
-        });
+    }
 
-        $('.popup__wrp').on('click', function (event) {
-            if ($(event.target).closest('.popup').length == 0) {
-                $('.popup__login-form').hide();
-                $('.popup__wrp').removeClass('show');
-                $($auth).css('visibility', 'visible');
-            }
-        })
+    function closePopup () {
+        $('.popup__login-form').hide();
+        $('.popup__wrp').removeClass('show');
+        $($auth).css('visibility', 'visible');
+        popupOpened = false;
     }
 
 });

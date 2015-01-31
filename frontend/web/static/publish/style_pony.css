@@ -3880,6 +3880,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 .article-list {
   margin-right: 250px;
+  box-shadow: 0 0 10px 0 #1298b9;
 }
 .article-list__item {
   padding: 35px 30px 35px 30px;
@@ -4258,6 +4259,19 @@ body {
   display: block;
   position: relative;
 }
+.header__submenu-item_with-subsubmenu:after {
+  content: '';
+  display: inline-block;
+  box-sizing: border-box;
+  border: 6px solid transparent;
+  border-left: 6px solid rgba(255,255,255,0.5);
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  top: 50%;
+  margin-top: -6px;
+  right: 0px;
+}
 .header__submenu-link {
   padding: 10px 20px;
   border-bottom: 1px solid rgba(0,0,0,0.85);
@@ -4311,7 +4325,7 @@ body {
 .page-layout__sidebar {
   float: right;
   width: 225px;
-  margin: 35px 0 35px -100%;
+  margin: 30px 0 35px -100%;
 }
 
 .pagination {
@@ -4418,7 +4432,6 @@ body {
   padding: 15px;
   background-color: #ff61d3;
   color: #000;
-  box-shadow: 4px 4px 4px #000;
 }
 .sidebar__image {
   margin-top: 30px;
@@ -4469,7 +4482,7 @@ body {
 .skin {
   zoom: 1;
   padding: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   border-radius: 5px;
   background: #ff61d3;
 }
