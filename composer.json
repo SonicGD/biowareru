@@ -17,7 +17,8 @@
   "minimum-stability": "dev",
   "require": {
     "php": ">=5.4.0",
-    "sonicgd/bioengine": "*"
+    "sonicgd/bioengine": "*",
+    "bower-asset/jquery-ui": "~1.11@dev"
   },
   "require-dev": {
     "yiisoft/yii2-gii": "*"
@@ -29,7 +30,6 @@
       "yii\\composer\\Installer::setPermission"
     ],
     "post-update-cmd": [
-      "cd vendor/studio-42/elfinder && npm install uglify-js csso && mkdir -p build && jake -C ./build elfinder",
       "chown -R www-data:www-data *"
     ]
   },
@@ -56,10 +56,6 @@
     {
       "type": "vcs",
       "url": "/var/www/bioengine"
-    },
-    {
-      "type": "vcs",
-      "url": "git@github.com:sonicgd/elFinder.git"
     }
   ]
 }

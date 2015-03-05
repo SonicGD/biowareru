@@ -17,5 +17,6 @@ return [
     ],
     'modules'    => [
 
-    ]
+    ],
+    'params'     => $params
 ];
