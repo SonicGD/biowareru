@@ -29,7 +29,7 @@ module.exports = (grunt) ->
   for skinName in skinList
     do (skinName) ->
       skinStylusConfig[skinName] = _.extend({}, skinStylusItemConfig, { options: { import: ['config.styl', 'mixins/**/*.styl', 'config_' + skinName + '.styl'] }, ext:  '_' + skinName + '.css' })
-      skinConcatConfigCssFiles['../web/css/style_' + skinName + '.css'] = ['lib/**/*.css', 'blocks/**/*_' + skinName + '.css' ]
+      skinConcatConfigCssFiles['../web/css/style_' + skinName + '.css'] = ['../web/js/**/*.css', 'blocks/**/*_' + skinName + '.css' ]
 
 
   @initConfig
