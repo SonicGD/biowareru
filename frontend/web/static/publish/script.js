@@ -6,7 +6,7 @@ $(function () {
            return false;
        }
    });
-    $(document).on('click', function() {
+    $(document).on('click', function(event) {
         if ($(event.target).closest('.header__submenu').length == 0 ) {
             closeSubmenu();
         }
