@@ -22,7 +22,7 @@
     "grunt-contrib-watch": "0.5.1",
     "grunt-newer": "^0.7.0",
     "grunt-open": "0.2.0",
-    "grunt-twig-render": "^1.7.2",
+    "grunt-twig-render": "git://github.com/SonicGD/grunt-twig-render.git#fix-relative-windows",
     "matchdep": "0.1.2",
     "underscore": "^1.7.0"
   }
