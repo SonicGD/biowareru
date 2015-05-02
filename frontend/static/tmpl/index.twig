@@ -1,150 +1,49 @@
 {% extends "layout/layout.twig" %}
 
 {% block content %}
-<div class="article-list">
-    <article class="article-list__item">
-        <header class="article-list__header">
-            <div>
-                <h2 class="article-list__title">
-                    <a class="article-list__permalink" href="news-page.html">
-                        Важно! www.BioWare.ru — Творческий конкурс «Тедас, любовь моя» с призами от Zowie Gear и
-                        PrintPers
+    <div class="article-list">
+        {% for item in news %}
+            <article class="article-list__item">
+                <header class="article-list__header">
+                    <div>
+                        <h2 class="article-list__title">
+                            <a class="article-list__permalink" href="{{ item.publicUrl }}">
+                                {% if item.sticky %}
+                                    Важно!
+                                {% endif %} {{ item.title }}
+                            </a>
+                        </h2>
+                        <time class="article-list__date"
+                              datetime="">{{ item.last_change_date|date("d.m.Y H:i:s") }}</time>
+                    </div>
+                    <a class="article-list__title-image" href="#"
+                       title="{{ item.parentTitle }}">
+                        <img width="150" src="{{ item.parentIcon }}"
+                             alt="{{ item.parentTitle }}">
                     </a>
-                </h2>
-                <time class="article-list__date" datetime="">05.12.2014, 14:47:31</time>
-            </div>
-            <a class="article-list__title-image" href="#"
-               title="Dragon Age: Inquisition">
-                <img width="150" src="http://assets.bioware.ru/images/games/small/dragon_age_3.png"
-                     alt="Dragon Age: Inquisition">
-            </a>
-        </header>
-        <img class="article-list__news-illustration"
-             src="http://ic.pics.livejournal.com/jeff_kari/1668669/428515/428515_original.jpg">
+                </header>
+                <!--<img class="article-list__news-illustration"
+                     src="http://ic.pics.livejournal.com/jeff_kari/1668669/428515/428515_original.jpg">-->
 
-        <div class="b-text">
-            <p>Любите ли вы Тедас? Тедас во всем его многообразии - от вздымающихся к небу Морозных гор до
-                неведомых глубин Амарантайнского океана, от бесплодных степей Андерфелса до непроходимых
-                джунглей Дорнакс? Замирает ли у вас сердце при виде величественных дворцов Вал-Руайо, или вам
-                больше по душе скромные деревушки Ферелдена? Любите ли вы народы, его населяющие? Или вам дороги
-                только те, с кем свела вас судьба, с кем сражались плечом к плечу? Стоит ли защищать этот мир
-                таким, какой он есть? Что или кто для вас дороже всего в нем? Пусть ваше произведение станет
-                ответом на этот вопрос! Потому что уже сегодня...
-
-            <p>BioWare Russian Community совместно с компанией "Графитек" и сервисом 3D-печати "Print Pers"
-                представляет большой творческий конкурс по миру Dragon Age
-
-            <p>Конкурс проходит в четырех номинациях: <a href="#">проза</a>, <a href="http://ya.ru">рисунок</a>,
-                <a href="#">видео</a>, <a href="#">хэндмейд</a>.
-
-            <p>Решением жюри в каждой номинации будет выбран один победитель. Между четыремя победителями будут
-                разыграны четыре приза от компании "Графитек", официального дистрибьютора ZOWIE GEAR,
-                производителя высококлассного геймерского оборудования.
-
-            <p>Дерзайте, и один из этих замечательных призов может стать вашим:
-        </div>
+                <div class="b-text">
+                    {{ item.short_text|raw }}
+                </div>
 
 
-        <footer class="article-list__footer">
-            <a class="article-list__morelink" href="#">Подробнее</a>
+                <footer class="article-list__footer">
+                    {% if item.hasMore %}
+                        <a class="article-list__morelink" href="{{ item.publicUrl }}">Подробнее</a>
+                    {% endif %}
 
-            <div class="article-list__footer-controls">
-                <div class="article-list__share yashare-auto-init" data-yashareL10n="ru"
-                     data-yashareQuickServices="vkontakte,facebook,twitter,gplus"
-                     data-yashareTheme="counter"></div>
-                <a class="article-list__comments" href="#">49 комментариев</a>
-            </div>
-        </footer>
-    </article>
-
-    <article class="article-list__item">
-        <header class="article-list__header">
-            <div>
-                <h2 class="article-list__title">
-                    <a class="article-list__permalink" href="news-page.html">
-                        Shadow Realms — Слух. Возможно станет полноценной игрой
-                    </a>
-                </h2>
-                <time class="article-list__date" datetime="">05.12.2014, 14:47:31</time>
-            </div>
-            <a class="article-list__title-image" href="#"
-               title="Dragon Age: Inquisition">
-                <img width="150" src="http://assets.bioware.ru/images/games/small/shadow_realms.png"
-                     alt="Dragon Age: Inquisition">
-            </a>
-        </header>
-        <img class="article-list__news-illustration"
-             src="http://www.bioware.ru/images/bioware/Bioware-label-image.png">
-
-        <div class="b-text">
-            <p>По слухам известных игровых порталов f2p игра Shadow Realms, которую BioWare анонсировали на
-                GamesCom 2014, станет полноценной игрой. По данным из источником стало известно, что
-                разработчики полностью меняют концепцию игры. Датой же релиза называют 2017 год для PC, Xbox One
-                и PS4. Остается только ждать официального подтверждения слухов.
-        </div>
-
-
-        <footer class="article-list__footer">
-            <a class="article-list__morelink" href="#">Подробнее</a>
-
-            <div class="article-list__footer-controls">
-                <div class="article-list__share yashare-auto-init" data-yashareL10n="ru"
-                     data-yashareQuickServices="vkontakte,facebook,twitter,gplus"
-                     data-yashareTheme="counter"></div>
-                <a class="article-list__comments" href="#">49 комментариев</a>
-            </div>
-        </footer>
-    </article>
-    <article class="article-list__item">
-        <header class="article-list__header">
-            <div>
-                <h2 class="article-list__title">
-                    <a class="article-list__permalink" href="news-page.html">
-                        www.BioWare.ru — «Что?Где?Когда?» по вселенной Dragon Age. Этап первый
-                    </a>
-                </h2>
-                <time class="article-list__date" datetime="">05.12.2014, 14:47:31</time>
-            </div>
-            <a class="article-list__title-image" href="#"
-               title="Dragon Age: Inquisition">
-                <img width="150" src="http://assets.bioware.ru/images/topics/biowareru.png"
-                     alt="Dragon Age: Inquisition">
-            </a>
-        </header>
-        <img class="article-list__news-illustration" src="http://i.imgur.com/aKMPR54.png">
-
-        <div class="b-text">
-            <p>Дорогие друзья! Начало нового года – лучшее время для того, чтобы попробовать что-то новое. Вот и
-                креативная команда нашего сообщества решила не останавливаться на достигнутом и предложить вам
-                попробовать новое, <span style="text-decoration:line-through">непривычно интеллектуальное</span>
-                для нашего форума развлечение – принять участие в игре <span style="font-weight:bold">«Что?Где?Когда?»</span>,
-                посвященной вселенной Dragon Age.<br/></p>
-
-            <p>Игра будет проводиться в прямом эфире, трансляцию которого вы сможете посмотреть на нашем канале
-                в Twitch. Организацию праздника мысли на себя взяли: <a
-                        href="http://www.bioware.ru/forum/user/27195/">Кариссима</a> (чуткое руководство), <a
-                        href="http://www.bioware.ru/forum/user/21775/">Ширра</a> (вдохновение и мозги), <a
-                        href="http://www.bioware.ru/forum/user/16668/">leetSmithy</a> (злой технический гений).
-                <br/>Правила до неприличия просты. Команде Знатоков будет предложено пять наиболее интересных
-                зрительских вопросов. За правильный ответ на каждый из них полагается приз.&nbsp; Если Знатокам
-                удалось ответить на вопрос правильно, а обсуждение не заняло больше одной минуты – приз уходит
-                им, в противном случае – приз получает автор вопроса. Игра, ясное дело, будет проходить под
-                аккомпанемент ярких музыкальных пауз, обсуждений происходящего в мирах BioWare, споров с ведущим
-                и т.д. <br/>Итак, первый этап подготовки начался! Записывайтесь в команды Знатоков и Зрителей!
-            </p>
-        </div>
-
-
-        <footer class="article-list__footer">
-            <a class="article-list__morelink" href="#">Подробнее</a>
-
-            <div class="article-list__footer-controls">
-                <div class="article-list__share yashare-auto-init" data-yashareL10n="ru"
-                     data-yashareQuickServices="vkontakte,facebook,twitter,gplus"
-                     data-yashareTheme="counter"></div>
-                <a class="article-list__comments" href="#">49 комментариев</a>
-            </div>
-        </footer>
+                    <div class="article-list__footer-controls">
+                        <div class="article-list__share yashare-auto-init" data-yashareL10n="ru"
+                             data-yashareQuickServices="vkontakte,facebook,twitter,gplus"
+                             data-yashareTheme="counter"></div>
+                        <a class="article-list__comments" href="#">{{ item.comments }} комментариев</a>
+                    </div>
+                </footer>
+            </article>
+        {% endfor %}
 
         <nav class="pagination">
             <!--<a class="pagination__item" href="#" rel="prev">← Предыдущая</a>-->
@@ -159,6 +58,5 @@
             <span class="pagination__item">...</span>
             <a class="pagination__item pagination__item_link" href="#" rel="next">Следующая →</a>
         </nav>
-    </article>
-</div>
+    </div>
 {% endblock %}
