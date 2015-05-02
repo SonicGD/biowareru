@@ -4202,23 +4202,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   margin-right: 0.25rem;
 }
 
-.content-wrp {
-  zoom: 1;
-  width: 90%;
-  max-width: 1240px;
-  min-width: 980px;
-  margin: 0 auto;
-  padding-bottom: 100px;
-}
-.content-wrp:before,
-.content-wrp:after {
-  content: " ";
-  display: table;
-}
-.content-wrp:after {
-  clear: both;
-}
-
 .footer {
   position: absolute;
   bottom: 0;
@@ -4393,6 +4376,7 @@ body {
 .header__submenu-item:hover .header__subsubmenu {
   display: block;
 }
+
 
 .page-layout {
   zoom: 1;
@@ -4681,10 +4665,8 @@ body {
   background-position: -16px -25px;
 }
 .slider__list {
+  height: 94px;
   overflow: hidden;
-}
-.slider__list-items {
-  width: 99999px;
 }
 .slider__list-item {
   position: relative;

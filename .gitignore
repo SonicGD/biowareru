@@ -30,3 +30,6 @@ phpunit.phar
 /phpunit.xml
 
 frontend/web/static/lib
+frontend/web/static/node_modules
+frontend/web/static/blocks/*/*.css
+
