@@ -126,6 +126,15 @@ $(function () {
         responsive: responsive
     });
 
+    $carousel.on('mousewheel', '.owl-stage', function (e) {
+        if (e.deltaY > 0) {
+            $carousel.trigger('next.owl.carousel');
+        } else {
+            $carousel.trigger('prev.owl.carousel');
+        }
+        e.preventDefault();
+    });
+
     $carouselWrap.find('.slider__control_left').on('click', function() {
         $carousel.trigger('prev.owl.carousel');
     });
