@@ -3957,6 +3957,65 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   margin-bottom: -4px;
 }
 
+.article__block {
+  margin-right: 250px;
+  box-shadow: 0 0 10px 0 #1298b9;
+  background-color: #ebebeb;
+  color: #000;
+}
+.article {
+  padding: 0 1.875rem 2.2rem;
+}
+.article__header {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 30px;
+}
+.article__title {
+  font-weight: bold;
+  font-size: 1.5em;
+  line-height: 1.4;
+  margin: 0 0 5px;
+}
+.article__date {
+  font-size: 0.9em;
+  font-style: italic;
+  color: #666;
+}
+.article__title-image {
+  min-width: 150px;
+  margin-left: 30px;
+}
+.article__footer {
+  margin-top: 30px;
+}
+.article__footer-controls {
+  margin-top: 20px;
+}
+.article__share {
+  float: right;
+  height: 26px;
+  margin-top: -5px;
+}
+.article__comments {
+  color: #000;
+  text-decoration: underline;
+  line-height: 26px;
+}
+.article__comments:hover {
+  color: #1fc1e9;
+}
+.article__comments:before {
+  content: '';
+  display: inline-block;
+  background: url("article-list__balloon.png") 0 0 no-repeat;
+  width: 19px;
+  height: 19px;
+  margin-right: 7px;
+  margin-bottom: -4px;
+}
+
 .auth {
   background-color: #111;
   padding: 15px;
@@ -4109,7 +4168,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 }
 
 .body_me3 {
-  background: linear-gradient(to bottom, rgba(0,0,0,0), #111 100px, #111 100%), url("../tmp/bg.jpg");
+  background: linear-gradient(to bottom, rgba(0,0,0,0), #111 100px, #111 100%), url("../tmp/bg.jpg"), #111;
   background-position: 0 800px, 35% 0;
   background-repeat: no-repeat;
 }
@@ -4333,37 +4392,6 @@ body {
 }
 .header__submenu-item:hover .header__subsubmenu {
   display: block;
-}
-
-.news__block {
-  margin-right: 250px;
-  box-shadow: 0 0 10px 0 #1298b9;
-  background-color: #ebebeb;
-  color: #000;
-}
-.news {
-  padding: 0 1.875rem 2.2rem;
-}
-.news__header {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  margin-bottom: 30px;
-}
-.news__title {
-  font-weight: bold;
-  font-size: 1.5em;
-  line-height: 1.4;
-  margin: 0 0 5px;
-}
-.news__date {
-  font-size: 0.9em;
-  font-style: italic;
-  color: #666;
-}
-.news__title-image {
-  min-width: 150px;
-  margin-left: 30px;
 }
 
 .page-layout {
