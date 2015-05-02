@@ -29,7 +29,7 @@ module.exports = (grunt) ->
   for skinName in skinList
     do (skinName) ->
       skinStylusConfig[skinName] = _.extend({}, skinStylusItemConfig, { options: { import: ['config.styl', 'mixins/**/*.styl', 'config_' + skinName + '.styl'] }, ext:  '_' + skinName + '.css' })
-      skinConcatConfigCssFiles['publish/style_' + skinName + '.css'] = ['lib/**/*.css', 'blocks/**/*_' + skinName + '.css' ]
+      skinConcatConfigCssFiles['../web/css/style_' + skinName + '.css'] = ['lib/**/*.css', 'blocks/**/*_' + skinName + '.css' ]
 
 
   @initConfig
@@ -38,7 +38,7 @@ module.exports = (grunt) ->
       server:
         options:
           port: 8000,
-          base: ''
+          base: '../web'
           middleware: (connect, options) ->
             return [
               # Serve static files.
@@ -57,7 +57,7 @@ module.exports = (grunt) ->
           flatten: true
           cwd:     'blocks',
           src:     ['**/*.{png,jpg,jpeg,gif}', '!**/*_sprite.{png,jpg,jpeg,gif}']
-          dest:    'publish'
+          dest:    '../web/img'
         }]
 
 
@@ -65,7 +65,7 @@ module.exports = (grunt) ->
     clean:
       pubimages:
         src: [
-          "publish/*.{png,gif,jpg,jpeg}"
+          "../web/img/*.{png,gif,jpg,jpeg}"
         ]
 
 
@@ -76,21 +76,15 @@ module.exports = (grunt) ->
         files: [
           {
             expand: true
-            cwd:    'publish/'
+            cwd:    '../web/img/'
             src:    '**/*.{png,jpg,jpeg}'
-            dest:   'publish/'
+            dest:   '../web/img/'
           },
           {
             expand: true
-            cwd:    'tmp/'
-            src:    '**/*.{png,jpg,jpeg}'
-            dest:   'tmp/'
-          },
-          {
-            expand: true
-            cwd:    './'
+            cwd:    '../web'
             src:    '*.{png,jpg,jpeg,ico}'
-            dest:   './'
+            dest:   '../web'
           },
         ]
 
@@ -98,10 +92,9 @@ module.exports = (grunt) ->
       js:
         src: [
           '!lib/**/*.js',
-          '!lib/jquery/*.js',
           'blocks/**/*.js'
         ]
-        dest: 'publish/script.js'
+        dest: '../web/js/script.js'
 
       css:
         files:
@@ -148,7 +141,7 @@ module.exports = (grunt) ->
         options:
           livereload: true
         files: [
-          'lib/**/*.js',
+          '../web/js/**/*.js',
           'blocks/**/*.js'
         ]
         tasks: ['newer:concat:js']
@@ -183,28 +176,20 @@ module.exports = (grunt) ->
         options:
           browsers: ['> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1', 'ie 9']       #default
         expand: true
-        cwd:    'publish/'
+        cwd:    '../web/css/'
         src:    '*.css'
-        dest:   'publish/'
+        dest:   '../web/css/'
 
 
     cssmin: {
       my_target: {
         files: [{
           expand: true,
-          cwd: 'publish/',
+          cwd: '../web/css/',
           src: ['style.css'],
-          dest: 'publish/',
+          dest: '../web/css/',
           ext: '.css'
-        },
-        {
-          expand: true,
-          cwd: 'publish/',
-          src: ['style.ie.css'],
-          dest: 'publish/',
-          ext: '.ie.css'
-        }
-        ]
+        }]
       }
     }
 
@@ -218,9 +203,9 @@ module.exports = (grunt) ->
           {
             data: {},
             expand: true,
-            cwd: './',
+            cwd: './tmpl',
             src: ['*.twig'],
-            dest: './',
+            dest: '../web/',
             ext: '.html'
           }
         ]
