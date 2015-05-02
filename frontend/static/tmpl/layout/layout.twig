@@ -10,186 +10,23 @@
 <header class="header">
     <div class="header__content">
         <a href="/" class="header__logo-link"><img src="/img/header__logo.png" alt="logo"/></a>
-        <nav class="header__menu">
-            <ul class="header__menu-list">
-                <li class="header__menu-item"><a href="#" class="header__menu-link"><span class="header__menu-text">Форум</span></a>
-                </li>
-                <li class="header__menu-item">
-                    <a href="#" class="header__menu-link"><span
-                            class="header__menu-text header__menu-text_dashed">Игры</span></a>
-                    <ul class="header__submenu">
-                        <li class="header__submenu-item"><a href="#" class="header__submenu-link">Dragonage</a></li>
-                        <li class="header__submenu-item"><a href="#" class="header__submenu-link">Dragonage</a></li>
-                        <li class="header__submenu-item header__submenu-item_with-subsubmenu"><a href="#" class="header__submenu-link">Dragonage</a>
-                            <ul class="header__subsubmenu">
-                                <li class="header__submenu-item"><a href="#" class="header__submenu-link">Еще драгонага</a></li>
-                                <li class="header__submenu-item"><a href="#" class="header__submenu-link">больше драгонаги</a></li>
-                                <li class="header__submenu-item"><a href="#" class="header__submenu-link">Еще больше драгонаги</a></li>
-                                <li class="header__submenu-item"><a href="#" class="header__submenu-link">Еще драгонага. Она клевая...</a></li>
-                                <li class="header__submenu-item"><a href="#" class="header__submenu-link">Еще драгонага. Всем играть</a></li>
-                            </ul>
-                        </li>
-                        <li class="header__submenu-item"><a href="#" class="header__submenu-link">Dragonage</a></li>
-                        <li class="header__submenu-item"><a href="#" class="header__submenu-link">Dragonage</a></li>
-                        <li class="header__submenu-item"><a href="#" class="header__submenu-link">Dragonage</a></li>
-                        <li class="header__submenu-item"><a href="#" class="header__submenu-link">Dragonage</a></li>
-                    </ul>
-                </li>
-                <li class="header__menu-item">
-                    <a href="#" class="header__menu-link"><span class="header__menu-text header__menu-text_dashed">Статьи</span></a>
-                    <ul class="header__submenu">
-                        <li class="header__submenu-item"><a href="#" class="header__submenu-link">Dragonage</a></li>
-                        <li class="header__submenu-item"><a href="#" class="header__submenu-link">Dragonage</a></li>
-                        <li class="header__submenu-item"><a href="#" class="header__submenu-link">Dragonage</a></li>
-                        <li class="header__submenu-item"><a href="#" class="header__submenu-link">Dragonage</a></li>
-                        <li class="header__submenu-item"><a href="#" class="header__submenu-link">Dragonage</a></li>
-                        <li class="header__submenu-item"><a href="#" class="header__submenu-link">Dragonage</a></li>
-                        <li class="header__submenu-item"><a href="#" class="header__submenu-link">Dragonage</a></li>
-                    </ul>
-                </li>
-                <li class="header__menu-item"><a href="#" class="header__menu-link"><span
-                        class="header__menu-text header__menu-text_dashed">Видео</span></a></li>
-                <li class="header__menu-item"><a href="#" class="header__menu-link"><span
-                        class="header__menu-text header__menu-text_dashed">Галерея</span></a></li>
-                <li class="header__menu-item"><a href="#" class="header__menu-link"><span
-                        class="header__menu-text header__menu-text_dashed">Файлы</span></a></li>
-                <li class="header__menu-item"><a href="#" class="header__menu-link"><span class="header__menu-text">О Bioware</span></a>
-                </li>
-            </ul>
-        </nav>
+        {% include 'menu.twig' %}
     </div>
 </header>
-<nav class="slider">
-    <button class="slider__control slider__control_left" title="Влево"></button>
-    <div class="slider__list">
-        <div class="slider__list-items">
-            <a class="slider__list-item" href="#">
-                <span class="slider__image" style="background-image: url(/img/slider__sonic.png)">Sonic</span></a>
-            <a class="slider__list-item" href="#"><span class="slider__image"
-                                                        style="background-image: url(/img/slider__bg.png)">BG</span></a>
-            <a class="slider__list-item" href="#"><span class="slider__image"
-                                                        style="background-image: url(/img/slider__bwb.png)">BW</span></a>
-            <a class="slider__list-item" href="#"><span class="slider__image"
-                                                        style="background-image: url(/img/slider__da.png)">DA</span></a>
-            <a class="slider__list-item" href="#"><span class="slider__image"
-                                                        style="background-image: url(/img/slider__sonic.png)">Sonic</span></a>
-            <a class="slider__list-item" href="#"><span class="slider__image"
-                                                        style="background-image: url(/img/slider__bg.png)">BG</span></a>
-            <a class="slider__list-item" href="#"><span class="slider__image"
-                                                        style="background-image: url(/img/slider__bwb.png)">BW</span></a>
-            <a class="slider__list-item" href="#"><span class="slider__image"
-                                                        style="background-image: url(/img/slider__da.png)">DA</span></a>
-            <a class="slider__list-item" href="#"><span class="slider__image"
-                                                        style="background-image: url(/img/slider__sonic.png)">Sonic</span></a>
-            <a class="slider__list-item" href="#"><span class="slider__image"
-                                                        style="background-image: url(/img/slider__bg.png)">BG</span></a>
-            <a class="slider__list-item" href="#"><span class="slider__image"
-                                                        style="background-image: url(/img/slider__bwb.png)">BW</span></a>
-            <a class="slider__list-item" href="#"><span class="slider__image"
-                                                        style="background-image: url(/img/slider__da.png)">DA</span></a>
-            <a class="slider__list-item" href="#"><span class="slider__image"
-                                                        style="background-image: url(/img/slider__sonic.png)">Sonic</span></a>
-            <a class="slider__list-item" href="#"><span class="slider__image"
-                                                        style="background-image: url(/img/slider__bg.png)">BG</span></a>
-            <a class="slider__list-item" href="#"><span class="slider__image"
-                                                        style="background-image: url(/img/slider__bwb.png)">BW</span></a>
-            <a class="slider__list-item" href="#"><span class="slider__image"
-                                                        style="background-image: url(/img/slider__da.png)">DA</span></a>
-        </div>
-    </div>
-    <button class="slider__control slider__control_right" title="Вправо"></button>
-</nav>
+        
+{% include 'slider.twig' %}
 
 <div class="page-layout">
     <main class="page-layout__content">
         {% block content %}{% endblock %}
     </main>
-
     <aside class="page-layout__sidebar">
-        <div class="skin" id="skin">
-            <button class="skin__item skin__item_default skin__item_active" data-name="default"
-                    title="Страндартный"></button>
-            <button class="skin__item skin__item_dark" data-name="dark" title="May the Force be with you"></button>
-            <button class="skin__item skin__item_help" data-name="help" title="Contrast theme"></button>
-            <button class="skin__item skin__item_pony" data-name="pony" title="Friendship is Magic"></button>
-            <button class="skin__item skin__item_soft" data-name="soft"
-                    title="Soft and delicate shade or colors"></button>
-        </div>
-        <div class="auth">
-            <button class="auth__login"><span class="auth__text">Войти</span></button>
-            <a class="auth__reg" href="#"><span class="auth__text">Регистрация</span></a>
-            <a href="#"><span class="auth__userpic" style="background-image: url('/img/user.jpg')"></span></a>
-            <a class="auth__username" href="#">Sonic GD=)</a>
-            <a class="auth__exit" href="#">Выход</a>
-        </div>
-        <div class="sidebar__content-wrp">
-            <form class="search">
-                <input class="search__input" type="search" placeholder="Поиск"/>
-                <button class="search__magnifier" type="submit"></button>
-            </form>
-            <div class="sidebar__image">
-                <img src="http://www.bioware.ru/images/donate_2.png" alt="banner"/>
-            </div>
-            <div class="sidebar__image">
-                <img src="https://mmedia.ozone.ru/multimedia/audio_cd_covers/1010094281.jpg" alt="banner"/>
-            </div>
-            <div class="sidebar__poll">
-                <h3 class="sidebar__poll-title">
-                    <span class="upper">ОПРОС</span><br/>
-                    Dragon Age: Inquisition
-                </h3>
-
-                <form>
-                    <fieldset class="sidebar__poll-fieldset">
-                        <label class="sidebar__poll-item"><input type="radio" name="111"/>Лучшая игра серии</label>
-                        <label class="sidebar__poll-item"><input type="radio" name="111"/>Достойное продолжение
-                            серии</label>
-                        <label class="sidebar__poll-item"><input type="radio" name="111"/>Обычный сиквел</label>
-                        <label class="sidebar__poll-item"><input type="radio" name="111"/>Загубленный франчайз</label>
-                        <label class="sidebar__poll-item"><input type="radio" name="111"/>Полный мрак</label>
-                    </fieldset>
-                    <fieldset class="sidebar__poll-fieldset">
-                        <label class="sidebar__poll-item"><input type="checkbox" name="112"/>А еще я могу
-                            чекбоксы</label>
-                        <label class="sidebar__poll-item"><input type="checkbox" name="112"/>И много строчек возле
-                            чекбоксов — тоже могу. Очень много строчекю Очень-очень много строчек...</label>
-                        <label class="sidebar__poll-item"><input type="checkbox" name="112"/>В общем, нам все равно, что
-                            размещать</label>
-                    </fieldset>
-                    <button class="sidebar__poll-submit">Голосовать</button>
-                </form>
-            </div>
-            <div class="sidebar__image">
-                <img src="https://mmedia.ozone.ru/multimedia/audio_cd_covers/1010094281.jpg" alt="banner"/>
-            </div>
-            <div class="sidebar__image">
-                <img src="http://uploads.bioware.ru/banners/e6360-1411998405.jpg" alt="banner"/>
-            </div>
-        </div>
+        {% include 'sidebar.twig' %}
     </aside>
-
 </div>
-<footer class="footer">
-    <div class="footer__content">
-        <a class="footer__logo" href="/">
-            <img class="footer__logo-img" src="/img/footer__logo.png" alt="bioware.ru"/>
-        </a>
+        
+{% include 'footer.twig' %}
 
-        <div class="footer__copyright-text">
-            При любом публичном использовании материалов сайта ссылка на <a href="/"
-                                                                            class="link-on-dark">www.bioware.ru</a>
-            обязательна. <br/>
-            Полное копирование допускается не иначе как с письменного разрешения администрации.
-        </div>
-        <address class="footer__contacts">
-            2005-2015 © <a class="link-on-dark" href="/">www.BioWare.ru</a>
-            <br>
-            <a href="mailto:bioteam@bioware.ru" class="link-on-dark">bioteam@bioware.ru</a>
-            <br>
-            Designed by <a class="link-on-dark" href="#">valter</a>(???)
-        </address>
-    </div>
-</footer>
 <div class="popup__wrp">
     <div class="popup">
         <form class="popup__login-form" action="">
@@ -199,6 +36,7 @@
         </form>
     </div>
 </div>
+
 <script type="text/javascript" src="//yastatic.net/share/share.js" charset="utf-8"></script>
 <script src="/js/jquery/dist/jquery.min.js"></script>
 <script src="/js/owl.carousel/dist/owl.carousel.min.js"></script>
