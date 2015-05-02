@@ -4243,6 +4243,57 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   font-size: 0.8em;
 }
 
+.game-info {
+  zoom: 1;
+}
+.game-info:before,
+.game-info:after {
+  content: " ";
+  display: table;
+}
+.game-info:after {
+  clear: both;
+}
+.game-info__table {
+  width: 60%;
+  border-collapse: collapse;
+}
+.game-info__img {
+  float: right;
+  max-width: 35%;
+}
+.game-info__table td {
+  padding: 0.5rem;
+  font-size: 1.1rem;
+  line-height: 1.2;
+}
+.game-info__table tr:nth-child(2n) td {
+  background-color: #fff;
+}
+.game-info__links-block {
+  zoom: 1;
+  margin: 1rem 0;
+}
+.game-info__links-block:before,
+.game-info__links-block:after {
+  content: " ";
+  display: table;
+}
+.game-info__links-block:after {
+  clear: both;
+}
+.game-info__links {
+  float: left;
+  width: 50%;
+  box-sizing: border-box;
+  padding-right: 5%;
+}
+.game-info__links img {
+  float: left;
+  height: 4rem;
+  margin: 0 0.5rem 0.5rem 0;
+}
+
 html,
 body {
   margin: 0;
@@ -4268,6 +4319,17 @@ body {
 }
 .link-on-dark:hover {
   color: #36c8ec;
+}
+.h2,
+.h3 {
+  font-weight: bold;
+  line-height: 1.4;
+}
+.h2 {
+  font-size: 1.5em;
+}
+.h3 {
+  font-size: 1.2em;
 }
 
 .header {
@@ -4376,7 +4438,6 @@ body {
 .header__submenu-item:hover .header__subsubmenu {
   display: block;
 }
-
 
 .page-layout {
   zoom: 1;
