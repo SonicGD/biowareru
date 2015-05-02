@@ -3,7 +3,7 @@ $body = @file_get_contents('php://input');
 $payload = json_decode($body, true);
 if ($payload['ref'] == 'refs/heads/master') {
 
-    $root = '/var/www/bioware/bioware.ru/subdomains/test/';
+    $root = '/var/www/bioware/bioware.ru/subdomains/test';
     $admin_mail = 'sonicgd@gmail.com';
     $send_to_admin = true;
 
@@ -14,6 +14,7 @@ if ($payload['ref'] == 'refs/heads/master') {
             "cd $root && git merge -s subtree --no-commit cg2_web/master",*/
         'composer self-update' => "cd $root && curl -sS https://getcomposer.org/installer | php",
         'composer update'      => "cd $root && php composer.phar update --no-dev --prefer-dist",
+        'bower'                => "cd $root/static && bower install"
     ];
 
     $date_start = time();
