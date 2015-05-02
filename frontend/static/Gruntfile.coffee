@@ -210,7 +210,7 @@ module.exports = (grunt) ->
 
     open:
       mainpage:
-        path: 'http://localhost:8000/';
+        path: 'http://localhost:8000/'
 
     twigRender:
       your_target: {
