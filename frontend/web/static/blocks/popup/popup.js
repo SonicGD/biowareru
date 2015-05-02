@@ -25,7 +25,7 @@ $(function () {
     function showPopup () {
 
             var leftStart = $auth.offset().left;
-            var topStart = $auth.offset().top;
+            var topStart = $auth.offset().top - $(document).scrollTop();
 
             popupOpened = true;
 
@@ -46,8 +46,8 @@ $(function () {
 
             $('input[name="login"]', $popup).focus();
 
-            var leftFinish = (parseInt($(window).width()) - parseInt($popup.width()))/2;
-            var topFinish = (parseInt($(window).height()) - parseInt($popup.height()))/2;
+            var leftFinish = ($(window).width() - $popup.width())/2;
+            var topFinish = ($(window).height() - $popup.height())/2;
 
             $popup.animate({
                 'left': leftFinish,

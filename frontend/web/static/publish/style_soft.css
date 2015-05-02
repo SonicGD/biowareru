@@ -3980,6 +3980,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   margin-bottom: 5px;
   text-decoration: none;
   line-height: 1;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
 }
 .auth__login:before,
 .auth__reg:before {
