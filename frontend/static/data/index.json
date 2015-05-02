@@ -1,224 +1,322 @@
 {
   "news": [
     {
-      "publicUrl": "/2014/08/19/dragon_age_hunters_at_rest_result.html",
+      "publicUrl": "/news/show.html?year=2014&month=08&day=19&newsUrl=dragon_age_hunters_at_rest_result",
       "sticky": 1,
       "title": "www.BioWare.ru — Конкурс \"Охотники на привале\". Итоги",
       "last_change_date": 1408427820,
-      "parentTitle": "www.BioWare.ru",
-      "parentIcon": "http://assets.bioware.ru/images/topics/biowareru.png",
       "short_text": "<p>&nbsp;</p><p style=\"text-align:center\">&nbsp;<img src=\"http://ic.pics.livejournal.com/jeff_kari/1668669/406281/406281_original.jpg\" /></p><p>Ну вот и подошло время подвести итоги нашего конкурса \"Охотники на привале\"!\r\n 18 храбрых авторов представили свои пьесы на суд общественности. Каждая\r\n из них по-своему хороша (если вы не читали - обязательно исправьте это \r\nупущение!), и задача перед жюри стояла непростая. От имени жюри и организаторов благодарю всех участников конкурса, критиков, читателей и всех, кто отметился в голосовании! <span style=\"font-style:italic\">Организаторы прокашливаются, принимают значительные позы и в четыре руки открывают конверт.</span> And the Oscar goes to...</p><p>Главный приз получает <a href=\"http://www.bioware.ru/forum/user/44268/\">Doc. 69</a>, автор пьесы <a href=\"http://www.bioware.ru/forum/topic/29728/#entry2468020\">\"Скверные алхимики\"</a>!\r\n  Зарисовка из жизни Архитектора и его верного подручного, чья \r\nразмеренная будничная работа внезапно оказывается прервана появлением \r\nюной гномки, поистине достойна первого места. Вскорости вы сможете \r\nуслышать ее в исполнении актеров театра! Но мы также не можем не \r\nотметить шекспировскую драму <a href=\"http://www.bioware.ru/forum/topic/29728/#entry2450608\">\"Круги на воде\"</a> авторства <a href=\"http://www.bioware.ru/forum/user/28857/\"> julia37</a>, набравшую всего на полбалла меньше. Жюри решило присудить этой замечательной стилизации персональный приз, который мы и вручаем с огромным удовольствием!</p><p>В народном голосовании также не нашлось единого фаворита. Одинаковое количество голосов набрали <a href=\"http://www.bioware.ru/forum/user/56011/\">Нинья</a> с оригинальной зарисовкой <a href=\"http://www.bioware.ru/forum/topic/29728/#entry2447660\">\"Ползущие по лезвию\"</a>, раскрывающей нам истинную причину моров, и <a href=\"http://www.bioware.ru/forum/user/53807/\">Ассирэ</a> с историей <a href=\"http://www.bioware.ru/forum/topic/29728/page-2#entry2476037\">\"Героев не выбирают\"</a>, с искрометным юмором рассказывающей нам об одном типичном утре Инвизитора и его команды. Оба автора получат экслибрисы для личной библиотеки согласно своим эскизам и пожеланиям.</p><p>Приз за самую активную и вдумчивую критику единогласным решением жюри присуждается <a href=\"http://www.bioware.ru/forum/user/55224/\">Розендитту</a>.\r\n Он получит эксклюзивную литографию от BioWare Edmonton из \r\nлимитированной серии с автографом художника. Но мы также хотели бы \r\nотметить старания <a href=\"http://www.bioware.ru/forum/user/36497/\">WishMaster</a>,\r\n и хотя ему еще предстоит поработать над стилем и формой изложения, нам \r\nкажется, что он заслуживает поощрительного приза в виде ручки с \r\nлоготипом BRC, которой, как мы надеемся, он напишет еще много серьезных и\r\n взвешенных рецензий.</p><p>Еще раз \r\nпоздравляем победителей и благодарим всех участников! Будем рады видеть \r\nвас на новых конкурсах BRC! Уважаемые победители - пожалуйста, напишите в\r\n личку <a href=\"http://www.bioware.ru/forum/user/27195/\">Кариссиме</a>\r\n ваши ФИО и адреса для отправки призов, а победителей голосования \r\nзрительских симпатий просим описать, что вы хотите видеть на \r\nэкслибрисах. Наше жюри прощается с вами - до следующего конкурса!</p><p>P.S. Я хочу выразить огромную благодарность моему партнеру <a href=\"http://www.bioware.ru/forum/user/6818/\">Revan_I</a> за помощь в проведении конкурса. Работать с этим человеком - истинное удовольствие.<br /></p>",
       "hasMore": false,
-      "comments": 21
+      "comments": 21,
+      "forumUrl": "#",
+      "parent": {
+        "title": "www.BioWare.ru",
+        "icon": "http://assets.bioware.ru/images/topics/biowareru.png",
+        "newsUrl": "/news/topic.html?topicUrl=biowareru"
+      }
     },
     {
-      "publicUrl": "/2014/08/27/dragon_age_inquisition_co_op_multiplayer.html",
+      "publicUrl": "/news/show.html?year=2014&month=08&day=27&newsUrl=dragon_age_inquisition_co_op_multiplayer",
       "sticky": 0,
       "title": "Dragon Age: Inquisition — Первые подробности кооперативного мультиплеера",
       "last_change_date": 1409114037,
-      "parentTitle": "Dragon Age: Inquisition",
-      "parentIcon": "http://assets.bioware.ru/images/games/small/dragon_age_3.png",
       "short_text": "<p style=\"text-align:center\">\r\n     <img src=\"http://www.bioware.ru/images/da3/dai_co-op.jpg\" style=\"width:600px;height:180px\" />\r\n</p>\r\n<p>\r\n     В кооперативном режиме <strong>Dragon Age: Inquisition</strong> команда может включать до 4 игроков любого класса. На момент выпуска игры будет доступно 3 уникальные сюжетные кампании, 9 персонажей — по 3 на каждый класс. Игроку предоставляется возможность выбирать пол, расу и кастомизировать внешность вашего персонажа. Также персонажи будут разговаривать между собой в бою. Команда будет проходить через случайно сгенерированные локации, сражаясь со случайно сгенерированными врагами.\r\n</p>\r\n<p>\r\n     Мы работаем на Инквизитора, являемся частью его армии и выполняем для него задачи. Мультиплеер никак не связан с основной игрой: никакого влияния на сюжет, никаких \"очков боеготовности\" как в <strong><a href=\"http://www.bioware.ru/mass_effect_3/news/\">Mass Effect 3</a></strong>.\r\n</p>\r\n<p style=\"text-align:center\">\r\n     <iframe width=\"668\" height=\"330\" src=\"//www.youtube.com/embed/lZpT3IMnRr0\" frameborder=\"0\"></iframe></p>",
       "hasMore": false,
-      "comments": 0
+      "comments": 0,
+      "forumUrl": "#",
+      "parent": {
+        "title": "Dragon Age: Inquisition",
+        "icon": "http://assets.bioware.ru/images/games/small/dragon_age_3.png",
+        "newsUrl": "/news/game.html?gameUrl=dragon_age_inquisition"
+      }
     },
     {
-      "publicUrl": "/2014/08/23/dragon_age_inquisition_vivienne.html",
+      "publicUrl": "/news/show.html?year=2014&month=08&day=23&newsUrl=dragon_age_inquisition_vivienne",
       "sticky": 0,
       "title": "Dragon Age: Inquisition — Голос Вивьен",
       "last_change_date": 1408792741,
-      "parentTitle": "Dragon Age: Inquisition",
-      "parentIcon": "http://assets.bioware.ru/images/games/small/dragon_age_3.png",
       "short_text": "<p style=\"text-align:center\">\r\n     <img src=\"http://www.bioware.ru/images/da3/dai_characters_vivienne_02.jpg\" style=\"width:600px;height:180px\" />\r\n</p>\r\n<p>\r\n     <strong>BioWare</strong> представили новое видео с актрисой озвучки Вивьен — <a href=\"http://www.imdb.com/name/nm0890055/\">Индирой Варма</a>, британской актрисой, известной некоторым ролью Элларии Сэнд в четвертом сезоне «Игры Престолов». В этом видео она учит Джессику Меризан, как отвечать задирам в орлейском стиле.\r\n</p>\r\n<p style=\"text-align:center\">\r\n     <iframe width=\"668\" height=\"330\" src=\"//www.youtube.com/embed/3G5qKxRzkGI\" frameborder=\"0\"></iframe></p>",
       "hasMore": false,
-      "comments": 24
+      "comments": 24,
+      "forumUrl": "#",
+      "parent": {
+        "title": "Dragon Age: Inquisition",
+        "icon": "http://assets.bioware.ru/images/games/small/dragon_age_3.png",
+        "newsUrl": "/news/game.html?gameUrl=dragon_age_inquisition"
+      }
     },
     {
-      "publicUrl": "/2014/08/15/dragon_age_inquisition_ign_gameplay.html",
+      "publicUrl": "/news/show.html?year=2014&month=08&day=15&newsUrl=dragon_age_inquisition_ign_gameplay",
       "sticky": 0,
       "title": "Dragon Age: Inquisition — Свежее видео геймплея",
       "last_change_date": 1408120259,
-      "parentTitle": "Dragon Age: Inquisition",
-      "parentIcon": "http://assets.bioware.ru/images/games/small/dragon_age_3.png",
       "short_text": "\r\n<p style=\"text-align:center\">\r\n     <img src=\"http://www.bioware.ru/images/da3/DAI_news_3.jpg\" style=\"width:600px;height:180px\" />&nbsp;\r\n</p>\r\n<p>\r\n     Портал <strong>IGN</strong> опубликовал вторую часть демо, где Инквизитор со своими спутниками находится во Внутренних землях (The Hinterlands) в Ферелдене.\r\n</p>\r\n<p style=\"text-align:center\">\r\n     <iframe src=\"http://widgets.ign.com/video/embed/content.html?url=http://www.ign.com/videos/2014/08/15/dragon-age-inquisition-extended-gameplay-demo-ign-live-gamescom-2014\" width=\"640\" height=\"360\" scrolling=\"no\" frameborder=\"0\"></iframe>\r\n</p>\r\n",
       "hasMore": false,
-      "comments": 178
+      "comments": 178,
+      "forumUrl": "#",
+      "parent": {
+        "title": "Dragon Age: Inquisition",
+        "icon": "http://assets.bioware.ru/images/games/small/dragon_age_3.png",
+        "newsUrl": "/news/game.html?gameUrl=dragon_age_inquisition"
+      }
     },
     {
-      "publicUrl": "/2014/08/14/dragon_age_inquisition_last_flight_chapter_1.html",
+      "publicUrl": "/news/show.html?year=2014&month=08&day=14&newsUrl=dragon_age_inquisition_last_flight_chapter_1",
       "sticky": 0,
       "title": "Dragon Age: Inquisition — Последний Полет. Глава 1",
       "last_change_date": 1408000515,
-      "parentTitle": "Dragon Age: Inquisition",
-      "parentIcon": "http://assets.bioware.ru/images/games/small/dragon_age_3.png",
       "short_text": "<p style=\"text-align:center\">\r\n     <img src=\"http://www.bioware.ru/images/da3/dai_jvm_scans_news_top.jpg\" style=\"width:600px;height:180px\" /><br />\r\n</p>\r\n<p>\r\n     Предлагаем вашему вниманию перевод первой главы нового романа, который выйдет 16 сентября, по вселенной <span style=\"font-weight:bold\">Dragon Age</span> - Последний полет. Переводчики: Резчица, Фра Дженитиви, Reienis. И не забываем, что также можно ознакомится <a href=\"http://www.bioware.ru/2014/07/21/dragon_age_inquisition_the_masked_empire_ru.html\">с переводом романа - Империя Масок</a>.&nbsp;\r\n</p>\r\n<ul>\r\n     <li>\r\n          <a href=\"http://www.bioware.ru/dragon_age_inquisition/articles/other/last_flight_chapter_1.html\">Последний Полет - Глава 1</a>\r\n     </li>\r\n</ul>",
       "hasMore": false,
-      "comments": 29
+      "comments": 29,
+      "forumUrl": "#",
+      "parent": {
+        "title": "Dragon Age: Inquisition",
+        "icon": "http://assets.bioware.ru/images/games/small/dragon_age_3.png",
+        "newsUrl": "/news/game.html?gameUrl=dragon_age_inquisition"
+      }
     },
     {
-      "publicUrl": "/2014/08/13/dragon_age_inquisition_gamescom_2014_screenshots.html",
+      "publicUrl": "/news/show.html?year=2014&month=08&day=13&newsUrl=dragon_age_inquisition_gamescom_2014_screenshots",
       "sticky": 0,
       "title": "Dragon Age: Inquisition — Новые скриншоты",
       "last_change_date": 1407949166,
-      "parentTitle": "Dragon Age: Inquisition",
-      "parentIcon": "http://assets.bioware.ru/images/games/small/dragon_age_3.png",
       "short_text": "<p style=\"text-align:center\">\r\n     <img src=\"http://www.bioware.ru/images/da3/dai_characters_vivienne_05.jpg\" style=\"width:600px;height:180px\" />\r\n</p>\r\n<p>\r\n     Подборка новых скриншотов с <strong>GamesCom 2014</strong>. Больше под катом новости.\r\n</p>\r\n<p style=\"text-align:center\">\r\n     <a href=\"http://www.bioware.ru/dragon_age_3/gallery/screenshots/6866.html\"><img src=\"http://www.bioware.ru/gallery/thumb/6866/200/0\" style=\"width:200px;height:113px\" /></a>&nbsp;<a href=\"http://www.bioware.ru/dragon_age_3/gallery/screenshots/6867.html\"><img src=\"http://www.bioware.ru/gallery/thumb/6867/200/0\" style=\"width:200px;height:113px\" /></a>&nbsp;<a href=\"http://www.bioware.ru/dragon_age_3/gallery/screenshots/6868.html\"><img src=\"http://www.bioware.ru/gallery/thumb/6868/200/0\" style=\"width:200px;height:113px\" /></a>&nbsp;<a href=\"http://www.bioware.ru/dragon_age_3/gallery/screenshots/6869.html\"><img src=\"http://www.bioware.ru/gallery/thumb/6869/200/0\" style=\"width:200px;height:113px\" /></a>&nbsp;\r\n</p>",
       "hasMore": true,
-      "comments": 18
+      "comments": 18,
+      "forumUrl": "#",
+      "parent": {
+        "title": "Dragon Age: Inquisition",
+        "icon": "http://assets.bioware.ru/images/games/small/dragon_age_3.png",
+        "newsUrl": "/news/game.html?gameUrl=dragon_age_inquisition"
+      }
     },
     {
-      "publicUrl": "/2014/08/13/dragon_age_inquisition_gameplay_gamescom_2014.html",
+      "publicUrl": "/news/show.html?year=2014&month=08&day=13&newsUrl=dragon_age_inquisition_gameplay_gamescom_2014",
       "sticky": 0,
       "title": "Dragon Age: Inquisition — Геймплей с GamesCom 2014",
       "last_change_date": 1407948946,
-      "parentTitle": "Dragon Age: Inquisition",
-      "parentIcon": "http://assets.bioware.ru/images/games/small/dragon_age_3.png",
       "short_text": "\r\n<p style=\"text-align:center\">\r\n     <img src=\"http://www.bioware.ru/images/da3/dai_cover_art_news_top.jpg\" style=\"width:600px;height:200px\" />\r\n</p>\r\n<p style=\"text-align:center\">\r\n     <iframe width=\"640\" height=\"360\" src=\"//www.youtube.com/embed/cYx4r1MX7g4\" frameborder=\"0\"></iframe>\r\n</p>\r\n",
       "hasMore": false,
-      "comments": 137
+      "comments": 137,
+      "forumUrl": "#",
+      "parent": {
+        "title": "Dragon Age: Inquisition",
+        "icon": "http://assets.bioware.ru/images/games/small/dragon_age_3.png",
+        "newsUrl": "/news/game.html?gameUrl=dragon_age_inquisition"
+      }
     },
     {
-      "publicUrl": "/2014/08/13/bioware_shadow_realms_trailer.html",
+      "publicUrl": "/news/show.html?year=2014&month=08&day=13&newsUrl=bioware_shadow_realms_trailer",
       "sticky": 0,
       "title": "BioWare — Трейлер Shadow Realms",
       "last_change_date": 1407922799,
-      "parentTitle": "BioWare",
-      "parentIcon": "http://assets.bioware.ru/images/developers/photo-1.png",
       "short_text": "<p style=\"text-align:center\">\r\n     <img src=\"http://www.bioware.ru/images/bioware/bioware_news_7.jpg\" style=\"width:600px;height:180px\" />\r\n</p>\r\n<p>\r\n     <strong>Shadow Realms</strong> будет представлять из себя кооперативный мультиплеерный 4 vs 1 экшен-RPG. Альфа тестирование игры стартует в конце этого года на PC, можно уже <a href=\"https://www.shadowrealms.com/register\">записаться</a> на альфу, релиз же запланирован на конец 2015, также пока только на PC.\r\n</p>\r\n<p style=\"text-align:center\">\r\n     <iframe width=\"640\" height=\"360\" src=\"//www.youtube.com/embed/qupRNr5XXsA\" frameborder=\"0\"></iframe></p>",
       "hasMore": false,
-      "comments": 63
+      "comments": 63,
+      "forumUrl": "#",
+      "parent": {
+        "title": "BioWare",
+        "icon": "http://assets.bioware.ru/images/developers/photo-1.png",
+        "newsUrl": "/news/developer.html?developerUrl=bioware"
+      }
     },
     {
-      "publicUrl": "/2014/08/13/dragon_age_inquisition_the_enemy_of_thedas.html",
+      "publicUrl": "/news/show.html?year=2014&month=08&day=13&newsUrl=dragon_age_inquisition_the_enemy_of_thedas",
       "sticky": 0,
       "title": "Dragon Age: Inquisition — Враги Тедаса",
       "last_change_date": 1407926778,
-      "parentTitle": "Dragon Age: Inquisition",
-      "parentIcon": "http://assets.bioware.ru/images/games/small/dragon_age_3.png",
       "short_text": "<p style=\"text-align:center\">\r\n     <img src=\"http://www.bioware.ru/images/da3/dai_gamestar_news_top_2.jpg\" style=\"width:600px;height:200px\" />\r\n</p>\r\n<p>\r\n     Тьма опускается на Тедас. Рассказы о Старейшем передаются из уст в уста. Легендарные герои Инквизиции должны держаться вместе, когда их сила и вера подвергаются испытаниям.\r\n</p>\r\n<p>\r\n     Маленький FAQ по трейлеру:\r\n</p>\r\n<ul>\r\n     <li>\r\n          Да, там Хоук, но не наш Серый Страж;\r\n     </li>\r\n     <li>\r\n          Нам дадут возможность изменить внешность наших предыдущих персонажей.\r\n     </li>\r\n</ul>\r\n<p style=\"text-align:center\">\r\n     <iframe width=\"668\" height=\"330\" src=\"//www.youtube.com/embed/4gVw4wee_aU\" frameborder=\"0\"></iframe></p>",
       "hasMore": false,
-      "comments": 158
+      "comments": 158,
+      "forumUrl": "#",
+      "parent": {
+        "title": "Dragon Age: Inquisition",
+        "icon": "http://assets.bioware.ru/images/games/small/dragon_age_3.png",
+        "newsUrl": "/news/game.html?gameUrl=dragon_age_inquisition"
+      }
     },
     {
-      "publicUrl": "/2014/08/13/mass_effect_3_dramatic_reading.html",
+      "publicUrl": "/news/show.html?year=2014&month=08&day=13&newsUrl=mass_effect_3_dramatic_reading",
       "sticky": 0,
       "title": "Mass Effect 3 —  Шепард: Драматическое чтение №2",
       "last_change_date": 1407913277,
-      "parentTitle": "ME3",
-      "parentIcon": "http://assets.bioware.ru/images/games/small/mass_effect_3.png",
       "short_text": "<p style=\"text-align:center\">\r\n     <img src=\"http://www.bioware.ru/images/me/masseffect_large.jpg\" /><br />\r\n</p>\r\n<p>\r\n     Все помнят&nbsp;<a href=\"http://www.bioware.ru/2014/01/31/mass_effect_3_dramatic_reading.html\">драматическое&nbsp;чтение</a> от Марка Мира? И вот появилось продолжение! Те самые строки из песни группы <span style=\"font-weight:bold\">Miracle of Sound</span>, но уже в исполнении&nbsp;Дженнифер Хейл.</p><p>[video id=1488 uri=/mass_effect/files/audio/commander_shepard_a_dramatic_reading_2.html]http://files.bioware.ru/me/audio/commander_shepard_a_dramatic_reading_2.mp4[/video]<br /></p>",
       "hasMore": false,
-      "comments": 18
+      "comments": 18,
+      "forumUrl": "#",
+      "parent": {
+        "title": "Mass Effect 3",
+        "icon": "http://assets.bioware.ru/images/games/small/mass_effect_3.png",
+        "newsUrl": "/news/game.html?gameUrl=mass_effect_3"
+      }
     },
     {
-      "publicUrl": "/2014/08/12/bioware_teaser_4_gc_fire.html",
+      "publicUrl": "/news/show.html?year=2014&month=08&day=12&newsUrl=bioware_teaser_4_gc_fire",
       "sticky": 0,
       "title": "BioWare — Загадочный тизер №4",
       "last_change_date": 1407871531,
-      "parentTitle": "BioWare",
-      "parentIcon": "http://assets.bioware.ru/images/developers/photo-1.png",
       "short_text": "<p style=\"text-align:center\">\r\n     <img src=\"http://www.bioware.ru/images/me4/bioware_news_7.jpg\" style=\"width:600px;height:180px\" /><br />\r\n</p>\r\n<p>\r\n     <span style=\"font-weight:bold\">BioWare</span>&nbsp;опубликовали, скорее всего, последний ролик к новой игре, которую анонсируют завтра на конференции <span style=\"font-weight:bold\">Electronic Arts</span>. Четвертый&nbsp;тизер называется - Огонь.&nbsp;\r\n</p>\r\n<p style=\"text-align:center\">\r\n     <iframe width=\"668\" height=\"330\" src=\"//www.youtube.com/embed/9FzrDo0fFzA\" frameborder=\"0\"></iframe></p>",
       "hasMore": false,
-      "comments": 17
+      "comments": 17,
+      "forumUrl": "#",
+      "parent": {
+        "title": "BioWare",
+        "icon": "http://assets.bioware.ru/images/developers/photo-1.png",
+        "newsUrl": "/news/developer.html?developerUrl=bioware"
+      }
     },
     {
-      "publicUrl": "/2014/08/08/casey_hudson_has_left_bioware.html",
+      "publicUrl": "/news/show.html?year=2014&month=08&day=08&newsUrl=casey_hudson_has_left_bioware",
       "sticky": 0,
       "title": "Из BioWare ушел Кейси Хадсон",
       "last_change_date": 1407445961,
-      "parentTitle": "BioWare",
-      "parentIcon": "http://assets.bioware.ru/images/developers/photo-1.png",
       "short_text": "<p style=\"text-align:center\"><img src=\"http://www.bioware.ru/images/me4/news_menext1.jpg\" style=\"width:600px;height:200px\" /><br /></p><p>Сегодня стало известно, что из <span style=\"font-weight:bold\">BioWare</span> ушел&nbsp;Кейси Хадсон, проработавший в студии более 16 лет. За все это время он приложился к разработке&nbsp;почти всех&nbsp;игр&nbsp;<span style=\"font-weight:bold\">BioWare</span>,<span style=\"font-weight:bold\">&nbsp;</span>начиная от <span style=\"font-weight:bold\">MDK2 </span>и <span style=\"font-weight:bold\">Neverwinter Nights</span> до трилогии <span style=\"font-weight:bold\">Mass Effect.</span> За \"таинственный новый IP от Кейси Хадсона\" волноваться не стоит, ибо его разработка&nbsp;продолжается.&nbsp;</p><p>Желаем Кейси Хадсону удачи и успехов&nbsp;в дальнейших начинаниях вне стен <span style=\"font-weight:bold\">BioWare</span>!&nbsp;</p>",
       "hasMore": false,
-      "comments": 277
+      "comments": 277,
+      "forumUrl": "#",
+      "parent": {
+        "title": "BioWare",
+        "icon": "http://assets.bioware.ru/images/developers/photo-1.png",
+        "newsUrl": "/news/developer.html?developerUrl=bioware"
+      }
     },
     {
-      "publicUrl": "/2014/08/06/bioware_teaser_3_gc_impact.html",
+      "publicUrl": "/news/show.html?year=2014&month=08&day=06&newsUrl=bioware_teaser_3_gc_impact",
       "sticky": 0,
       "title": "BioWare — Загадочный тизер №3",
       "last_change_date": 1407352386,
-      "parentTitle": "BioWare",
-      "parentIcon": "http://assets.bioware.ru/images/developers/photo-1.png",
       "short_text": "<p style=\"text-align:center\">\r\n     <img src=\"http://www.bioware.ru/images/me4/bioware_news_7.jpg\" style=\"width:600px;height:180px\" /><br />\r\n</p>\r\n<p>\r\n     <span style=\"font-weight:bold\">BioWare</span> вновь подогревает интерес к таинственному анонсу, который произойдет на <span style=\"font-weight:bold\">gamescom 2014</span>. Третий тизер называется - Воздействие.&nbsp;</p>\r\n<p style=\"text-align:center\">\r\n     <iframe width=\"668\" height=\"330\" src=\"//www.youtube.com/embed/tUoqlvQ9SM8\" frameborder=\"0\"></iframe></p>",
       "hasMore": false,
-      "comments": 122
+      "comments": 122,
+      "forumUrl": "#",
+      "parent": {
+        "title": "BioWare",
+        "icon": "http://assets.bioware.ru/images/developers/photo-1.png",
+        "newsUrl": "/news/developer.html?developerUrl=bioware"
+      }
     },
     {
-      "publicUrl": "/2014/08/03/mass_effect_next_comic_con_2014_video.html",
+      "publicUrl": "/news/show.html?year=2014&month=08&day=03&newsUrl=mass_effect_next_comic_con_2014_video",
       "sticky": 0,
       "title": "Mass Effect Next — Видео с Comic-Con 2014",
       "last_change_date": 1407052422,
-      "parentTitle": "Mass Effect Next",
-      "parentIcon": "http://assets.bioware.ru/images/games/small/mass_effect_4.png",
       "short_text": "<p style=\"text-align:center\">\r\n     <img src=\"http://www.bioware.ru/images/me4/mennews1.jpg\" style=\"width:600px;height:200px\" /></p>\r\n<p>Мы уже <a href=\"http://www.bioware.ru/2014/07/31/mass_effect_next_comic_con_2014_report.html\">выкладывали</a> информацию в виде репортажа-интервью с <strong>San Diego Comic Con 2014</strong>. Теперь появилось видео с конференции. Enjoy!</p>\r\n<p style=\"text-align:center\">\r\n     <iframe width=\"668\" height=\"330\" src=\"//www.youtube.com/embed/00YqU7CT3XQ\" frameborder=\"0\"></iframe></p>",
       "hasMore": false,
-      "comments": 204
+      "comments": 204,
+      "forumUrl": "#",
+      "parent": {
+        "title": "Mass Effect Next",
+        "icon": "http://assets.bioware.ru/images/games/small/mass_effect_4.png",
+        "newsUrl": "/news/game.html?gameUrl=mass_effect_next"
+      }
     },
     {
-      "publicUrl": "/2014/08/03/dragon_age_inquisition_question_to_the_developers.html",
+      "publicUrl": "/news/show.html?year=2014&month=08&day=03&newsUrl=dragon_age_inquisition_question_to_the_developers",
       "sticky": 0,
       "title": "Dragon Age: Inquisition — Задайте свой вопрос разработчикам",
       "last_change_date": 1407130405,
-      "parentTitle": "Dragon Age: Inquisition",
-      "parentIcon": "http://assets.bioware.ru/images/games/small/dragon_age_3.png",
       "short_text": "<p style=\"text-align:center\">\r\n     <img src=\"http://www.bioware.ru/images/da3/dai_preorder_news_top_2.jpg\" style=\"width:600px;height:180px\" />\r\n</p>\r\n<p>\r\n     Недавно <strong>BioWare</strong> представили нам <a href=\"http://www.bioware.ru/2014/07/29/dragon_age_inquisition_new_combat_video.html\"><strong>новый ролик о боевой системе</strong></a>, возможно, у вас появились вопросы касательно её работы в игре?\r\n</p>\r\n<p>\r\n     <strong><a href=\"https://vk.com/dragonage\">Официальное сообщество</a></strong> <a href=\"http://www.bioware.ru/dragon_age_inquisition/news/\"><strong>Dragon Age: Inquisition</strong></a> в социальной сети <strong>ВКонтакте</strong> предоставляет вам возможность самим <a href=\"https://vk.com/dragonage?w=wall-55836174_3385\"><strong>задать</strong></a> вопросы разработчикам о <span style=\"text-decoration:underline\">боевой системе</span>. Самые интересные попадут в список тех, на которые ответят прямо из компании <strong>BioWare</strong>.\r\n</p>\r\n<p>\r\n     Вопросы отправляют на следующей неделе. Те, кого нет в <strong>ВК</strong>, могут оставить свои вопросы в этой теме. Мы обязательно передадим их!\r\n</p>",
       "hasMore": false,
-      "comments": 28
+      "comments": 28,
+      "forumUrl": "#",
+      "parent": {
+        "title": "Dragon Age: Inquisition",
+        "icon": "http://assets.bioware.ru/images/games/small/dragon_age_3.png",
+        "newsUrl": "/news/game.html?gameUrl=dragon_age_inquisition"
+      }
     },
     {
-      "publicUrl": "/2014/08/02/dragon_age_inquisition_leading_the_way.html",
+      "publicUrl": "/news/show.html?year=2014&month=08&day=02&newsUrl=dragon_age_inquisition_leading_the_way",
       "sticky": 0,
       "title": "Dragon Age: Inquisition — Интервью с Аликс Риган",
       "last_change_date": 1406972769,
-      "parentTitle": "Dragon Age: Inquisition",
-      "parentIcon": "http://assets.bioware.ru/images/games/small/dragon_age_3.png",
       "short_text": "<p style=\"text-align:center\">\r\n     <img src=\"http://www.bioware.ru/images/da3/DAI_news_7.jpg\" style=\"width:600px;height:180px\" /></p>\r\n<p>Аликс Вилтон Риган — одна из актрис, озвучивающих женщину-Инквизитора — рассказывает о своей роли в грядущей игре <strong><a href=\"http://www.bioware.ru/dragon_age_inquisition/news/\">Dragon Age: Inquisition</a></strong>.</p>\r\n<p style=\"text-align:center\">\r\n     <iframe width=\"668\" height=\"330\" src=\"//www.youtube.com/embed/Zlhynh5k9fo\" frameborder=\"0\"></iframe></p>",
       "hasMore": false,
-      "comments": 22
+      "comments": 22,
+      "forumUrl": "#",
+      "parent": {
+        "title": "Dragon Age: Inquisition",
+        "icon": "http://assets.bioware.ru/images/games/small/dragon_age_3.png",
+        "newsUrl": "/news/game.html?gameUrl=dragon_age_inquisition"
+      }
     },
     {
-      "publicUrl": "/2014/08/02/dragon_age_inquisition_josephine_voice.html",
+      "publicUrl": "/news/show.html?year=2014&month=08&day=02&newsUrl=dragon_age_inquisition_josephine_voice",
       "sticky": 0,
       "title": "Dragon Age: Inquisition — Голос Жозефины",
       "last_change_date": 1406971778,
-      "parentTitle": "Dragon Age: Inquisition",
-      "parentIcon": "http://assets.bioware.ru/images/games/small/dragon_age_3.png",
       "short_text": "<p style=\"text-align:center\">\r\n     <img src=\"http://www.bioware.ru/images/da3/DAI_news_5.jpg\" style=\"width:600px;height:180px\" />\r\n</p>\r\n<p>\r\n     Жозефину будет озвучивать актриса <strong><a href=\"https://twitter.com/SimplyAllegra\">Аллегра Кларк</a></strong> — поделился в своём твиттере Кэмерон Ли. Эта девушка может быть вам знакома по косплею Изабеллы из <strong><a href=\"http://www.bioware.ru/dragon_age_2/news/\">Dragon Age II</a></strong> (с 1:49).\r\n</p>\r\n<p style=\"text-align:center\">\r\n     <img src=\"http://www.bioware.ru/images/da3/josephine_voice.PNG\" style=\"width:634px;height:267px\" />\r\n</p>",
       "hasMore": true,
-      "comments": 8
+      "comments": 8,
+      "forumUrl": "#",
+      "parent": {
+        "title": "Dragon Age: Inquisition",
+        "icon": "http://assets.bioware.ru/images/games/small/dragon_age_3.png",
+        "newsUrl": "/news/game.html?gameUrl=dragon_age_inquisition"
+      }
     },
     {
-      "publicUrl": "/2014/08/01/dragon_age_hunters_at_rest_end.html",
+      "publicUrl": "/news/show.html?year=2014&month=08&day=01&newsUrl=dragon_age_hunters_at_rest_end",
       "sticky": 0,
       "title": "www.BioWare.ru — Конкурс \"Охотники на привале\". Завершен прием работ.",
       "last_change_date": 1406836905,
-      "parentTitle": "www.BioWare.ru",
-      "parentIcon": "http://assets.bioware.ru/images/topics/biowareru.png",
       "short_text": "<p style=\"text-align:center\">&nbsp;<img src=\"http://ic.pics.livejournal.com/jeff_kari/1668669/406281/406281_original.jpg\" /></p><br /><div style=\"text-align:left\">Завершен прием работ на конкурс \"Охотники на привале\", посвященный миру Dragon Age. Участникам  было предложено написать пьесу или радиоспектакль, придерживаясь определенных <a href=\"http://www.bioware.ru/forum/topic/29731/\">условий</a>. Двадцать смельчаков вступают в борьбу за право услышать свою пьесу в озвучке настоящих актеров. Их работы можно почитать <a href=\"http://www.bioware.ru/forum/topic/29728\">здесь</a>. Кому из них достанется первый приз, будет решать жюри, которое вынесет свой вердикт через две недели.<br />Но успокаиваться рано! В ваших руках - приз зрительских симпатий, которым вы можете распорядиться в <a href=\"http://www.bioware.ru/forum/topic/29840/\">этой теме</a>. Выбирайте наиболее достойного кандидата! <br />И если вам есть что сказать о прочитанном - не стесняйтесь оставлять свои отзывы. Наиболее активному и вдумчивому критику жюри присудит специальный приз. Будут рассматриваться отзывы, оставленные <a href=\"http://www.bioware.ru/forum/topic/29729/\">в теме обсуждения</a> до 10 августа. <br />Дерзайте! :)<br /><br /></div><a style=\"text-align:left\" href=\"http://www.bioware.ru/forum/topic/29731/\"></a>",
       "hasMore": false,
-      "comments": 2
+      "comments": 2,
+      "forumUrl": "#",
+      "parent": {
+        "title": "www.BioWare.ru",
+        "icon": "http://assets.bioware.ru/images/topics/biowareru.png",
+        "newsUrl": "/news/topic.html?topicUrl=biowareru"
+      }
     },
     {
-      "publicUrl": "/2014/07/31/bioware_teaser_2_gc.html",
+      "publicUrl": "/news/show.html?year=2014&month=07&day=31&newsUrl=bioware_teaser_2_gc",
       "sticky": 0,
       "title": "BioWare — Загадочный тизер №2",
       "last_change_date": 1406834646,
-      "parentTitle": "BioWare",
-      "parentIcon": "http://assets.bioware.ru/images/developers/photo-1.png",
       "short_text": "<p style=\"text-align:center\">\r\n     <img src=\"http://www.bioware.ru/images/me4/bioware_news_7.jpg\" style=\"width:600px;height:180px\" /><br />\r\n</p>\r\n<p>\r\n     <span style=\"font-weight:bold\">BioWare </span>опубликовали продолжение \"<a href=\"http://www.bioware.ru/2014/07/25/bioware_strange_teaser.html\">загадочного тизера</a>\". На этот раз видео имеет название \"Искра\", а анонс произойдет 13 августа на <span style=\"font-weight:bold\">gamescom</span> 2014.\r\n</p>\r\n<p style=\"text-align:center\">\r\n     <iframe width=\"668\" height=\"330\" src=\"//www.youtube.com/embed/CbpG0uRJ5N0\" frameborder=\"0\"></iframe></p>",
       "hasMore": false,
-      "comments": 47
+      "comments": 47,
+      "forumUrl": "#",
+      "parent": {
+        "title": "BioWare",
+        "icon": "http://assets.bioware.ru/images/developers/photo-1.png",
+        "newsUrl": "/news/developer.html?developerUrl=bioware"
+      }
     },
     {
-      "publicUrl": "/2014/07/31/mass_effect_next_comic_con_2014_report.html",
+      "publicUrl": "/news/show.html?year=2014&month=07&day=31&newsUrl=mass_effect_next_comic_con_2014_report",
       "sticky": 0,
       "title": "Mass Effect Next — Comic-Con 2014: репортаж с конференции Mass Effect",
       "last_change_date": 1406802084,
-      "parentTitle": "Mass Effect Next",
-      "parentIcon": "http://assets.bioware.ru/images/games/small/mass_effect_4.png",
       "short_text": "<p style=\"text-align:center\">\r\n     <img src=\"http://www.bioware.ru/images/me4/me3_ec_wii_u.jpg\" style=\"width:600px;height:200px\" /><br />\r\n</p>\r\n<p>\r\n     Совсем недавно мы опубликовали <a href=\"http://www.bioware.ru/2014/07/27/mass_effect_next_first_info_comicon_2014.html\">первые подробности</a> о <span style=\"font-weight:bold\">Mass Effect Next </span>с <span style=\"font-weight:bold\">Comic-Con 2014</span>. И вот, благодаря стараниям <a href=\"http://www.bioware.ru/forum/user/48655/\">malign</a>'а,&nbsp;есть возможность прочитать всю информацию в виде репортажа-интервью, как оно было представлено на выставке.&nbsp;</p><ul><li><a href=\"http://www.bioware.ru/mass_effect_next/articles/other/comic_con_2014_menext.html\">Comic-Con 2014: репортаж с конференции Mass Effect&nbsp;</a></li></ul>",
       "hasMore": false,
-      "comments": 116
+      "comments": 116,
+      "forumUrl": "#",
+      "parent": {
+        "title": "Mass Effect Next",
+        "icon": "http://assets.bioware.ru/images/games/small/mass_effect_4.png",
+        "newsUrl": "/news/game.html?gameUrl=mass_effect_next"
+      }
+    }
+  ],
+  "singleNews": [
+    {
+      "publicUrl": "/news/show.html?year=2006&month=11&day=15&newsUrl=prevju_s_action_trip",
+      "sticky": 0,
+      "title": "Превью с Action Trip",
+      "last_change_date": 1163615036,
+      "short_text": "Добавлен перевод превью с сайта Action Trip. Ничего сенсационно нового оно не содержит, но к прочтению всё же рекомендуется. Превью Вы сможете найти <a href=\"../index.php?module=articles&amp;func=show&amp;id=9\">здесь</a>.",
+      "add_text": "",
+      "hasMore": false,
+      "comments": 0,
+      "forumUrl": "#",
+      "parent": {
+        "title": "Dragon Age: Начало",
+        "icon": "http://assets.bioware.ru/images/games/small/",
+        "newsUrl": "/news/game.html?gameUrl=dragon_age"
+      }
     }
   ]
 }

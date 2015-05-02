@@ -16,10 +16,10 @@
                         <time class="article-list__date"
                               datetime="">{{ item.last_change_date|date("d.m.Y H:i:s") }}</time>
                     </div>
-                    <a class="article-list__title-image" href="#"
-                       title="{{ item.parentTitle }}">
-                        <img width="150" src="{{ item.parentIcon }}"
-                             alt="{{ item.parentTitle }}">
+                    <a class="article-list__title-image" href="{{ item.parent.newsUrl }}"
+                       title="{{ item.parent.title }}">
+                        <img width="150" src="{{ item.parent.icon }}"
+                             alt="{{ item.parent.title }}">
                     </a>
                 </header>
                 <!--<img class="article-list__news-illustration"
@@ -39,7 +39,8 @@
                         <div class="article-list__share yashare-auto-init" data-yashareL10n="ru"
                              data-yashareQuickServices="vkontakte,facebook,twitter,gplus"
                              data-yashareTheme="counter"></div>
-                        <a class="article-list__comments" href="#">{{ item.comments }} комментариев</a>
+                        <a class="article-list__comments" href="{{ item.forumUrl }}">{{ item.comments }}
+                            комментариев</a>
                     </div>
                 </footer>
             </article>
