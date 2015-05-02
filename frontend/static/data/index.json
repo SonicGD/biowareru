@@ -300,23 +300,5 @@
         "newsUrl": "/news/game.html?gameUrl=mass_effect_next"
       }
     }
-  ],
-  "singleNews": [
-    {
-      "publicUrl": "/news/show.html?year=2006&month=11&day=15&newsUrl=prevju_s_action_trip",
-      "sticky": 0,
-      "title": "Превью с Action Trip",
-      "last_change_date": 1163615036,
-      "short_text": "Добавлен перевод превью с сайта Action Trip. Ничего сенсационно нового оно не содержит, но к прочтению всё же рекомендуется. Превью Вы сможете найти <a href=\"../index.php?module=articles&amp;func=show&amp;id=9\">здесь</a>.",
-      "add_text": "",
-      "hasMore": false,
-      "comments": 0,
-      "forumUrl": "#",
-      "parent": {
-        "title": "Dragon Age: Начало",
-        "icon": "http://assets.bioware.ru/images/games/small/",
-        "newsUrl": "/news/game.html?gameUrl=dragon_age"
-      }
-    }
   ]
 }
