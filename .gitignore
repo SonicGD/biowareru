@@ -29,7 +29,7 @@ phpunit.phar
 # local phpunit config
 /phpunit.xml
 
-frontend/web/static/lib
-frontend/web/static/node_modules
-frontend/web/static/blocks/*/*.css
+frontend/static/lib
+frontend/static/node_modules
+frontend/static/blocks/*/*.css
 

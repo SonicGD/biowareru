@@ -1,0 +1,39 @@
+{% extends "tmpl/layout/layout.twig" %}
+
+{% block content %}
+<div class="article__block">
+    <nav class="breadcrumbs__block">
+        <ul class="breadcrumbs">
+            <li class="breadcrumbs__item">
+                <a class="breadcrumbs__link" href="index.html">Новости</a>
+            </li>
+            <li class="breadcrumbs__item">
+                <a class="breadcrumbs__link" href="#"> Dragon Age: Inquisition </a>
+            </li>
+            <li class="breadcrumbs__item">
+                Dragon Age: Inquisition — Дополнение для коллективной игры «Драконоборец»
+            </li>
+        </ul>
+    </nav>
+    <article class="article">
+        <header class="article__header">
+            <div>
+                <h2 class="article__title">
+                    Важно! www.BioWare.ru — Творческий конкурс «Тедас, любовь моя» с призами от Zowie Gear и
+                    PrintPers
+                </h2>
+                <time class="article__date" datetime="">05.12.2014, 14:47:31</time>
+            </div>
+        </header>
+
+        <footer class="article__footer">
+            <div class="article__footer-controls">
+                <div class="article__share yashare-auto-init" data-yashareL10n="ru"
+                     data-yashareQuickServices="vkontakte,facebook,twitter,gplus"
+                     data-yashareTheme="counter"></div>
+                <a class="article__comments" href="#">49 комментариев</a>
+            </div>
+        </footer>
+    </article>
+</div>
+{% endblock %}
