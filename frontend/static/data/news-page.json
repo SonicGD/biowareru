@@ -1,4 +1,14 @@
 {
+  "breadCrumbs": [
+    {
+      "title": "???????",
+      "url": "/"
+    },
+    {
+      "title": "Dragon Age: ??????",
+      "url": "dragon_age"
+    }
+  ],
   "singleNews": {
     "publicUrl": "/news/show.html?year=2006&month=11&day=15&newsUrl=prevju_s_action_trip",
     "sticky": 0,
