@@ -161,12 +161,11 @@ module.exports = (grunt) ->
         ]
         tasks: ['newer:concat:js', 'stylus', 'newer:concat:css','newer:autoprefixer']
 
-      html:
+      twig:
         options:
           livereload: true
-        files: [
-          '*.html'
-        ]
+        files: ['*.twig', 'tmpl/**/*.twig']
+        tasks: ['twigRender']
 
       images:
         files: [
@@ -213,8 +212,21 @@ module.exports = (grunt) ->
       mainpage:
         path: 'http://localhost:8000/';
 
+    twigRender:
+      your_target: {
+        files : [
+          {
+            data: {},
+            expand: true,
+            cwd: './',
+            src: ['*.twig'],
+            dest: './',
+            ext: '.html'
+          }
+        ]
+      },
 
-  
-  @registerTask( 'default',    [ 'concat:js', 'stylus',  'newer:concat:css', 'autoprefixer'])
+
+  @registerTask( 'default',    [ 'concat:js', 'stylus',  'newer:concat:css', 'autoprefixer', 'twigRender'])
   @registerTask( 'livereload', [ 'default', 'connect', 'open', 'watch' ])
   @registerTask( 'publish',    [ 'prepublish', 'uglify', 'cssmin'])
