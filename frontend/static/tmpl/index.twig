@@ -5,7 +5,7 @@
         {% for item in news %}
             <article class="article-list__item">
                 <header class="article-list__header">
-                    <div>
+                    <div class="article-list__title-wrap">
                         <h2 class="article-list__title">
                             <a class="article-list__permalink" href="{{ item.publicUrl }}">
                                 {% if item.sticky %}

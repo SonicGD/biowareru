@@ -160,6 +160,12 @@ module.exports = (grunt) ->
         files: ['*.twig', 'tmpl/**/*.twig']
         tasks: ['twigRender']
 
+      data:
+        options:
+          livereload: true
+        files: ['data/**/*.json']
+        tasks: ['twigRender']
+
       images:
         files: [
           'blocks/**/*.{png,jpg,jpeg,gif}'
@@ -201,7 +207,7 @@ module.exports = (grunt) ->
       your_target: {
         files : [
           {
-            data: {},
+            data: 'data/index.json',
             expand: true,
             cwd: './tmpl',
             src: ['*.twig'],
