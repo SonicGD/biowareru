@@ -4,11 +4,11 @@ namespace biowareru\frontend\controllers;
 
 
 use bioengine\common\BioEngine;
-use bioengine\common\modules\articles\controllers\frontend\IndexController;
-use bioengine\common\modules\articles\models\Article;
-use bioengine\common\modules\articles\models\ArticleCat;
+use bioengine\common\modules\files\controllers\frontend\IndexController;
 use bioengine\common\modules\files\models\File;
 use bioengine\common\modules\files\models\FileCat;
+use bioengine\common\modules\main\models\Developer;
+use bioengine\common\modules\main\models\Game;
 use yii\data\Pagination;
 use yii\web\NotFoundHttpException;
 
@@ -147,8 +147,8 @@ class FilesController extends IndexController
     }
 
     /**
-     * @param $cat
-     * @param $parent
+     * @param FileCat        $cat
+     * @param Game|Developer $parent
      */
     private function fillFileBreadcrumbs($cat, $parent)
     {
