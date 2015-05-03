@@ -201,7 +201,7 @@ module.exports = (grunt) ->
 
     open:
       mainpage:
-        path: 'http://localhost:8000/'
+        path: 'http://localhost:8000/p-index.html'
 
     twigRender:
       your_target: {
@@ -210,7 +210,7 @@ module.exports = (grunt) ->
             data: 'data/index.json',
             expand: true,
             cwd: './tmpl',
-            src: ['*.twig'],
+            src: ['p-*.twig'],
             dest: '../web/',
             ext: '.html'
           }

@@ -10,22 +10,22 @@
 <header class="header">
     <div class="header__content">
         <a href="/" class="header__logo-link"><img src="/img/header__logo.png" alt="logo"/></a>
-        {% include 'menu.twig' %}
+        {% include 'b-menu.twig' %}
     </div>
 </header>
-        
-{% include 'slider.twig' %}
+
+{% include 'b-slider.twig' %}
 
 <div class="page-layout">
     <main class="page-layout__content">
         {% block content %}{% endblock %}
     </main>
     <aside class="page-layout__sidebar">
-        {% include 'sidebar.twig' %}
+        {% include 'b-sidebar.twig' %}
     </aside>
 </div>
-        
-{% include 'footer.twig' %}
+
+{% include 'b-footer.twig' %}
 
 <div class="popup__wrp">
     <div class="popup">
