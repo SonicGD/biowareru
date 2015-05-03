@@ -14,7 +14,9 @@ if ($payload['ref'] == 'refs/heads/master') {
             "cd $root && git merge -s subtree --no-commit cg2_web/master",*/
         'composer self-update' => "cd $root && curl -sS https://getcomposer.org/installer | php",
         'composer update'      => "cd $root && php composer.phar update --no-dev --prefer-dist",
-        'bower'                => "cd $root/static && bower install"
+        'bower'                => "cd $root/frontend/static && bower install",
+        'grunt copy'           => "cd $root/frontend/static && grunt copy",
+        'grunt'                => "cd $root/frontend/static && grunt"
     ];
 
     $date_start = time();
