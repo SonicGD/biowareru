@@ -1,47 +1,46 @@
-<nav class="header__menu">
-    <ul class="header__menu-list">
-        <li class="header__menu-item"><a href="#" class="header__menu-link"><span class="header__menu-text">Форум</span></a>
+{% if level>0 %}
+    {% set ulClass='header__submenu' %}
+    {% set liClass='header__submenu-item' %}
+    {% set aClass='header__submenu-link' %}
+    {% set spanClass='header__submenu-text' %}
+{% else %}
+    {% set ulClass='header__menu-list' %}
+    {% set liClass='header__menu-item' %}
+    {% set aClass='header__menu-link' %}
+    {% set spanClass='header__menu-text' %}
+{% endif %}
+{% if level>1 %}
+    {% set ulClass='header__subsubmenu' %}
+{% endif %}
+<ul class="{{ ulClass }}">
+    {% for menuItem in menu %}
+        {% if menuItem.url=='' %}
+            {% set url='#' %}
+        {% else %}
+            {% set url=menuItem.url %}
+        {% endif %}
+        {% if menuItem.items|length>0 %}
+            {% set linkClass=spanClass~' header__menu-text_dashed' %}
+            {% if level>0 %}
+                {% set liSubClass=liClass~' header__submenu-item_with-subsubmenu' %}
+            {% else %}
+                {% set liSubClass=liClass %}
+            {% endif %}
+        {% else %}
+            {% set linkClass=spanClass %}
+            {% set liSubClass=liClass %}
+        {% endif %}
+        <li class="{{ liSubClass }}">
+            <a href="{{ url }}" class="{{ aClass }}">
+                {% if level>0 %}
+                    {{ menuItem.label }}
+                {% else %}
+                    <span class="{{ linkClass }}">{{ menuItem.label }}</span>
+                {% endif %}
+            </a>
+            {% if menuItem.items|length>0 %}
+                {% include 'b-menu.twig' with {'menu':menuItem.items,'level':level+1} %}
+            {% endif %}
         </li>
-        <li class="header__menu-item">
-            <a href="#" class="header__menu-link"><span
-                    class="header__menu-text header__menu-text_dashed">Игры</span></a>
-            <ul class="header__submenu">
-                <li class="header__submenu-item"><a href="#" class="header__submenu-link">Dragonage</a></li>
-                <li class="header__submenu-item"><a href="#" class="header__submenu-link">Dragonage</a></li>
-                <li class="header__submenu-item header__submenu-item_with-subsubmenu"><a href="#" class="header__submenu-link">Dragonage</a>
-                    <ul class="header__subsubmenu">
-                        <li class="header__submenu-item"><a href="#" class="header__submenu-link">Еще драгонага</a></li>
-                        <li class="header__submenu-item"><a href="#" class="header__submenu-link">больше драгонаги</a></li>
-                        <li class="header__submenu-item"><a href="#" class="header__submenu-link">Еще больше драгонаги</a></li>
-                        <li class="header__submenu-item"><a href="#" class="header__submenu-link">Еще драгонага. Она клевая...</a></li>
-                        <li class="header__submenu-item"><a href="#" class="header__submenu-link">Еще драгонага. Всем играть</a></li>
-                    </ul>
-                </li>
-                <li class="header__submenu-item"><a href="#" class="header__submenu-link">Dragonage</a></li>
-                <li class="header__submenu-item"><a href="#" class="header__submenu-link">Dragonage</a></li>
-                <li class="header__submenu-item"><a href="#" class="header__submenu-link">Dragonage</a></li>
-                <li class="header__submenu-item"><a href="#" class="header__submenu-link">Dragonage</a></li>
-            </ul>
-        </li>
-        <li class="header__menu-item">
-            <a href="#" class="header__menu-link"><span class="header__menu-text header__menu-text_dashed">Статьи</span></a>
-            <ul class="header__submenu">
-                <li class="header__submenu-item"><a href="#" class="header__submenu-link">Dragonage</a></li>
-                <li class="header__submenu-item"><a href="#" class="header__submenu-link">Dragonage</a></li>
-                <li class="header__submenu-item"><a href="#" class="header__submenu-link">Dragonage</a></li>
-                <li class="header__submenu-item"><a href="#" class="header__submenu-link">Dragonage</a></li>
-                <li class="header__submenu-item"><a href="#" class="header__submenu-link">Dragonage</a></li>
-                <li class="header__submenu-item"><a href="#" class="header__submenu-link">Dragonage</a></li>
-                <li class="header__submenu-item"><a href="#" class="header__submenu-link">Dragonage</a></li>
-            </ul>
-        </li>
-        <li class="header__menu-item"><a href="#" class="header__menu-link"><span
-                class="header__menu-text header__menu-text_dashed">Видео</span></a></li>
-        <li class="header__menu-item"><a href="#" class="header__menu-link"><span
-                class="header__menu-text header__menu-text_dashed">Галерея</span></a></li>
-        <li class="header__menu-item"><a href="#" class="header__menu-link"><span
-                class="header__menu-text header__menu-text_dashed">Файлы</span></a></li>
-        <li class="header__menu-item"><a href="#" class="header__menu-link"><span class="header__menu-text">О Bioware</span></a>
-        </li>
-    </ul>
-</nav>
+    {% endfor %}
+</ul>

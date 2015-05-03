@@ -54,7 +54,8 @@ return [
                         'auto_reload' => true
                     ],
                     'globals'   => [
-                        'user' => 'biowareru\frontend\helpers\UsersHelper'
+                        'user' => 'biowareru\frontend\helpers\UsersHelper',
+                        'menu' => 'biowareru\frontend\helpers\MenuHelper'
                     ]
                     // ... see ViewRenderer for more options
                 ]
