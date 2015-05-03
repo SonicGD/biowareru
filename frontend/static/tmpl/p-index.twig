@@ -46,18 +46,6 @@
             </article>
         {% endfor %}
 
-        <nav class="pagination">
-            <!--<a class="pagination__item" href="#" rel="prev">← Предыдущая</a>-->
-            <span class="pagination__item pagination__item_disabled">← Предыдущая</span>
-            <span class="pagination__item pagination__item_active">1</span>
-            <a class="pagination__item pagination__item_link" href="#">2</a>
-            <a class="pagination__item pagination__item_link" href="#">3</a>
-            <a class="pagination__item pagination__item_link" href="#">4</a>
-            <a class="pagination__item pagination__item_link" href="#">5</a>
-            <a class="pagination__item pagination__item_link" href="#">5</a>
-            <a class="pagination__item pagination__item_link" href="#">5</a>
-            <span class="pagination__item">...</span>
-            <a class="pagination__item pagination__item_link" href="#" rel="next">Следующая →</a>
-        </nav>
+        {% include "b-pagination.twig" %}
     </div>
 {% endblock %}
