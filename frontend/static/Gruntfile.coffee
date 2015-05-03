@@ -3,6 +3,16 @@ module.exports = (grunt) ->
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
   _ = require('underscore')
 
+  jsLibs = [
+    'jquery/dist/jquery.min.js',
+    'owl.carousel/dist/owl.carousel.min.js',
+    'jquery-mousewheel/jquery.mousewheel.min.js',
+    'nanogallery/dist/jquery.nanogallery.min.js',
+    'social-likes/social-likes.min.js'
+  ].map( (path) ->
+    return '../web/js/' + path;
+  );
+
   skinList = ['default', 'dark', 'help', 'pony', 'soft']
   skinConcatConfigCssFiles = {}
 
@@ -96,10 +106,7 @@ module.exports = (grunt) ->
 
     concat:
       js:
-        src: [
-          '!lib/**/*.js',
-          'blocks/**/*.js'
-        ]
+        src: jsLibs.concat('blocks/**/*.js')
         dest: '../web/js/script.js'
 
       css:
@@ -109,7 +116,7 @@ module.exports = (grunt) ->
     uglify:
       dist:
         files:
-          '<%= concat.js.dest %>': ['<%= concat.js.dest %>']
+          '../web/js/script.min.js': ['<%= concat.js.dest %>']
 
 
     jshint:
@@ -198,8 +205,8 @@ module.exports = (grunt) ->
         files: [{
           expand: true,
           cwd: '../web/css/',
-          src: ['style.css'],
-          dest: '../web/css/',
+          src: ['*.css'],
+          dest: '../web/css/min/',
           ext: '.css'
         }]
       }
@@ -226,4 +233,4 @@ module.exports = (grunt) ->
 
   @registerTask( 'default',    [ 'concat:js', 'stylus',  'newer:concat:css', 'autoprefixer', 'twigRender'])
   @registerTask( 'livereload', [ 'default', 'connect', 'open', 'watch' ])
-  @registerTask( 'publish',    [ 'prepublish', 'uglify', 'cssmin'])
+  @registerTask( 'publish',    [ 'default', 'uglify', 'cssmin'])
