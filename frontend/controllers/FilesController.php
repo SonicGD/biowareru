@@ -24,7 +24,10 @@ class FilesController extends IndexController
         }
 
         $cats = FileCat::find()->where([$parent->parentKey => $parent->id, 'pid' => 0])->all();
-
+        $this->breadCrumbs[] = [
+            'title' => $parent->title,
+            'url'   => $parent->getPublicUrl()
+        ];
         return $this->render('@app/static/tmpl/p-files-game.twig',
             ['parent' => $parent, 'cats' => $cats]);
     }

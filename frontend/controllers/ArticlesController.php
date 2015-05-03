@@ -7,13 +7,67 @@ use bioengine\common\BioEngine;
 use bioengine\common\modules\articles\controllers\frontend\IndexController;
 use bioengine\common\modules\articles\models\Article;
 use bioengine\common\modules\articles\models\ArticleCat;
+use yii\data\Pagination;
 use yii\web\NotFoundHttpException;
 
 class ArticlesController extends IndexController
 {
     public $breadCrumbs = [];
 
-    public function actionShow($parentUrl, $catUrl, $fileUrl)
+    public function actionCat($parentUrl, $catUrl)
+    {
+        return $this->showCat($parentUrl, $catUrl);
+    }
+
+    private function showCat($parentUrl, $catUrl)
+    {
+        $parent = BioEngine::getParentByUrl($parentUrl);
+        if (!$parent) {
+            throw new NotFoundHttpException;
+        }
+
+        $catUrlParts = explode('/', $catUrl);
+        $url = end($catUrlParts);
+        /**
+         * @var ArticleCat $cat
+         */
+        $cat = ArticleCat::find()->where(['url' => $url, $parent->parentKey => $parent->id])->one();
+        if (!$cat) {
+            throw new NotFoundHttpException;
+        }
+        $articlesQuery = Article::find()->orderBy([
+            'id' => SORT_DESC
+        ])->where(['cat_id' => $cat->id]);
+        $pagination = new Pagination(['totalCount' => $articlesQuery->count(), 'pageSize' => 24]);
+
+        $articles = $articlesQuery->offset($pagination->offset)
+            ->limit($pagination->limit)->all();
+
+
+        $parentCat = $cat->parent;
+        while ($parentCat) {
+            $this->breadCrumbs[] = [
+                'title' => $parentCat->title,
+                'url'   => $parentCat->getPublicUrl()
+            ];
+            $parentCat = $parentCat->parent;
+        }
+        $this->breadCrumbs[] = [
+            'title' => $parent->title,
+            'url'   => $parent->getPublicUrl()
+        ];
+        $this->breadCrumbs[] = [
+            'title' => 'Статьи',
+            'url'   => $parent->getArticlesUrl()
+        ];
+
+        array_reverse($this->breadCrumbs);
+
+        return $this->render('@app/static/tmpl/p-articles-cat.twig',
+            ['parent' => $parent, 'cat' => $cat, 'articles' => $articles, 'pagination' => $pagination]);
+    }
+
+    public function actionShow($parentUrl, $catUrl, $articleUrl)
     {
         $parent = BioEngine::getParentByUrl($parentUrl);
         if (!$parent) {
@@ -30,10 +84,10 @@ class ArticlesController extends IndexController
 
         if (!$cat) {
 
-            throw new NotFoundHttpException;
+            return $this->showCat($parentUrl, $catUrl . '/' . $articleUrl);
         }
 
-        $article = Article::find()->where(['cat_id' => $cat->id, 'url' => $fileUrl, 'pub' => 1])->one();
+        $article = Article::find()->where(['cat_id' => $cat->id, 'url' => $articleUrl, 'pub' => 1])->one();
         if (!$article) {
             throw new NotFoundHttpException;
         }
@@ -63,5 +117,21 @@ class ArticlesController extends IndexController
 
         return $this->render('@app/static/tmpl/p-article.twig',
             ['parent' => $parent, 'cat' => $cat, 'article' => $article]);
+    }
+
+    public function actionRoot($parentUrl)
+    {
+        $parent = BioEngine::getParentByUrl($parentUrl);
+        if (!$parent) {
+            throw new NotFoundHttpException;
+        }
+
+        $cats = ArticleCat::find()->where([$parent->parentKey => $parent->id, 'pid' => 0])->all();
+        $this->breadCrumbs[] = [
+            'title' => $parent->title,
+            'url'   => $parent->getPublicUrl()
+        ];
+        return $this->render('@app/static/tmpl/p-articles-game.twig',
+            ['parent' => $parent, 'cats' => $cats]);
     }
 }

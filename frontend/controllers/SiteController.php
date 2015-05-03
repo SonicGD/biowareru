@@ -3,11 +3,13 @@
 namespace biowareru\frontend\controllers;
 
 
+use bioengine\common\BioEngine;
 use bioengine\common\modules\main\models\Menu;
 use bioengine\common\modules\news\models\News;
 use biowareru\frontend\helpers\SliderHelper;
 use yii\data\Pagination;
 use yii\validators\UrlValidator;
+use yii\web\NotFoundHttpException;
 use yii\web\Response;
 
 class SiteController extends \bioengine\frontend\controllers\SiteController
@@ -20,12 +22,33 @@ class SiteController extends \bioengine\frontend\controllers\SiteController
             'sticky' => SORT_DESC,
             'id'     => SORT_DESC
         ])->where(['pub' => 1]);
-        $pagination = new Pagination(['totalCount' => $newsQuery->count(), 'pageSize' => 20]);
-        //$pagination->route = 'site/index';
-        $news = $newsQuery->offset($pagination->offset)
-            ->limit($pagination->limit)->all();
 
-        return $this->render('@app/static/tmpl/p-index.twig', ['news' => $news, 'pagination' => $pagination]);
+        return $this->renderNews($newsQuery);
+    }
+
+    public function actionRoot($parentUrl)
+    {
+        $parent = BioEngine::getParentByUrl($parentUrl);
+        if (!$parent) {
+            throw new NotFoundHttpException;
+        }
+
+        $this->breadCrumbs[] = [
+            'title' => $parent->title,
+            'url'   => $parent->getPublicUrl()
+        ];
+
+        $this->breadCrumbs[] = [
+            'title' => 'Новости',
+            'url'   => $parent->getNewsUrl()
+        ];
+
+        $newsQuery = News::find()->orderBy([
+            'sticky' => SORT_DESC,
+            'id'     => SORT_DESC
+        ])->where(['pub' => 1, $parent->parentKey => $parent->id]);
+
+        return $this->renderNews($newsQuery);
     }
 
     public function actionRemenu()
@@ -111,5 +134,19 @@ class SiteController extends \bioengine\frontend\controllers\SiteController
         \Yii::$app->response->format = Response::FORMAT_JSON;
 
         return SliderHelper::getGames();
+    }
+
+    /**
+     * @param $newsQuery
+     * @return string
+     */
+    private function renderNews($newsQuery)
+    {
+        $pagination = new Pagination(['totalCount' => $newsQuery->count(), 'pageSize' => 20]);
+        //$pagination->route = 'site/index';
+        $news = $newsQuery->offset($pagination->offset)
+            ->limit($pagination->limit)->all();
+
+        return $this->render('@app/static/tmpl/p-index.twig', ['news' => $news, 'pagination' => $pagination]);
     }
 } 

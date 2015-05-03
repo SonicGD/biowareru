@@ -6,7 +6,7 @@
         <article class="article">
             <header class="article__header">
                 <div>
-                    <h2 class="article__title">Файлы</h2>
+                    <h2 class="article__title">Статьи</h2>
                 </div>
                 <a class="article-list__title-image" href="{{ parent.publicUrl }}"
                    title="{{ parent.title }}">
@@ -24,10 +24,11 @@
                                     <a class="files__link" href="{{ cat.publicUrl }}">{{ cat.title }}</a>
                                 </h2>
                                 <ul class="files__list">
-                                    {% for file in cat.lastFiles %}
+                                    {% for article in cat.lastArticles %}
                                         <li class="files__item">
-                                            <a class="files__link" href="{{ file.publicUrl }}">{{ file.title }}</a><br>
-                                            {{ file.announce|raw }}
+                                            <a class="files__link"
+                                               href="{{ article.publicUrl }}">{{ article.title }}</a><br>
+                                            {{ article.announce|raw }}
                                         </li>
                                     {% endfor %}
                                     {% for subCat in cat.children %}
@@ -37,11 +38,11 @@
                                                    href="{{ subCat.publicUrl }}">{{ subCat.title }}</a>
                                             </h3>
                                             <ul class="files__list">
-                                                {% for file in subCat.lastFiles %}
+                                                {% for article in subCat.lastArticles %}
                                                     <li class="files__item">
                                                         <a class="files__link"
-                                                           href="{{ file.publicUrl }}">{{ file.title }}</a><br>
-                                                        {{ file.announce|raw }}
+                                                           href="{{ article.publicUrl }}">{{ article.title }}</a><br>
+                                                        {{ article.announce|raw }}
                                                     </li>
                                                 {% endfor %}
                                             </ul>
