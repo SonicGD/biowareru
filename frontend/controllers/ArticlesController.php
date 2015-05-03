@@ -13,7 +13,7 @@ class ArticlesController extends IndexController
 {
     public $breadCrumbs = [];
 
-    public function actionShow($parentUrl, $catUrl, $articleUrl)
+    public function actionShow($parentUrl, $catUrl, $fileUrl)
     {
         $parent = BioEngine::getParentByUrl($parentUrl);
         if (!$parent) {
@@ -33,7 +33,7 @@ class ArticlesController extends IndexController
             throw new NotFoundHttpException;
         }
 
-        $article = Article::find()->where(['cat_id' => $cat->id, 'url' => $articleUrl, 'pub' => 1])->one();
+        $article = Article::find()->where(['cat_id' => $cat->id, 'url' => $fileUrl, 'pub' => 1])->one();
         if (!$article) {
             throw new NotFoundHttpException;
         }

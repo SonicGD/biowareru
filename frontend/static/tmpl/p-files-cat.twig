@@ -1,0 +1,33 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+    <div class="article__block">
+        {% include 'b-breadcrumbs.twig' %}
+        <article class="article">
+            <header class="article__header">
+                <div>
+                    <h2 class="article__title">{{ cat.title }}</h2>
+                </div>
+                <a class="article-list__title-image" href="{{ parent.publicUrl }}"
+                   title="{{ parent.title }}">
+                    <img width="150" src="{{ parent.icon }}"
+                         alt="{{ parent.title }}">
+                </a>
+            </header>
+
+            <ul class="files__list">
+                {% for file in files %}
+                    <li class="files__item">
+                        <a class="files__link" href="{{ file.publicUrl }}">{{ file.title }}</a>,
+                        <br>
+
+                        <p>{{ file.announce|raw }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+
+        </article>
+        {% include 'b-pagination.twig' %}
+    </div>
+
+{% endblock %}
