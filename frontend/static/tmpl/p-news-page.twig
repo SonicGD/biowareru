@@ -14,35 +14,6 @@
                 </li>
             </ul>
         </nav>
-        <article class="article">
-            <header class="article__header">
-                <div>
-                    <h1 class="article__title">
-                        {% if singleNews.sticky %}
-                            Важно!
-                        {% endif %} {{ singleNews.title }}
-                    </h1>
-                    <time class="article__date" datetime="">{{ singleNews.last_change_date|date("d.m.Y H:i:s") }}</time>
-                </div>
-                <a class="article__title-image" href="{{ singleNews.parent.newsUrl }}"
-                   title="{{ singleNews.parent.title }}">
-                    <img width="150" src="{{ singleNews.parent.icon }}"
-                         alt="{{ singleNews.parent.title }}">
-                </a>
-            </header>
-            <div class="b-text">
-                {{ singleNews.short_text|raw }}
-                {{ singleNews.add_text|raw }}
-            </div>
-            <footer class="article__footer">
-                <div class="article__footer-controls">
-                    <div class="article__share yashare-auto-init" data-yashareL10n="ru"
-                         data-yashareQuickServices="vkontakte,facebook,twitter,gplus"
-                         data-yashareTheme="counter"></div>
-                    <a class="article__comments" href="{{ singleNews.forumUrl }}">{{ singleNews.comments }}
-                        комментариев</a>
-                </div>
-            </footer>
-        </article>
+        {% include 'b-news.twig' with {'item':singleNews,'full':true} %}
     </div>
 {% endblock %}
