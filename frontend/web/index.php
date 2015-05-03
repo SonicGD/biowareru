@@ -11,7 +11,7 @@ switch (strtoupper(substr(PHP_OS, 0, 3))) {
         $path = __DIR__ . '/../../../bioengine';
         break;
     default:
-        $path = __DIR__ . '/../../vendor/sonicgd/biowareru';
+        $path = __DIR__ . '/../../vendor/sonicgd/bioengine';
         break;
 }
 define('BIOENGINE_PATH', $path);
