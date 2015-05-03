@@ -55,9 +55,5 @@
       "type": "vcs",
       "url": "git@github.com:sonicgd/bioengine.git"
     },
-    {
-      "type": "vcs",
-      "url": "/var/www/bioengine"
-    }
   ]
 }
