@@ -23,7 +23,7 @@ $config = yii\helpers\ArrayHelper::merge(
     require(__DIR__ . '/../config/main.php')
 );
 
-$application = new yii\web\Application($config);
+$application = new \bioengine\common\BioEngine($config);
 Yii::setAlias('bower', dirname(dirname(__DIR__)) . '/vendor/bower');
 Yii::setAlias('vendor', dirname(dirname(__DIR__)) . '/vendor');
 $application->run();

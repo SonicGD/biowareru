@@ -17,21 +17,33 @@
                 </h3>
 
                 <div class="game-info">
-                    <img src="https://upload.wikimedia.org/wikipedia/ru/2/22/Dragon_Age_Inquisition_cover.jpg"
-                         alt="Dragon Age: Inquisition"
+                    <img src="{{ game.bigLogoUrl }}"
+                         alt="{{ game.title }}"
                          class="game-info__img"/>
                     <table class="game-info__table">
                         <tr>
-                            <td>Издатель</td>
-                            <td>Bioware</td>
+                            <td>Разработчик</td>
+                            <td>{{ game.developer.title}}</td>
                         </tr>
                         <tr>
-                            <td>Официальный сайт</td>
-                            <td><a href="http://www.bioware.com/en/">Bioware.com</a></td>
+                            <td>Издатель</td>
+                            <td>{{ game.publisher }}</td>
+                        </tr>
+                        <tr>
+                            <td>Локализатор</td>
+                            <td>{{ game.localizator }}</td>
+                        </tr>
+                        <tr>
+                            <td>Платформы</td>
+                            <td>{{ game.platforms }}</td>
                         </tr>
                         <tr>
                             <td>Год издания</td>
-                            <td>2013</td>
+                            <td>{{ game.release_date }}</td>
+                        </tr>
+                        <tr>
+                            <td>Жанр</td>
+                            <td>{{ game.genre }}</td>
                         </tr>
                     </table>
                 </div>
@@ -41,43 +53,43 @@
                 </h3>
 
 
-                <p>Игрокам предстоит взять на себя роль главы Инквизиции — недавно возродившейся организации, целью
-                    которой поставлено искоренить зло в землях Тедаса. К началу игры накапливается множество
-                    событий, требующих расследования Инквизицией. Война, интриги, политические раздоры лишили ранее
-                    влиятельные группы Тедаса возможности действовать с прежней эффективностью. Это серьёзная
-                    проблема, учитывая разверзшиеся небеса и демонов, хлынувших оттуда. Игроки должны будут ответить
-                    на эту новую угрозу, а также исследовать огромный мир, встречаться со старыми и новыми
-                    персонажами и собирать силы для растущей Инквизиции.
-                </p>
+                {{ game.desc|raw }}
 
                 <p><a href="#"><b>Обсудить на форуме</b></a></p>
 
                 <div class="game-info__links-block">
                     <div class="game-info__links">
+                        <h3>Последние новости:</h3>
+                        {% for news in game.lastNews %}
+                            <p><a href="{{ news.publicUrl }}">{{ news.title }}</a></p>
+                        {% endfor %}
+                        <p><a href="{{ game.newsUrl }}">Все новости</a></p>
+                    </div>
+                    <div class="game-info__links">
+                        <h3>Последние файлы:</h3>
+                        {% for file in game.lastFiles %}
+                            <p><a href="{{ file.publicUrl }}">{{ file.title }}</a></p>
+                        {% endfor %}
+                        <p><a href="{{ game.filesUrl }}">Все файлы</a></p>
+                    </div>
+                </div>
+
+                <div class="game-info__links-block">
+                    <div class="game-info__links">
                         <h3>Последние статьи:</h3>
-
-                        <p><a href="#">Какая-то ссылка</a></p>
-
-                        <p><a href="#">Еще какая-то ссылка</a></p>
-
-                        <p><a href="#">Какая-то ссылка</a></p>
-
-                        <p><a href="#">Какая-то ссылка</a></p>
+                        {% for article in game.lastArticles %}
+                            <p><a href="{{ article.publicUrl }}">{{ article.title }}</a></p>
+                        {% endfor %}
+                        <p><a href="{{ game.articlesUrl }}">Все статьи</a></p>
                     </div>
                     <div class="game-info__links">
                         <h3>Последнее в галерее:</h3>
-                        <a href="#"><img
-                                    src="http://api.dragonage.com/media/cache/full/content/dam/ea/DragonAgeInquisition/Characters/sera/sera-gallery-01.jpg"
-                                    alt=""/></a>
-                        <a href="#"><img
-                                    src="http://api.dragonage.com/media/cache/full/content/dam/ea/DragonAgeInquisition/Characters/morrigan/morrigan-gallery-01.jpg"
-                                    alt=""/></a>
-                        <a href="#"><img
-                                    src="http://api.dragonage.com/media/cache/full/content/dam/ea/DragonAgeInquisition/Characters/sera/sera-gallery-01.jpg"
-                                    alt=""/></a>
-                        <a href="#"><img
-                                    src="http://api.dragonage.com/media/cache/full/content/dam/ea/DragonAgeInquisition/Characters/morrigan/morrigan-gallery-01.jpg"
-                                    alt=""/></a>
+                        {% for pic in game.lastPics %}
+                            <a href="{{ pic.cat.publicUrl }}"><img
+                                        src="{{ pic.getThumbUrl(115,115) }}"
+                                        alt=""/></a>
+                        {% endfor %}
+                        <p><a href="{{ game.galleryUrl }}">Все картинки</a></p>
                     </div>
                 </div>
 
@@ -85,9 +97,7 @@
 
             <footer class="article__footer">
                 <div class="article__footer-controls">
-                    <div class="article__share yashare-auto-init" data-yashareL10n="ru"
-                         data-yashareQuickServices="vkontakte,facebook,twitter,gplus"
-                         data-yashareTheme="counter"></div>
+                    {% include 'b-likes.twig' with {'url':game.publicUrl} %}
                 </div>
             </footer>
         </article>

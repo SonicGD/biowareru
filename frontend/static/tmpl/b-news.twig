@@ -42,14 +42,9 @@
 
         <div class="article-list__footer-controls">
 
-          <div class="article-list__share social-likes social-likes_notext" data-url="{{ item.publicUrl }}">
-            <div class="facebook" title="Поделиться ссылкой на Фейсбуке"></div>
-            <div class="twitter" title="Поделиться ссылкой в Твиттере"></div>
-            <div class="vkontakte" title="Поделиться ссылкой во Вконтакте"></div>
-            <div class="plusone" title="Поделиться ссылкой в Гугл-плюсе"></div>
-          </div>
-          <a class="article-list__comments" href="{{ item.forumUrl }}">{{ item.comments }}
-            комментариев</a>
+            {% include 'b-likes.twig' with {'url':item.publicUrl} %}
+            <a class="article-list__comments" href="{{ item.forumUrl }}">{{ item.comments }}
+                комментариев</a>
         </div>
     </footer>
 </article>
