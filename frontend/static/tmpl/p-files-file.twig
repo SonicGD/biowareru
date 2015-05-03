@@ -1,0 +1,52 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+    <div class="article__block">
+      <nav class="breadcrumbs__block">
+        <ul class="breadcrumbs">
+          <li class="breadcrumbs__item">
+            <a class="breadcrumbs__link" href="p-index.html">Главная</a>
+          </li>
+          <li class="breadcrumbs__item">
+            <a class="breadcrumbs__link" href="p-files-index.html">Файлы</a>
+          </li>
+          <li class="breadcrumbs__item">
+            <a class="breadcrumbs__link" href="p-files-game.html">Dragon Age: Inquisition</a>
+          </li>
+          <li class="breadcrumbs__item">
+            Книга «Империя масок» на русском
+          </li>
+        </ul>
+      </nav>
+      <article class="article">
+        <header class="article__header">
+          <div>
+            <h2 class="article__title">Книга «Империя масок» на русском</h2>
+          </div>
+          <a class="article__title-image" href="{{ singleNews.parent.newsUrl }}"
+             title="{{ singleNews.parent.title }}">
+            <img width="150" src="http://assets.bioware.ru/images/games/small/dragon_age_3.png"
+                 alt="{{ singleNews.parent.title }}">
+          </a>
+        </header>
+
+        <dl class="file__desc-list">
+          <dt class="file__desc-title">Скачали</dt>
+          <dd class="file__desc-value">4701</dd>
+        </dl>
+        <dl class="file__desc-list">
+          <dt class="file__desc-title">Дата последнего обновления</dt>
+          <dd class="file__desc-value">21.07.2014</dd>
+        </dl>
+        <div class="file__desc b-text">
+          Роман Патрика Уикса «Империя масок» на русском. Перевод www.BioWare.ru
+          {# <br><br>
+             embed video html #}
+        </div>
+        <div class="file__download">
+          <a class="file__download-btn" href="#">Скачать <small>(1,76Mb)</small></a>  
+        </div>
+      </article>
+
+    </div>
+{% endblock %}
