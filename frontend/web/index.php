@@ -2,7 +2,19 @@
 
 defined('YII_DEBUG') or define('YII_DEBUG', true);
 defined('YII_ENV') or define('YII_ENV', 'prod');
-define('BIOENGINE_PATH', 'D:\Projects/bioengine');
+$path = '';
+switch (strtoupper(substr(PHP_OS, 0, 3))) {
+    case 'WIN':
+        $path = __DIR__ . '/../../../bioengine';
+        break;
+    case 'CYG':
+        $path = __DIR__ . '/../../../bioengine';
+        break;
+    default:
+        $path = __DIR__ . '/../../vendor/sonicgd/bioengine';
+        break;
+}
+define('BIOENGINE_PATH', $path);
 
 require(__DIR__ . '/../../override.php');
 require(__DIR__ . '/../../vendor/yiisoft/yii2/Yii.php');

@@ -1,0 +1,51 @@
+<article class="article-list__item">
+    <header class="article-list__header">
+        <div>
+            <h2 class="article-list__title">
+                {% if full==true %}
+                    {% if item.sticky %}
+                        Важно!
+                    {% endif %} {{ item.title }}
+                {% else %}
+                    <a class="article-list__permalink" href="{{ item.publicUrl }}">
+                        {% if item.sticky %}
+                            Важно!
+                        {% endif %} {{ item.title }}
+                    </a>
+                {% endif %}
+
+            </h2>
+            <time class="article-list__date"
+                  datetime="">{{ item.last_change_date|date("d.m.Y H:i:s") }}</time>
+        </div>
+        <a class="article-list__title-image" href="{{ item.parent.newsUrl }}"
+           title="{{ item.parent.title }}">
+            <img width="150" src="{{ item.parent.icon }}"
+                 alt="{{ item.parent.title }}">
+        </a>
+    </header>
+    <!--<img class="article-list__news-illustration"
+         src="http://ic.pics.livejournal.com/jeff_kari/1668669/428515/428515_original.jpg">-->
+
+    <div class="b-text">
+        {{ item.short_text|raw }}
+        {% if full==true %}
+            {{ item.add_text|raw }}
+        {% endif %}
+    </div>
+
+
+    <footer class="article-list__footer">
+        {% if item.hasMore %}
+            <a class="article-list__morelink" href="{{ item.publicUrl }}">Подробнее</a>
+        {% endif %}
+
+        <div class="article-list__footer-controls">
+            <div class="article-list__share yashare-auto-init" data-yashareL10n="ru"
+                 data-yashareQuickServices="vkontakte,facebook,twitter,gplus"
+                 data-yashareTheme="counter" data-yashareLink="{{ item.publicUrl }}"></div>
+            <a class="article-list__comments" href="{{ item.forumUrl }}">{{ item.comments }}
+                комментариев</a>
+        </div>
+    </footer>
+</article>

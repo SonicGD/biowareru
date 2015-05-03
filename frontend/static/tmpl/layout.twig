@@ -11,7 +11,9 @@
 <header class="header">
     <div class="header__content">
         <a href="/" class="header__logo-link"><img src="/img/header__logo.png" alt="logo"/></a>
-        {% include 'b-menu.twig' %}
+        <nav class="header__menu">
+            {% include 'b-menu.twig' with {'menu': menu.getMenu, 'level':0} %}
+        </nav>
     </div>
 </header>
 
@@ -31,7 +33,7 @@
 <div class="popup__wrp">
     <div class="popup">
         <form class="popup__login-form" action="">
-            <input class="popup__text-input" type="text" placeholder="Логин" required name="login" />
+            <input class="popup__text-input" type="text" placeholder="Логин" required name="login"/>
             <input class="popup__text-input" type="password" placeholder="Пароль" required/>
             <button class="popup__button" type="submit">Войти!!!!!</button>
         </form>
