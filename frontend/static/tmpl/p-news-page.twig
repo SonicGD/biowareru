@@ -17,11 +17,11 @@
         <article class="article">
             <header class="article__header">
                 <div>
-                    <h2 class="article__title">
+                    <h1 class="article__title">
                         {% if singleNews.sticky %}
                             Важно!
                         {% endif %} {{ singleNews.title }}
-                    </h2>
+                    </h1>
                     <time class="article__date" datetime="">{{ singleNews.last_change_date|date("d.m.Y H:i:s") }}</time>
                 </div>
                 <a class="article__title-image" href="{{ singleNews.parent.newsUrl }}"
