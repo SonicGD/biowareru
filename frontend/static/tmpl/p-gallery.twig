@@ -2,93 +2,31 @@
 
 {% block content %}
     <div class="article__block">
-        <nav class="breadcrumbs__block">
-            <ul class="breadcrumbs">
-                <li class="breadcrumbs__item">
-                    <a class="breadcrumbs__link" href="index.html">Новости</a>
-                </li>
-                <li class="breadcrumbs__item">
-                    <a class="breadcrumbs__link" href="#"> Dragon Age: Inquisition </a>
-                </li>
-                <li class="breadcrumbs__item">
-                    Dragon Age: Inquisition — Дополнение для коллективной игры «Драконоборец»
-                </li>
-            </ul>
-        </nav>
+        {% include 'b-breadcrumbs.twig' %}
         <article class="article">
             <header class="article__header">
                 <div>
                     <h1 class="article__title">
-                        Галерея Dragon Age: Inquisition
+                        {{ cat.title }}
                     </h1>
                 </div>
-                <a class="article-list__title-image" href="/news/game.html?gameUrl=dragon_age_inquisition"
-                   title="Dragon Age: Inquisition">
-                    <img width="150" src="http://assets.bioware.ru/images/games/small/dragon_age_3.png"
-                         alt="Dragon Age: Inquisition">
+                <a class="article-list__title-image" href="{{ parent.publicUrl }}"
+                   title="{{ parent.title }}">
+                    <img width="150" src="{{ parent.icon }}"
+                         alt="{{ parent.title }}">
                 </a>
             </header>
             <div id="nanoGallery">
-                <a data-ngthumb="http://www.bioware.ru/gallery/thumb/6992/180/140"
-                   href="http://images.bioware.ru/dragon_age_inquisition/concept_art/4bxfiiq8jhm.jpg"
-                   data-ngdesc="Смотри еще на <a href='http://bioware.ru'>bioware.ru</a>">
-                </a>
-
-                <a data-ngthumb="http://www.bioware.ru/gallery/thumb/6930/180/140"
-                   href="http://images.bioware.ru/dragon_age_inquisition/concept_art/character's%20art.jpg">
-                </a>
-                <a data-ngthumb="http://www.bioware.ru/gallery/thumb/6963/180/110"
-                   href="http://images.bioware.ru/dragon_age_inquisition/wallpaper/daiwallpaperwidehdkeyart%20copy.jpg">
-                </a>
-                <a data-ngthumb="http://www.bioware.ru/gallery/thumb/6923/180/110"
-                   href="http://images.bioware.ru/dragon_age_inquisition/concept_art/cole.jpg">
-                </a>
-                <a data-ngthumb="http://www.bioware.ru/gallery/thumb/6922/180/110"
-                   href="http://images.bioware.ru/dragon_age_inquisition/concept_art/solas.jpg">
-                </a>
-                <a data-ngthumb="http://www.bioware.ru/gallery/thumb/6921/180/110"
-                   href="http://images.bioware.ru/dragon_age_inquisition/concept_art/dorian.jpg">
-                </a>
-                <a data-ngthumb="http://www.bioware.ru/gallery/thumb/6992/180/140"
-                   href="http://images.bioware.ru/dragon_age_inquisition/concept_art/4bxfiiq8jhm.jpg">
-                </a>
-
-                <a data-ngthumb="http://www.bioware.ru/gallery/thumb/6930/180/140"
-                   href="http://images.bioware.ru/dragon_age_inquisition/concept_art/character's%20art.jpg">
-                </a>
-                <a data-ngthumb="http://www.bioware.ru/gallery/thumb/6963/180/110"
-                   href="http://images.bioware.ru/dragon_age_inquisition/wallpaper/daiwallpaperwidehdkeyart%20copy.jpg">
-                </a>
-                <a data-ngthumb="http://www.bioware.ru/gallery/thumb/6923/180/110"
-                   href="http://images.bioware.ru/dragon_age_inquisition/concept_art/cole.jpg">
-                </a>
-                <a data-ngthumb="http://www.bioware.ru/gallery/thumb/6922/180/110"
-                   href="http://images.bioware.ru/dragon_age_inquisition/concept_art/solas.jpg">
-                </a>
-                <a data-ngthumb="http://www.bioware.ru/gallery/thumb/6921/180/110"
-                   href="http://images.bioware.ru/dragon_age_inquisition/concept_art/dorian.jpg">
-                </a>
-                <a data-ngthumb="http://www.bioware.ru/gallery/thumb/6992/180/140"
-                   href="http://images.bioware.ru/dragon_age_inquisition/concept_art/4bxfiiq8jhm.jpg">
-                </a>
-
-                <a data-ngthumb="http://www.bioware.ru/gallery/thumb/6930/180/140"
-                   href="http://images.bioware.ru/dragon_age_inquisition/concept_art/character's%20art.jpg">
-                </a>
-                <a data-ngthumb="http://www.bioware.ru/gallery/thumb/6963/180/110"
-                   href="http://images.bioware.ru/dragon_age_inquisition/wallpaper/daiwallpaperwidehdkeyart%20copy.jpg">
-                </a>
-                <a data-ngthumb="http://www.bioware.ru/gallery/thumb/6923/180/110"
-                   href="http://images.bioware.ru/dragon_age_inquisition/concept_art/cole.jpg">
-                </a>
-                <a data-ngthumb="http://www.bioware.ru/gallery/thumb/6922/180/110"
-                   href="http://images.bioware.ru/dragon_age_inquisition/concept_art/solas.jpg">
-                </a>
-                <a data-ngthumb="http://www.bioware.ru/gallery/thumb/6921/180/110"
-                   href="http://images.bioware.ru/dragon_age_inquisition/concept_art/dorian.jpg">
-                </a>
-
-
+                {% for pic in pics %}
+                    {% set desc='' %}
+                    {% for key,file in pic.getFiles() %}
+                        {% set desc=desc~'&nbsp;<a target=\'_blank\' href=\''~pic.getFileUrl(key)~'\'>'~ file.res ~'</a>' %}
+                    {% endfor %}
+                    <a data-ngthumb="{{ pic.getThumbUrl(180,140) }}"
+                       href="{{ pic.fullUrl }}"
+                       data-ngdesc="{{ desc|raw }}">
+                    </a>
+                {% endfor %}
             </div>
         </article>
         {% include "b-pagination.twig" %}

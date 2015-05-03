@@ -2,18 +2,7 @@
 
 {% block content %}
     <div class="article__block">
-        <nav class="breadcrumbs__block">
-            <ul class="breadcrumbs">
-                {% for crumb in this.context.breadCrumbs %}
-                    <li class="breadcrumbs__item">
-                        <a class="breadcrumbs__link" href="{{ crumb.url }}">{{ crumb.title }}</a>
-                    </li>
-                {% endfor %}
-                <li class="breadcrumbs__item">
-                    {{ singleNews.title }}
-                </li>
-            </ul>
-        </nav>
+        {% include 'b-breadcrumbs.twig' %}
         {% include 'b-news.twig' with {'item':singleNews,'full':true} %}
     </div>
 {% endblock %}

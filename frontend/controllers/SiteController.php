@@ -3,12 +3,17 @@
 namespace biowareru\frontend\controllers;
 
 
+use bioengine\common\modules\main\models\Menu;
 use bioengine\common\modules\news\models\News;
+use biowareru\frontend\helpers\SliderHelper;
 use yii\data\Pagination;
+use yii\validators\UrlValidator;
 use yii\web\Response;
 
 class SiteController extends \bioengine\frontend\controllers\SiteController
 {
+    public $breadCrumbs = [];
+
     public function actionIndex()
     {
         $newsQuery = News::find()->orderBy([
@@ -16,12 +21,54 @@ class SiteController extends \bioengine\frontend\controllers\SiteController
             'id'     => SORT_DESC
         ])->where(['pub' => 1]);
         $pagination = new Pagination(['totalCount' => $newsQuery->count(), 'pageSize' => 20]);
-
+        //$pagination->route = 'site/index';
         $news = $newsQuery->offset($pagination->offset)
             ->limit($pagination->limit)->all();
 
         return $this->render('@app/static/tmpl/p-index.twig', ['news' => $news, 'pagination' => $pagination]);
     }
+
+    public function actionRemenu()
+    {
+        /**
+         * @var Menu $menu
+         */
+        $menu = Menu::find()->one();
+        $items = $menu->getItems();
+        $this->processMenu($items);
+        $menu->code = json_encode($items);
+        $menu->save();
+    }
+
+    private function processMenu(&$menu)
+    {
+        $urlValidator = new UrlValidator();
+        foreach ($menu as &$item) {
+            if ($item['url'] === '' || $item['url'] === '#') {
+                $item['url'] = '#';
+            } elseif ($urlValidator->validate($item['url'])) {
+                $item['url'] = str_ireplace('http://www.bioware.ru/', '/', $item['url']);
+                if (stripos($item['url'], '.html') === false) {
+                    if (strripos($item['url'], '/') === strlen($item['url']) - 1) {
+                        $item['url'] = substr($item['url'], 0, strlen($item['url']) - 1);
+                    }
+                    $item['url'] .= '.html';
+                }
+            } else {
+                if (stripos($item['url'], '.html') === false) {
+                    if (strripos($item['url'], '/') === strlen($item['url']) - 1) {
+                        $item['url'] = substr($item['url'], 0, strlen($item['url']) - 1);
+                    }
+                    $item['url'] .= '.html';
+                }
+            }
+            if (count($item['items'])) {
+                $this->processMenu($item['items']);
+            }
+        }
+        unset($item);
+    }
+
 
     public function actionJson()
     {
@@ -57,5 +104,12 @@ class SiteController extends \bioengine\frontend\controllers\SiteController
         }
 
         return $data;
+    }
+
+    public function actionJsonGames()
+    {
+        \Yii::$app->response->format = Response::FORMAT_JSON;
+
+        return SliderHelper::getGames();
     }
 } 

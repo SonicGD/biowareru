@@ -1,0 +1,12 @@
+<nav class="breadcrumbs__block">
+    <ul class="breadcrumbs">
+        {% for crumb in this.context.breadCrumbs %}
+            <li class="breadcrumbs__item">
+                <a class="breadcrumbs__link" href="{{ crumb.url }}">{{ crumb.title }}</a>
+            </li>
+        {% endfor %}
+        <li class="breadcrumbs__item">
+            {{ singleNews.title }}
+        </li>
+    </ul>
+</nav>

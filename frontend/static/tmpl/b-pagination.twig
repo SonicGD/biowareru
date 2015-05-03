@@ -1,54 +1,69 @@
 <nav class="pagination">
-    {% if pagination.page > 0 %}
-        <a class="pagination__item pagination__item_link" href="{{ pagination.links.prev }}">← Предыдущая</a>
-    {% else %}
-        <span class="pagination__item pagination__item_disabled">← Предыдущая</span>
-    {% endif %}
-    {% if pagination.page == 0 %}
-        <span class="pagination__item pagination__item_active">1</span>
-    {% else %}
-        <a class="pagination__item pagination__item_link" href="{{ pagination.links.first }}">1</a>
-    {% endif %}
-    {% if pagination.page >= 5 and pagination.page <= pagination.pageCount-5 %}
-        <span class="pagination__item">...</span>
-        <a class="pagination__item pagination__item_link"
-           href="{{ pagination.createUrl(pagination.page-2) }}">{{ pagination.page-1 }}</a>
-        <a class="pagination__item pagination__item_link"
-           href="{{ pagination.createUrl(pagination.page-1) }}">{{ pagination.page }}</a>
-        <span class="pagination__item pagination__item_active">{{ pagination.page+1 }}</span>
-        <a class="pagination__item pagination__item_link"
-           href="{{ pagination.createUrl(pagination.page+1) }}">{{ pagination.page+2 }}</a>
-        <a class="pagination__item pagination__item_link"
-           href="{{ pagination.createUrl(pagination.page+2) }}">{{ pagination.page+3 }}</a>
-        <span class="pagination__item">...</span>
-    {% elseif pagination.page > pagination.pageCount-5 %}
-        <span class="pagination__item">...</span>
-        {% for page in pagination.pageCount-5..pagination.pageCount-1 %}
-            {% if pagination.page+1 == page %}
-                <span class="pagination__item pagination__item_active">{{ page }}</span>
-            {% else %}
+    {% if pagination.pageCount > 1 %}
+        {% if pagination.page > 0 %}
+            <a class="pagination__item pagination__item_link" href="{{ pagination.links.prev }}">← Предыдущая</a>
+        {% else %}
+            <span class="pagination__item pagination__item_disabled">← Предыдущая</span>
+        {% endif %}
+        {% if pagination.page == 0 %}
+            <span class="pagination__item pagination__item_active">1</span>
+        {% else %}
+            <a class="pagination__item pagination__item_link" href="{{ pagination.links.first }}">1</a>
+        {% endif %}
+        {% if pagination.pageCount > 7 %}
+            {% if pagination.page >= 5 and pagination.page <= pagination.pageCount-5 %}
+                <span class="pagination__item">...</span>
                 <a class="pagination__item pagination__item_link"
-                   href="{{ pagination.createUrl(page-1) }}">{{ page }}</a>
-            {% endif %}
-        {% endfor %}
-    {% else %}
+                   href="{{ pagination.createUrl(pagination.page-2) }}">{{ pagination.page-1 }}</a>
+                <a class="pagination__item pagination__item_link"
+                   href="{{ pagination.createUrl(pagination.page-1) }}">{{ pagination.page }}</a>
+                <span class="pagination__item pagination__item_active">{{ pagination.page+1 }}</span>
+                <a class="pagination__item pagination__item_link"
+                   href="{{ pagination.createUrl(pagination.page+1) }}">{{ pagination.page+2 }}</a>
+                <a class="pagination__item pagination__item_link"
+                   href="{{ pagination.createUrl(pagination.page+2) }}">{{ pagination.page+3 }}</a>
+                <span class="pagination__item">...</span>
+            {% elseif pagination.page > pagination.pageCount-5 %}
+                <span class="pagination__item">...</span>
+                {% for page in pagination.pageCount-5..pagination.pageCount-1 %}
+                    {% if pagination.page+1 == page %}
+                        <span class="pagination__item pagination__item_active">{{ page }}</span>
+                    {% else %}
+                        <a class="pagination__item pagination__item_link"
+                           href="{{ pagination.createUrl(page-1) }}">{{ page }}</a>
+                    {% endif %}
+                {% endfor %}
+            {% else %}
 
-        {% for page in 2..6 %}
-            {% if pagination.page+1 == page %}
-                <span class="pagination__item pagination__item_active">{{ page }}</span>
-            {% else %}
-                <a class="pagination__item pagination__item_link"
-                   href="{{ pagination.createUrl(page-1) }}">{{ page }}</a>
+                {% for page in 2..6 %}
+                    {% if pagination.page+1 == page %}
+                        <span class="pagination__item pagination__item_active">{{ page }}</span>
+                    {% else %}
+                        <a class="pagination__item pagination__item_link"
+                           href="{{ pagination.createUrl(page-1) }}">{{ page }}</a>
+                    {% endif %}
+                {% endfor %}
+                <span class="pagination__item">...</span>
             {% endif %}
-        {% endfor %}
-        <span class="pagination__item">...</span>
+        {% else %}
+            {% for page in 2..pagination.pageCount %}
+                {% if page  < pagination.pageCount %}
+                    {% if pagination.page+1 == page %}
+                        <span class="pagination__item pagination__item_active">{{ page }}</span>
+                    {% else %}
+                        <a class="pagination__item pagination__item_link"
+                           href="{{ pagination.createUrl(page-1) }}">{{ page }}</a>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        {% if pagination.page == pagination.pageCount-1 %}
+            <span class="pagination__item pagination__item_active">{{ pagination.pageCount }}</span>
+        {% else %}
+            <a class="pagination__item pagination__item_link"
+               href="{{ pagination.links.last }}">{{ pagination.pageCount }}</a>
+        {% endif %}
+        <a class="pagination__item pagination__item_link" href="{{ pagination.links.next }}" rel="next">Следующая
+            →</a>
     {% endif %}
-    {% if pagination.page == pagination.pageCount-1 %}
-        <span class="pagination__item pagination__item_active">{{ pagination.pageCount }}</span>
-    {% else %}
-        <a class="pagination__item pagination__item_link"
-           href="{{ pagination.links.last }}">{{ pagination.pageCount }}</a>
-    {% endif %}
-    <a class="pagination__item pagination__item_link" href="{{ pagination.links.next }}" rel="next">Следующая
-        →</a>
 </nav>
