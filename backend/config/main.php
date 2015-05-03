@@ -12,11 +12,14 @@ $params = array_merge(
 );
 
 return [
+    'bootstrap'  => ['debug'],
     'components' => [
-        'db' => $params['db']
+        'db'    => $params['db'],
+        'redis' => $params['components.redis'],
+        'cache' => $params['components.cache']
     ],
     'modules'    => [
-
+        'debug' => 'yii\debug\Module'
     ],
     'params'     => $params
 ];
