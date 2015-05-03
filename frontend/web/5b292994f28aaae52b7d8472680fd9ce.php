@@ -16,7 +16,7 @@ if ($payload['ref'] == 'refs/heads/master') {
         'composer update'      => "cd $root && php composer.phar update --no-dev --prefer-dist",
         'bower'                => "cd $root/frontend/static && bower install",
         'grunt copy'           => "cd $root/frontend/static && grunt copy",
-        'grunt'                => "cd $root/frontend/static && grunt"
+        'grunt'                => "cd $root/frontend/static && grunt publish"
     ];
 
     $date_start = time();
