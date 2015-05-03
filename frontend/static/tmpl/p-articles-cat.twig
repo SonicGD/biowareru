@@ -14,17 +14,20 @@
                          alt="{{ parent.title }}">
                 </a>
             </header>
+            {% if cat.content=='' %}
+                <ul class="files__list">
+                    {% for article in articles %}
+                        <li class="files__item">
+                            <a class="files__link" href="{{ article.publicUrl }}">{{ article.title }}</a>
+                            <br>
 
-            <ul class="files__list">
-                {% for article in articles %}
-                    <li class="files__item">
-                        <a class="files__link" href="{{ article.publicUrl }}">{{ article.title }}</a>
-                        <br>
-
-                        <p>{{ article.announce|raw }}</p>
-                    </li>
-                {% endfor %}
-            </ul>
+                            <p>{{ article.announce|raw }}</p>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                {{ cat.content|raw }}
+            {% endif %}
 
         </article>
         {% include 'b-pagination.twig' %}
