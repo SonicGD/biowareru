@@ -17,31 +17,49 @@ return [
     'bootstrap'           => ['log'],
     'controllerNamespace' => 'biowareru\frontend\controllers',
     'vendorPath'          => dirname(dirname(__DIR__)) . '/vendor',
+    'layout'              => false,
     'components'          => [
         'user'         => [
             'identityClass'   => 'common\models\User',
-            'enableAutoLogin' => true,
+            'enableAutoLogin' => true
         ],
         'log'          => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets'    => [
                 [
                     'class'  => 'yii\log\FileTarget',
-                    'levels' => ['error', 'warning'],
-                ],
-            ],
+                    'levels' => ['error', 'warning']
+                ]
+            ]
         ],
         'errorHandler' => [
-            'errorAction' => 'site/error',
+            'errorAction' => 'site/error'
         ],
         'db'           => $params['db'],
         'request'      => [
             'class'               => \yii\web\Request::className(),
             'cookieValidationKey' => 'somesecretvalidationkey',
             'parsers'             => [
-                'application/json' => 'yii\web\JsonParser',
+                'application/json' => 'yii\web\JsonParser'
             ]
         ],
+        'view'         => [
+            'renderers' => [
+                'twig' => [
+                    'class'     => \yii\twig\ViewRenderer::class,
+                    // set cachePath to false in order to disable template caching
+                    'cachePath' => '@runtime/Twig/cache',
+                    // Array of twig options:
+                    'options'   => [
+                        'auto_reload' => true
+                    ],
+                    'globals'   => [
+                        'user' => 'biowareru\frontend\helpers\UsersHelper'
+                    ]
+                    // ... see ViewRenderer for more options
+                ]
+            ]
+        ]
     ],
-    'params'              => $params,
+    'params'              => $params
 ];

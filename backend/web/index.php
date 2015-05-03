@@ -3,7 +3,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 'on');
 defined('YII_DEBUG') or define('YII_DEBUG', true);
 defined('YII_ENV') or define('YII_ENV', 'prod');
-define('BIOENGINE_PATH', '/var/www/bioengine');
+define('BIOENGINE_PATH', 'D:\Projects/bioengine');
 
 $stdout = fopen('php://stdout', 'w');
 
