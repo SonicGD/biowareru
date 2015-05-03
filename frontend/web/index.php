@@ -2,7 +2,7 @@
 
 defined('YII_DEBUG') or define('YII_DEBUG', true);
 defined('YII_ENV') or define('YII_ENV', 'prod');
-define('BIOENGINE_PATH', 'D:\Projects/bioengine');
+define('BIOENGINE_PATH', __DIR__.'/../../../bioengine');
 
 require(__DIR__ . '/../../override.php');
 require(__DIR__ . '/../../vendor/yiisoft/yii2/Yii.php');
