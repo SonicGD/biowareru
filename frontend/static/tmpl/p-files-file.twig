@@ -2,22 +2,7 @@
 
 {% block content %}
     <div class="article__block">
-      <nav class="breadcrumbs__block">
-        <ul class="breadcrumbs">
-          <li class="breadcrumbs__item">
-            <a class="breadcrumbs__link" href="p-index.html">Главная</a>
-          </li>
-          <li class="breadcrumbs__item">
-            <a class="breadcrumbs__link" href="p-files-index.html">Файлы</a>
-          </li>
-          <li class="breadcrumbs__item">
-            <a class="breadcrumbs__link" href="p-files-game.html">Dragon Age: Inquisition</a>
-          </li>
-          <li class="breadcrumbs__item">
-            Книга «Империя масок» на русском
-          </li>
-        </ul>
-      </nav>
+      {% include 'b-breadcrumbs.twig' %}
       <article class="article">
         <header class="article__header">
           <div>

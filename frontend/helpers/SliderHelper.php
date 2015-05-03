@@ -48,7 +48,7 @@ class SliderHelper
             ],
             'nwn'   => [
                 'title' => 'NeverWinter Nights',
-                'url'   => 'neverwinther_nights'
+                'url'   => 'neverwinter_nights'
             ],
             'me2'   => [
                 'title' => 'Mass Effect 2',

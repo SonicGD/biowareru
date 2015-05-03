@@ -2,125 +2,114 @@
 
 {% block content %}
     <div class="article__block">
-      <nav class="breadcrumbs__block">
-        <ul class="breadcrumbs">
-          <li class="breadcrumbs__item">
-            <a class="breadcrumbs__link" href="p-index.html">Главная</a>
-          </li>
-          <li class="breadcrumbs__item">
-            <a class="breadcrumbs__link" href="p-files-index.html">Файлы</a>
-          </li>
-          <li class="breadcrumbs__item">
-            Dragon Age: Inquisition
-          </li>
-        </ul>
-      </nav>
-      <article class="article">
-        <header class="article__header">
-          <div>
-            <h2 class="article__title">Dragon Age: Inquisition</h2>
-          </div>
-          <a class="article__title-image" href="{{ singleNews.parent.newsUrl }}"
-             title="{{ singleNews.parent.title }}">
-            <img width="150" src="http://assets.bioware.ru/images/games/small/dragon_age_3.png"
-                 alt="{{ singleNews.parent.title }}">
-          </a>
-        </header>
+        {% include 'b-breadcrumbs.twig' %}
+        <article class="article">
+            <header class="article__header">
+                <div>
+                    <h2 class="article__title">Dragon Age: Inquisition</h2>
+                </div>
+                <a class="article__title-image" href="{{ singleNews.parent.newsUrl }}"
+                   title="{{ singleNews.parent.title }}">
+                    <img width="150" src="http://assets.bioware.ru/images/games/small/dragon_age_3.png"
+                         alt="{{ singleNews.parent.title }}">
+                </a>
+            </header>
 
-        <div class="files">
-          <div class="files__cat">
-            <ul class="files__list">
-              <li class="files__item">
-                <h2 class="files__title">
-                  <a class="files__link" href="#">Книги</a>
-                </h2>
-                <ul class="files__list">
-                  <li class="files__item">
-                    <a class="files__link" href="p-files-file.html">Книга «Империя масок» на русском</a><br>
-                    Роман Патрика Уикса «Империя масок» на русском
-                  </li>
-                  <li class="files__item">
-                    <a class="files__link" href="#">Книга «Империя масок» на русском (fb2)</a><br>
-                    Роман Патрика Уикса «Империя масок» на русском (fb2)
-                  </li>
-                  <li class="files__item">
-                    <a class="files__link" href="#">Книга «Последний полет» на русском</a><br>
-                    Роман Лианы Мерсиэль «Последний полет» на русском
-                  </li>
-                  <li class="files__item">
-                    <a class="files__link" href="#">Книга «Последний полет» на русском (epub)</a><br>
-                    Роман Лианы Мерсиэль «Последний полет» на русском
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-
-          <div class="files__cat">
-            <ul class="files__list">
-              <li class="files__item">
-                <h2 class="files__title">
-                  <a class="files__link" href="#">Разное</a>
-                </h2>
-                <ul class="files__list">
-                  <li class="files__item">
-                    <a class="files__link" href="#">Книга «Империя масок» на русском</a><br>
-                    Роман Патрика Уикса «Империя масок» на русском
-                  </li>
-                  <li class="files__item">
-                    <a class="files__link" href="#">Книга «Последний полет» на русском (epub)</a><br>
-                    Роман Лианы Мерсиэль «Последний полет» на русском
-                  </li>
-                  <li class="files__item">
-                    <h3 class="files__title">
-                      <a class="files__link" href="#">Преразное</a>
-                    </h3>
+            <div class="files">
+                <div class="files__cat">
                     <ul class="files__list">
-                      <li class="files__item">
-                        <a class="files__link" href="#">Книга «Империя масок» на русском</a><br>
-                        Роман Патрика Уикса «Империя масок» на русском
-                      </li>
-                      <li class="files__item">
-                        <a class="files__link" href="#">Книга «Последний полет» на русском (epub)</a><br>
-                        Роман Лианы Мерсиэль «Последний полет» на русском
-                      </li>
+                        <li class="files__item">
+                            <h2 class="files__title">
+                                <a class="files__link" href="#">Книги</a>
+                            </h2>
+                            <ul class="files__list">
+                                <li class="files__item">
+                                    <a class="files__link" href="p-files-file.html">Книга «Империя масок» на русском</a><br>
+                                    Роман Патрика Уикса «Империя масок» на русском
+                                </li>
+                                <li class="files__item">
+                                    <a class="files__link" href="#">Книга «Империя масок» на русском (fb2)</a><br>
+                                    Роман Патрика Уикса «Империя масок» на русском (fb2)
+                                </li>
+                                <li class="files__item">
+                                    <a class="files__link" href="#">Книга «Последний полет» на русском</a><br>
+                                    Роман Лианы Мерсиэль «Последний полет» на русском
+                                </li>
+                                <li class="files__item">
+                                    <a class="files__link" href="#">Книга «Последний полет» на русском (epub)</a><br>
+                                    Роман Лианы Мерсиэль «Последний полет» на русском
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-          
-          <div class="files__cat">
-            <ul class="files__list">
-              <li class="files__item">
-                <h2 class="files__title">
-                  <a class="files__link" href="#">Видео/Трейлеры</a>
-                </h2>
-                <ul class="files__list">
-                  <li class="files__item">
-                    <a class="files__link" href="#">Книга «Империя масок» на русском</a><br>
-                    Роман Патрика Уикса «Империя масок» на русском
-                  </li>
-                  <li class="files__item">
-                    <a class="files__link" href="#">Книга «Империя масок» на русском (fb2)</a><br>
-                    Роман Патрика Уикса «Империя масок» на русском (fb2)
-                  </li>
-                  <li class="files__item">
-                    <a class="files__link" href="#">Книга «Последний полет» на русском</a><br>
-                    Роман Лианы Мерсиэль «Последний полет» на русском
-                  </li>
-                  <li class="files__item">
-                    <a class="files__link" href="#">Книга «Последний полет» на русском (epub)</a><br>
-                    Роман Лианы Мерсиэль «Последний полет» на русском
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </div>
+                </div>
 
-      </article>
+                <div class="files__cat">
+                    <ul class="files__list">
+                        <li class="files__item">
+                            <h2 class="files__title">
+                                <a class="files__link" href="#">Разное</a>
+                            </h2>
+                            <ul class="files__list">
+                                <li class="files__item">
+                                    <a class="files__link" href="#">Книга «Империя масок» на русском</a><br>
+                                    Роман Патрика Уикса «Империя масок» на русском
+                                </li>
+                                <li class="files__item">
+                                    <a class="files__link" href="#">Книга «Последний полет» на русском (epub)</a><br>
+                                    Роман Лианы Мерсиэль «Последний полет» на русском
+                                </li>
+                                <li class="files__item">
+                                    <h3 class="files__title">
+                                        <a class="files__link" href="#">Преразное</a>
+                                    </h3>
+                                    <ul class="files__list">
+                                        <li class="files__item">
+                                            <a class="files__link" href="#">Книга «Империя масок» на русском</a><br>
+                                            Роман Патрика Уикса «Империя масок» на русском
+                                        </li>
+                                        <li class="files__item">
+                                            <a class="files__link" href="#">Книга «Последний полет» на русском
+                                                (epub)</a><br>
+                                            Роман Лианы Мерсиэль «Последний полет» на русском
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="files__cat">
+                    <ul class="files__list">
+                        <li class="files__item">
+                            <h2 class="files__title">
+                                <a class="files__link" href="#">Видео/Трейлеры</a>
+                            </h2>
+                            <ul class="files__list">
+                                <li class="files__item">
+                                    <a class="files__link" href="#">Книга «Империя масок» на русском</a><br>
+                                    Роман Патрика Уикса «Империя масок» на русском
+                                </li>
+                                <li class="files__item">
+                                    <a class="files__link" href="#">Книга «Империя масок» на русском (fb2)</a><br>
+                                    Роман Патрика Уикса «Империя масок» на русском (fb2)
+                                </li>
+                                <li class="files__item">
+                                    <a class="files__link" href="#">Книга «Последний полет» на русском</a><br>
+                                    Роман Лианы Мерсиэль «Последний полет» на русском
+                                </li>
+                                <li class="files__item">
+                                    <a class="files__link" href="#">Книга «Последний полет» на русском (epub)</a><br>
+                                    Роман Лианы Мерсиэль «Последний полет» на русском
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </article>
 
     </div>
 {% endblock %}
