@@ -1,6 +1,6 @@
 <?php
 defined('BW_ROOT') or define('BW_ROOT', realpath(__DIR__ . '/../../'));
-return [
+$config = [
     'db'                     => require_once('db.php'),
     'site_url'               => 'http://bw.localhost.ru',
     'admin_url'              => 'http://admin.bioware.ru',
@@ -42,5 +42,13 @@ return [
     'components.cache'       => [
         'class'     => \yii\redis\Cache::className(),
         'keyPrefix' => 'cgcache',
-    ],
+    ]
 ];
+
+if (file_exists(__DIR__ . '/params.local.php')) {
+    $config = array_merge(
+        $config,
+        require(__DIR__ . '/params.local.php')
+    );
+}
+return $config;
