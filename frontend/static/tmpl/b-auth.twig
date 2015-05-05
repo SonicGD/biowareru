@@ -1,0 +1,12 @@
+{% if user %}
+    <div class="auth auth_sign-in">
+        <a href="#"><span class="auth__userpic" style="background-image: url('{{ user.avatarUrl }}')"></span></a>
+        <a class="auth__username" href="{{ user.profileUrl }}">{{ user.members_display_name }}</a>
+        <a class="auth__exit" href="{{ user.logoutUrl }}">Выход</a>
+    </div>
+{% else %}
+    <div class="auth">
+        <button class="auth__login"><span class="auth__text">Войти</span></button>
+        <a class="auth__reg" href="#"><span class="auth__text">Регистрация</span></a>
+    </div>
+{% endif %}

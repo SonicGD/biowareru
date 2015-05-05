@@ -7,13 +7,7 @@
     <button class="skin__item skin__item_soft" data-name="soft"
             title="Soft and delicate shade or colors"></button>
 </div>
-<div class="auth">
-    <button class="auth__login"><span class="auth__text">Войти</span></button>
-    <a class="auth__reg" href="#"><span class="auth__text">Регистрация</span></a>
-    <a href="#"><span class="auth__userpic" style="background-image: url('/img/user.jpg')"></span></a>
-    <a class="auth__username" href="#">Sonic GD=)</a>
-    <a class="auth__exit" href="#">Выход</a>
-</div>
+{% include 'b-auth.twig' with {"user":user.getUser} %}
 <div class="sidebar__content-wrp">
     <form class="search">
         <input class="search__input" type="search" placeholder="Поиск"/>

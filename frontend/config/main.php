@@ -20,7 +20,7 @@ return [
     'layout'              => false,
     'components'          => [
         'user'         => [
-            'identityClass'   => 'common\models\User',
+            'identityClass'   => \bioengine\common\modules\ipb\models\IpbMember::class,
             'enableAutoLogin' => true
         ],
         'log'          => [

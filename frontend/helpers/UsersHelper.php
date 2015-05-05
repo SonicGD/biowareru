@@ -4,6 +4,7 @@ namespace biowareru\frontend\helpers;
 
 
 use bioengine\common\helpers\UserHelper;
+use yii\helpers\Url;
 
 class UsersHelper
 {
@@ -19,5 +20,10 @@ class UsersHelper
         }
 
         return null;
+    }
+
+    public static function getLoginUrl()
+    {
+        return Url::toRoute(['site/login']);
     }
 }

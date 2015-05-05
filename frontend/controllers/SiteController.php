@@ -18,7 +18,6 @@ class SiteController extends \bioengine\frontend\controllers\SiteController
 
     public function actionIndex()
     {
-        //var_dump(\Yii::$app->request->cookies);die();
         $newsQuery = News::find()->orderBy([
             'sticky' => SORT_DESC,
             'id'     => SORT_DESC
@@ -149,5 +148,10 @@ class SiteController extends \bioengine\frontend\controllers\SiteController
             ->limit($pagination->limit)->all();
 
         return $this->render('@app/static/tmpl/p-index.twig', ['news' => $news, 'pagination' => $pagination]);
+    }
+
+    public function actionLogin()
+    {
+
     }
 } 
