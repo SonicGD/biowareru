@@ -2000,5 +2000,32 @@
         "url": "jade_empire"
       }
     }
+  },
+  "polls": {
+    "current": {
+      "question": "Вопрос",
+      "voted": false,
+      "optionsArr": [
+        {
+          "id": 1,
+          "text": "Ответ 1"
+        },
+        {
+          "id": 2,
+          "text": "Ответ 2"
+        },
+        {
+          "id": 3,
+          "text": "Ответ 3"
+        }
+      ],
+      "votesArr": [
+        1,
+        2,
+        3
+      ],
+      "multiple": false,
+      "voteUrl": "#"
+    }
   }
 }
