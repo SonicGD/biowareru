@@ -2004,7 +2004,7 @@
   "polls": {
     "current": {
       "question": "Вопрос",
-      "voted": false,
+      "voted": true,
       "optionsArr": [
         {
           "id": 1,
