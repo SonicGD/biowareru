@@ -1,0 +1,16 @@
+{{ html.beginForm(poll.voteUrl)|raw }}
+<fieldset class="sidebar__poll-fieldset">
+    {% for opt in poll.optionsArr %}
+        <label class="sidebar__poll-item">
+            {% if poll.multiple %}
+                <input type="checkbox" name="vote[{{ opt.id }}]"
+                       value="{{ opt.id }}" id="opt_{{ opt.id }}"/>
+            {% else %}
+                <input type="radio" name="vote" value="{{ opt.id }}" id="opt_{{ opt.id }}"/>
+            {% endif %}
+            {{ opt.text }}</label>
+    {% endfor %}
+
+</fieldset>
+<button class="sidebar__poll-submit">Голосовать</button>
+{{ html.endForm()|raw }}

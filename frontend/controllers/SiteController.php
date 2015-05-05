@@ -18,6 +18,7 @@ class SiteController extends \bioengine\frontend\controllers\SiteController
 
     public function actionIndex()
     {
+        //var_dump(\Yii::$app->request->cookies);die();
         $newsQuery = News::find()->orderBy([
             'sticky' => SORT_DESC,
             'id'     => SORT_DESC

@@ -1,0 +1,12 @@
+<div class="sidebar__poll">
+    <h3 class="sidebar__poll-title">
+        <span class="upper">ОПРОС</span><br/>
+        {{ polls.current.question }}
+    </h3>
+    {% if polls.current.voted %}
+        {% include 'b-poll-voted.twig' with {'poll':polls.current} %}
+    {% else %}
+        {% include 'b-poll-form.twig' with {'poll':polls.current} %}
+    {% endif %}
+
+</div>

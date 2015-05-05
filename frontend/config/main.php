@@ -57,7 +57,9 @@ return [
                         'production' => true,
                         'user'       => 'biowareru\frontend\helpers\UsersHelper',
                         'menu'       => 'biowareru\frontend\helpers\MenuHelper',
-                        'slider'     => 'biowareru\frontend\helpers\SliderHelper'
+                        'slider'     => 'biowareru\frontend\helpers\SliderHelper',
+                        'polls'      => 'biowareru\frontend\helpers\PollsHelper',
+                        'html'       => '\yii\helpers\Html'
                     ]
                     // ... see ViewRenderer for more options
                 ]
