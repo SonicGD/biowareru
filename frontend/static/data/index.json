@@ -2027,5 +2027,15 @@
       "multiple": false,
       "voteUrl": "#"
     }
+  },
+  "user": {
+    /* "getUser": {
+       "avatarUrl": "#",
+       "members_display_name": "User",
+       "profileUrl": "#",
+       "logoutUrl": "#"
+     },*/
+    "getUser": false,
+    "getLoginUrl": "/site/login.html"
   }
 }
