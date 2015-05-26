@@ -36,7 +36,7 @@
 
 
     <footer class="article-list__footer">
-        {% if item.hasMore %}
+        {% if item.hasMore and full != true %}
             <a class="article-list__morelink" href="{{ item.publicUrl }}">Подробнее</a>
         {% endif %}
 
