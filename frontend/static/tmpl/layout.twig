@@ -3,7 +3,7 @@
 <head lang="en">
     <meta charset="UTF-8">
     <meta name="vievport" content="width=device-width"/>
-    <title>{{ this.pageTitle }}</title>
+    <title>{{ bioHtml.entDecode(this.context.pageTitle)|raw }}</title>
     {% if production == true %}
         <link rel="stylesheet" href="/css/min/style_default.css" id="stylesheet">
     {% else %}

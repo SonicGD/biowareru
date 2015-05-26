@@ -7,7 +7,7 @@
             <header class="article__header">
                 <div>
                     <h1 class="article__title">
-                        {{ cat.title }}
+                        {{ cat.title|raw }}
                     </h1>
                 </div>
                 <a class="article-list__title-image" href="{{ parent.publicUrl }}"

@@ -6,7 +6,7 @@
         <article class="article">
             <header class="article__header">
                 <div>
-                    <h2 class="article__title">{{ cat.title }}</h2>
+                    <h2 class="article__title">{{ cat.title|raw }}</h2>
                 </div>
                 <a class="article-list__title-image" href="{{ parent.publicUrl }}"
                    title="{{ parent.title }}">

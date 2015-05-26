@@ -1,7 +1,7 @@
 <div class="sidebar__poll">
     <h3 class="sidebar__poll-title">
         <span class="upper">ОПРОС</span><br/>
-        {{ polls.current.question }}
+        {{ polls.current.question|raw }}
     </h3>
     {% if polls.current.voted %}
         {% include 'b-poll-voted.twig' with {'poll':polls.current} %}

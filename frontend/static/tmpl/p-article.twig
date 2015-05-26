@@ -7,7 +7,7 @@
             <header class="article__header">
                 <div>
                     <h1 class="article__title">
-                        {{ article.title }}
+                        {{ article.title|raw }}
                     </h1>
                     <span class="article__date"> {{ article.author.members_display_name }},</span>
                     <time class="article__date" datetime="">{{ article.date|date("d.m.Y H:i:s") }}</time>

@@ -5,12 +5,12 @@
                 {% if full==true %}
                     {% if item.sticky %}
                         Важно!
-                    {% endif %} {{ item.title }}
+                    {% endif %} {{ item.title|raw }}
                 {% else %}
                     <a class="article-list__permalink" href="{{ item.publicUrl }}">
                         {% if item.sticky %}
                             Важно!
-                        {% endif %} {{ item.title }}
+                        {% endif %} {{ item.title|raw }}
                     </a>
                 {% endif %}
 

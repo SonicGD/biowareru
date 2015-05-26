@@ -87,10 +87,15 @@ class ArticlesController extends IndexController
             return $this->showCat($parentUrl, $catUrl . '/' . $articleUrl);
         }
 
+        /**
+         * @var Article $article
+         */
         $article = Article::find()->where(['cat_id' => $cat->id, 'url' => $articleUrl, 'pub' => 1])->one();
         if (!$article) {
             throw new NotFoundHttpException;
         }
+
+        $this->pageTitle=$article->title;
 
         $parentCat = $cat->parent;
         while ($parentCat) {

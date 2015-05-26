@@ -6,6 +6,8 @@
  * Time: 11:37
  */
 
+use biowareru\frontend\helpers\BioHtml;
+
 $params = array_merge(
     require(__DIR__ . '/../../common/config/params.php'),
     require(__DIR__ . '/params.php')
@@ -59,7 +61,8 @@ return [
                         'menu'       => 'biowareru\frontend\helpers\MenuHelper',
                         'slider'     => 'biowareru\frontend\helpers\SliderHelper',
                         'polls'      => 'biowareru\frontend\helpers\PollsHelper',
-                        'html'       => '\yii\helpers\Html'
+                        'html'       => '\yii\helpers\Html',
+                        'bioHtml'    => BioHtml::class
                     ]
                     // ... see ViewRenderer for more options
                 ]
