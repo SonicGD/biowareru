@@ -63,7 +63,13 @@
             <a class="pagination__item pagination__item_link"
                href="{{ pagination.links.last }}">{{ pagination.pageCount }}</a>
         {% endif %}
-        <a class="pagination__item pagination__item_link" href="{{ pagination.links.next }}" rel="next">Следующая
-            →</a>
+        {% if pagination.page < pagination.pageCount-1 %}
+            <a class="pagination__item pagination__item_link" href="{{ pagination.links.next }}" rel="next">Следующая
+                →</a>
+        {% else %}
+            <span class="pagination__item pagination__item_disabled">Следующая
+                →</span>
+        {% endif %}
+
     {% endif %}
 </nav>
