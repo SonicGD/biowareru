@@ -1,10 +1,10 @@
-{% set multiple = 1/(poll.optionsArr[0].result) %}
-{% for opt in poll.optionsArr %}
+{% set multiple = 1/(poll.results[0].result) %}
+{% for opt in poll.results %}
     {% if  (1/(opt.result) < multiple) %}
         {% set multiple = 1/(opt.result) %}
     {% endif %}
 {% endfor %}
-{% for opt in poll.optionsArr %}
+{% for opt in poll.results %}
     <div class="sidebar__poll-result-item">
         {{ opt.text }} <br/>
         <span class="sidebar__result-number">{{ opt.result * 100 }}%</span>
