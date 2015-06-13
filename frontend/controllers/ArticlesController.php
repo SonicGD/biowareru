@@ -8,6 +8,7 @@ use bioengine\common\modules\articles\controllers\frontend\IndexController;
 use bioengine\common\modules\articles\models\Article;
 use bioengine\common\modules\articles\models\ArticleCat;
 use yii\data\Pagination;
+use yii\web\HttpException;
 use yii\web\NotFoundHttpException;
 
 class ArticlesController extends IndexController
@@ -21,7 +22,7 @@ class ArticlesController extends IndexController
 
     private function showCat($parentUrl, $catUrl)
     {
-        $parent = BioEngine::getParentByUrl($parentUrl);
+        $parent = BioEngine::ParentByUrl($parentUrl);
         if (!$parent) {
             throw new NotFoundHttpException;
         }
@@ -69,33 +70,12 @@ class ArticlesController extends IndexController
 
     public function actionShow($parentUrl, $catUrl, $articleUrl)
     {
-        $parent = BioEngine::getParentByUrl($parentUrl);
-        if (!$parent) {
-
-            throw new NotFoundHttpException;
-        }
-
-        $catUrlParts = explode('/', $catUrl);
-        $url = end($catUrlParts);
-        /**
-         * @var ArticleCat $cat
-         */
-        $cat = ArticleCat::find()->where(['url' => $url, $parent->parentKey => $parent->id])->one();
-
-        if (!$cat) {
-
-            return $this->showCat($parentUrl, $catUrl . '/' . $articleUrl);
-        }
-
-        /**
-         * @var Article $article
-         */
-        $article = Article::find()->where(['cat_id' => $cat->id, 'url' => $articleUrl, 'pub' => 1])->one();
+        list($article, $parent, $cat) = Article::getByParent($parentUrl, $catUrl, $articleUrl);
         if (!$article) {
-            throw new NotFoundHttpException;
+            throw new HttpException(404, 'Страница не найдена');
         }
 
-        $this->pageTitle=$article->title;
+        $this->pageTitle = $article->title;
 
         $parentCat = $cat->parent;
         while ($parentCat) {

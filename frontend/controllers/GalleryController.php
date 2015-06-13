@@ -30,7 +30,7 @@ class GalleryController extends \bioengine\common\modules\gallery\controllers\fr
         $picsQuery = GalleryPic::find()->orderBy([
             'id' => SORT_DESC
         ])->where(['pub' => 1, 'cat_id' => $cat->id]);
-        $pagination = new Pagination(['totalCount' => $picsQuery->count(), 'pageSize' => 24]);
+        $pagination = new Pagination(['totalCount' => $picsQuery->count(), 'pageSize' => GalleryCat::PICS_ON_PAGE]);
 
         $pics = $picsQuery->offset($pagination->offset)
             ->limit($pagination->limit)->all();

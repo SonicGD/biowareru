@@ -7,6 +7,7 @@
  */
 
 use biowareru\frontend\helpers\BioHtml;
+use biowareru\frontend\helpers\ContentHelper;
 
 $params = array_merge(
     require(__DIR__ . '/../../common/config/params.php'),
@@ -68,7 +69,8 @@ return [
                         'slider'     => 'biowareru\frontend\helpers\SliderHelper',
                         'polls'      => 'biowareru\frontend\helpers\PollsHelper',
                         'html'       => '\yii\helpers\Html',
-                        'bioHtml'    => BioHtml::class
+                        'bioHtml'    => BioHtml::class,
+                        'content'    => ContentHelper::class
                     ]
                     // ... see ViewRenderer for more options
                 ]

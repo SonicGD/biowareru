@@ -10,7 +10,6 @@ use bioengine\common\modules\files\models\FileCat;
 use bioengine\common\modules\gallery\models\GalleryCat;
 use bioengine\common\modules\main\models\Game;
 use bioengine\common\modules\news\models\News;
-use bioengine\common\modules\news\NewsModule;
 use bioengine\frontend\components\Controller;
 use biowareru\frontend\search\models\ArticlesCatSearch;
 use biowareru\frontend\search\models\ArticlesSearch;
@@ -23,7 +22,6 @@ use yii\data\Pagination;
 use yii\db\Expression;
 use yii\helpers\Url;
 use yii\sphinx\ActiveRecord;
-use yii\web\Response;
 
 class SearchController extends Controller
 {

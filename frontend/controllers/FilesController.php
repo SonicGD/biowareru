@@ -126,26 +126,7 @@ class FilesController extends IndexController
      */
     private function getFile($parentUrl, $catUrl, $fileUrl)
     {
-        $parent = BioEngine::getParentByUrl($parentUrl);
-        if (!$parent) {
-
-            throw new NotFoundHttpException;
-        }
-
-        $catUrlParts = explode('/', $catUrl);
-        $url = end($catUrlParts);
-        /**
-         * @var FileCat $cat
-         */
-        $cat = FileCat::find()->where(['url' => $url, $parent->parentKey => $parent->id])->one();
-
-        if (!$cat) {
-
-            throw new NotFoundHttpException;
-        }
-
-        $file = File::find()->where(['cat_id' => $cat->id, 'url' => $fileUrl])->one();
-
+        list($file, $parent, $cat) = File::getByParent($parentUrl, $catUrl, $fileUrl);
         return [$parent, $cat, $file];
     }
 

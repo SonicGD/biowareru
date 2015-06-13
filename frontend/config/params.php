@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'baseControllerNamespace' => 'bioengine\backend\controllers'
+    'baseControllerNamespace' => 'bioengine\frontend\controllers'
 ];

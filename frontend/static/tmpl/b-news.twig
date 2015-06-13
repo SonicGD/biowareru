@@ -28,7 +28,7 @@
          src="http://ic.pics.livejournal.com/jeff_kari/1668669/428515/428515_original.jpg">-->
 
     <div class="b-text">
-        {{ item.short_text|raw }}
+        {{ content.replacePlaceholders(item.short_text)|raw }}
         {% if full==true %}
             {{ item.add_text|raw }}
         {% endif %}
