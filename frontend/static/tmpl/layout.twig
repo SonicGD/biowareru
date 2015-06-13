@@ -2,8 +2,9 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <meta name="vievport" content="width=device-width"/>
-    <title>{{ bioHtml.entDecode(this.context.pageTitle)|raw }}</title>
+    <meta name="viewport" content="width=device-width"/>
+    <title>{{ this.context.encodedTitle|raw }}</title>
+
     {% if production == true %}
         <link rel="stylesheet" href="/css/min/style_default.css" id="stylesheet">
     {% else %}
