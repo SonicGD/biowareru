@@ -73,13 +73,13 @@ class SearchController extends Controller
             'groups' => []
         ];
 
-        /* if (!$block || $block === 'games') {
-             $count = 0;
-             $limit = $block ? 0 : 5;
-             $games = $this->getModels(GamesSearch::class, Game::class, $q, $count, $limit);
-             $this->fillSearchResults($results, 'games', 'Игры', $games, 'title', 'publicUrl', 'news_desc',
-                 $count);
-         }*/
+        if (!$block || $block === 'games') {
+            $count = 0;
+            $limit = $block ? 0 : 5;
+            $games = $this->getModels(GamesSearch::class, Game::class, $q, $count, $limit);
+            $this->fillSearchResults($results, 'games', 'Игры', $games, 'title', 'publicUrl', 'news_desc',
+                $count);
+        }
 
         if (!$block || $block === 'news') {
             $count = 0;
