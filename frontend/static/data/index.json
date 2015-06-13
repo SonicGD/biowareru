@@ -2004,7 +2004,7 @@
   "polls": {
     "current": {
       "question": "Вопрос",
-      "voted": true,
+      "voted": false,
       "optionsArr": [
         {
           "id": 1,
@@ -2033,7 +2033,7 @@
         {
           "id": 3,
           "text": "Ответ 3",
-          "result": 0.2
+          "result": 0.222
         }
       ],
       "multiple": false,

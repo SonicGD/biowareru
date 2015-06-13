@@ -3,14 +3,14 @@
     {% for opt in poll.optionsArr %}
         <label class="sidebar__poll-item">
             {% if poll.multiple %}
-                <input type="checkbox" name="vote[{{ opt.id }}]"
+                <input class="sidebar__poll-input" type="checkbox" name="vote[{{ opt.id }}]"
                        value="{{ opt.id }}" id="opt_{{ opt.id }}"/>
             {% else %}
-                <input type="radio" name="vote" value="{{ opt.id }}" id="opt_{{ opt.id }}"/>
+                <input class="sidebar__poll-input" type="radio" name="vote" value="{{ opt.id }}" id="opt_{{ opt.id }}"/>
             {% endif %}
             {{ opt.text }}</label>
     {% endfor %}
 
 </fieldset>
-<button class="sidebar__poll-submit">Голосовать</button>
+<button class="sidebar__poll-submit" disabled>Голосовать</button>
 {{ html.endForm()|raw }}

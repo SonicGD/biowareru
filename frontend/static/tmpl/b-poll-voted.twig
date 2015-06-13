@@ -5,9 +5,11 @@
     {% endif %}
 {% endfor %}
 {% for opt in poll.results %}
-    <div class="sidebar__poll-result-item">
-        {{ opt.text }} <br/>
-        <span class="sidebar__result-number">{{ opt.result * 100 }}%</span>
-        <div class="sidebar__poll-bar" style="width: {{ opt.result * 100 * multiple }}%"></div>
+    <div>
+        {{ opt.text }}
+        <div class="sidebar__poll-result-item">
+            <span class="sidebar__result-number">{{ opt.result * 100 }}%</span>
+            <div class="sidebar__poll-bar" style="width: {{ opt.result * 100 * multiple }}%"></div>
+        </div>
     </div>
 {% endfor %}
