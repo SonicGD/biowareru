@@ -63,14 +63,14 @@
                         {% for news in game.lastNews %}
                             <p><a href="{{ news.publicUrl }}">{{ news.title }}</a></p>
                         {% endfor %}
-                        <p><a href="{{ game.newsUrl }}">Все новости</a></p>
+                        <p class="game-info__all"><a href="{{ game.newsUrl }}">Все новости</a></p>
                     </div>
                     <div class="game-info__links">
                         <h3>Последние файлы:</h3>
                         {% for file in game.lastFiles %}
                             <p><a href="{{ file.publicUrl }}">{{ file.title }}</a></p>
                         {% endfor %}
-                        <p><a href="{{ game.filesUrl }}">Все файлы</a></p>
+                        <p class="game-info__all"><a href="{{ game.filesUrl }}">Все файлы</a></p>
                     </div>
                 </div>
 
@@ -80,16 +80,18 @@
                         {% for article in game.lastArticles %}
                             <p><a href="{{ article.publicUrl }}">{{ article.title }}</a></p>
                         {% endfor %}
-                        <p><a href="{{ game.articlesUrl }}">Все статьи</a></p>
+                        <p class="game-info__all"><a href="{{ game.articlesUrl }}">Все статьи</a></p>
                     </div>
                     <div class="game-info__links">
                         <h3>Последнее в галерее:</h3>
-                        {% for pic in game.lastPics %}
-                            <a href="{{ pic.cat.publicUrl }}"><img
-                                        src="{{ pic.getThumbUrl(115,115) }}"
-                                        alt=""/></a>
-                        {% endfor %}
-                        <p><a href="{{ game.galleryUrl }}">Все картинки</a></p>
+                        <div>
+                            {% for pic in game.lastPics %}
+                                <a href="{{ pic.cat.publicUrl }}"><img
+                                            src="{{ pic.getThumbUrl(115,115) }}"
+                                            alt=""/></a>
+                            {% endfor %}
+                        </div>
+                        <p class="game-info__all"><a href="{{ game.galleryUrl }}">Все картинки</a></p>
                     </div>
                 </div>
 

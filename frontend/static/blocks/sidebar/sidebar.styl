@@ -41,14 +41,16 @@
   transition all 300ms ease-out
   &:hover
     background-color $linkColorHover
+  &:disabled
+    background-color $sidebarButton
+    cursor default
 .sidebar__result-number
   float right
   font-weight bold
-  margin-right -2.5rem
+  margin-right -3.75rem
 .sidebar__poll-result-item
   clearfix()
-  margin-right 2rem
-  margin-bottom 1rem
+  margin 0.3rem 3.25rem 1rem 0
 .sidebar__poll-bar
   display inline-block
   box-sizing border-box
