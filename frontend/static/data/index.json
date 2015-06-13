@@ -2131,22 +2131,26 @@
   },
   "searchResultsCat": {
     "query": "dragon",
-    "title": "Игры",
-    "items": [
+    "groups": [
       {
-        "title": "Dragon Age: Начало",
-        "url": "/dragon_age.html",
-        "text": "<p>asdasd</p>\r\n"
-      },
-      {
-        "title": "Dragon Age II",
-        "url": "/dragon_age_2.html",
-        "text": ""
-      },
-      {
-        "title": "Dragon Age: Inquisition",
-        "url": "/dragon_age_inquisition.html",
-        "text": ""
+        "title": "Игры",
+        "items": [
+          {
+            "title": "Dragon Age: Начало",
+            "url": "/dragon_age.html",
+            "text": "<p>asdasd</p>\r\n"
+          },
+          {
+            "title": "Dragon Age II",
+            "url": "/dragon_age_2.html",
+            "text": ""
+          },
+          {
+            "title": "Dragon Age: Inquisition",
+            "url": "/dragon_age_inquisition.html",
+            "text": ""
+          }
+        ]
       }
     ],
     "url": "/search/index.html?q=dragon"

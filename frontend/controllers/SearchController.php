@@ -9,8 +9,10 @@ use bioengine\common\modules\files\models\search\FileCatSearch;
 use bioengine\common\modules\files\models\search\FileSearch;
 use bioengine\common\modules\gallery\models\search\GalleryCatSearch;
 use bioengine\common\modules\main\models\search\GameSearch;
-use bioengine\common\modules\news\models\search\NewsSearch;
+//use bioengine\common\modules\news\models\search\NewsSearch;
+use bioengine\common\modules\news\models\News;
 use bioengine\frontend\components\Controller;
+use biowareru\frontend\search\models\NewsSearch;
 use yii\helpers\Url;
 use yii\web\Response;
 
@@ -27,22 +29,23 @@ class SearchController extends Controller
             $gameSearch = new GameSearch();
             $gameResults = $gameSearch->search(['GameSearch' => ['title' => $q]]);
 
-            $this->fillSearchResults($results, 'games', 'Игры', $gameResults, 'title', 'publicUrl', 'news_desc',
+            $this->fillSearchResults($results, 'games', 'Игры', $gameResults->models, 'title', 'publicUrl', 'news_desc',
                 $block ? 0 : 5);
         }
 
         if (!$block || $block === 'news') {
-            $newsSearch = new NewsSearch();
-            $newsResults = $newsSearch->search(['NewsSearch' => ['title' => $q, 'short_text' => $q, 'add_text' => $q]]);
+            $query = NewsSearch::find()->select('id')->match($q)->indexBy('id')->asArray();
+            $newsResults = array_keys($query->all());
+            $news = News::find()->where(['id' => $newsResults])->all();
 
-            $this->fillSearchResults($results, 'news', 'Новости', $newsResults, 'title', 'publicUrl', 'short_text',
+            $this->fillSearchResults($results, 'news', 'Новости', $news, 'title', 'publicUrl', 'short_text',
                 $block ? 0 : 5);
         }
         if (!$block || $block === 'articles') {
             $articlesSearch = new ArticleSearch();
             $articlesResults = $articlesSearch->search(['ArticleSearch' => ['title' => $q, 'text' => $q]]);
 
-            $this->fillSearchResults($results, 'articles', 'Статьи', $articlesResults, 'title', 'publicUrl',
+            $this->fillSearchResults($results, 'articles', 'Статьи', $articlesResults->models, 'title', 'publicUrl',
                 'announce', $block ? 0 : 5);
         }
 
@@ -56,7 +59,8 @@ class SearchController extends Controller
             $filesSearch = new FileSearch();
             $filesResults = $filesSearch->search(['FileSearch' => ['title' => $q, 'desc' => $q, 'announce' => $q]]);
 
-            $this->fillSearchResults($results, 'files', 'Файлы', $filesResults, 'title', 'publicUrl', 'announce',
+            $this->fillSearchResults($results, 'files', 'Файлы', $filesResults->models, 'title', 'publicUrl',
+                'announce',
                 $block ? 0 : 5);
         }
 
@@ -70,43 +74,46 @@ class SearchController extends Controller
             $galleryCatResults = $galleryCatSearch->search(['GalleryCatSearch' => ['title' => $q, 'content' => $q]]);
         }
 
-       /* \Yii::$app->response->format = Response::FORMAT_JSON;
-        return $results;*/
-
-        return $this->render('@app/static/tmpl/p-search.twig', ['searchResults' => $results]);
+//        var_dump(count($results['groups']['news']));
+        /* \Yii::$app->response->format = Response::FORMAT_JSON;
+         return $results;*/
+        if ($block) {
+            $results['url'] = Url::toRoute(['search/index', 'q' => $results['query']]);
+            return $this->render('@app/static/tmpl/p-search-cat.twig', ['searchResultsCat' => $results]);
+        } else {
+            return $this->render('@app/static/tmpl/p-search.twig', ['searchResults' => $results]);
+        }
     }
 
     private function fillSearchResults(
         &$results,
         $key,
         $title,
-        $provider,
+        $models,
         $titleField,
         $urlField,
         $textField,
         $limit = 5
     ) {
-        if ($provider->count > 0) {
-            $result = [
-                'title' => $title,
-                'items' => [],
-                'url'   => Url::toRoute(['search/index', 'q' => $results['query'], 'block' => $key])
+        $result = [
+            'title' => $title,
+            'items' => [],
+            'url'   => Url::toRoute(['search/index', 'q' => $results['query'], 'block' => $key])
+        ];
+        $itemsCount = 0;
+        foreach ($models as $game) {
+            $item = [
+                'title' => $game->$titleField,
+                'url'   => $game->$urlField,
+                'text'  => $game->$textField
             ];
-            $itemsCount = 0;
-            foreach ($provider->models as $game) {
-                $item = [
-                    'title' => $game->$titleField,
-                    'url'   => $game->$urlField,
-                    'text'  => $game->$textField
-                ];
-                $result['items'][] = $item;
-                $itemsCount++;
-                if ($limit > 0 && $itemsCount === $limit) {
-                    break;
-                }
+            $result['items'][] = $item;
+            $itemsCount++;
+            if ($limit > 0 && $itemsCount === $limit) {
+                break;
             }
-            $results['groups'][] = $result;
         }
+        $results['groups'][] = $result;
     }
 
 }

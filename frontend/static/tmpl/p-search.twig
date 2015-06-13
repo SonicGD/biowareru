@@ -23,7 +23,7 @@
                           <p class="search-page__desc">{{ res.text | striptags | slice(0, 250) }}</p>
                         </div>
                     {% endfor %}
-                    {% set moreItems = cat.items.length - MAX_ITEMS_IN_CAT %}
+                    {% set moreItems = cat.items|length - MAX_ITEMS_IN_CAT %}
                     {% if moreItems > 0 %}
                         <a class="search-page__more-link" href="{{ cat.url }}">+ ещё {{ moreItems }}</a>
                     {% endif %}

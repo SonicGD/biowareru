@@ -25,6 +25,12 @@ return [
             'identityClass'   => \bioengine\common\modules\ipb\models\IpbMember::class,
             'enableAutoLogin' => true
         ],
+        'sphinx'       => [
+            'class'    => 'yii\sphinx\Connection',
+            'dsn'      => 'mysql:host=127.0.0.1;port=9306;',
+            'username' => '',
+            'password' => ''
+        ],
         'log'          => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets'    => [

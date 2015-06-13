@@ -20,7 +20,8 @@
     "sonicgd/bioengine": "*",
     "bower-asset/jquery-ui": "~1.11@dev",
     "yiisoft/yii2-redis": "~2.0.3",
-    "yiisoft/yii2-twig": "~2.0.3"
+    "yiisoft/yii2-twig": "~2.0.3",
+    "yiisoft/yii2-sphinx": "^2.0@dev"
   },
   "require-dev": {
     "yiisoft/yii2-gii": "*",
