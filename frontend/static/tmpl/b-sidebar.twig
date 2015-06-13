@@ -9,10 +9,7 @@
 </div>
 {% include 'b-auth.twig' with {"user":user.getUser} %}
 <div class="sidebar__content-wrp">
-    <form class="search">
-        <input class="search__input" type="search" placeholder="Поиск"/>
-        <button class="search__magnifier" type="submit"></button>
-    </form>
+    {% include 'b-search.twig' %}
     <div class="sidebar__image">
         <img src="http://www.bioware.ru/images/donate_2.png" alt="banner"/>
     </div>
