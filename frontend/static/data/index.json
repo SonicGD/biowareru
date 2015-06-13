@@ -2066,5 +2066,237 @@
     },
     "date": "0",
     "text": "Text"
+  },
+  "searchResults": {
+    "games": {
+      "title": "Игры",
+      "items": [
+        {
+          "title": "Dragon Age: Начало",
+          "url": "/dragon_age.html",
+          "text": "<p>asdasd</p>\r\n"
+        },
+        {
+          "title": "Dragon Age II",
+          "url": "/dragon_age_2.html",
+          "text": ""
+        },
+        {
+          "title": "Dragon Age: Inquisition",
+          "url": "/dragon_age_inquisition.html",
+          "text": ""
+        }
+      ]
+    },
+    "news": {
+      "title": "Новости",
+      "items": [
+        {
+          "title": "Dragon Age: Inquisition — Первые подробности кооперативного мультиплеера",
+          "url": "/2014/08/27/dragon_age_inquisition_co_op_multiplayer.html",
+          "text": "<p style=\"text-align:center\">\r\n     <img src=\"http://www.bioware.ru/images/da3/dai_co-op.jpg\" style=\"width:600px;height:180px\" />\r\n</p>\r\n<p>\r\n     В кооперативном режиме <strong>Dragon Age: Inquisition</strong> команда может включать до 4 игроков любого класса. На момент выпуска игры будет доступно 3 уникальные сюжетные кампании, 9 персонажей — по 3 на каждый класс. Игроку предоставляется возможность выбирать пол, расу и кастомизировать внешность вашего персонажа. Также персонажи будут разговаривать между собой в бою. Команда будет проходить через случайно сгенерированные локации, сражаясь со случайно сгенерированными врагами.\r\n</p>\r\n<p>\r\n     Мы работаем на Инквизитора, являемся частью его армии и выполняем для него задачи. Мультиплеер никак не связан с основной игрой: никакого влияния на сюжет, никаких \"очков боеготовности\" как в <strong><a href=\"http://www.bioware.ru/mass_effect_3/news/\">Mass Effect 3</a></strong>.\r\n</p>\r\n<p style=\"text-align:center\">\r\n     <iframe width=\"668\" height=\"330\" src=\"//www.youtube.com/embed/lZpT3IMnRr0\" frameborder=\"0\"></iframe></p>"
+        },
+        {
+          "title": "Dragon Age: Inquisition — Голос Вивьен",
+          "url": "/2014/08/23/dragon_age_inquisition_vivienne.html",
+          "text": "<p style=\"text-align:center\">\r\n     <img src=\"http://www.bioware.ru/images/da3/dai_characters_vivienne_02.jpg\" style=\"width:600px;height:180px\" />\r\n</p>\r\n<p>\r\n     <strong>BioWare</strong> представили новое видео с актрисой озвучки Вивьен — <a href=\"http://www.imdb.com/name/nm0890055/\">Индирой Варма</a>, британской актрисой, известной некоторым ролью Элларии Сэнд в четвертом сезоне «Игры Престолов». В этом видео она учит Джессику Меризан, как отвечать задирам в орлейском стиле.\r\n</p>\r\n<p style=\"text-align:center\">\r\n     <iframe width=\"668\" height=\"330\" src=\"//www.youtube.com/embed/3G5qKxRzkGI\" frameborder=\"0\"></iframe></p>"
+        },
+        {
+          "title": "Dragon Age: Inquisition — Свежее видео геймплея",
+          "url": "/2014/08/15/dragon_age_inquisition_ign_gameplay.html",
+          "text": "\r\n<p style=\"text-align:center\">\r\n     <img src=\"http://www.bioware.ru/images/da3/DAI_news_3.jpg\" style=\"width:600px;height:180px\" />&nbsp;\r\n</p>\r\n<p>\r\n     Портал <strong>IGN</strong> опубликовал вторую часть демо, где Инквизитор со своими спутниками находится во Внутренних землях (The Hinterlands) в Ферелдене.\r\n</p>\r\n<p style=\"text-align:center\">\r\n     <iframe src=\"http://widgets.ign.com/video/embed/content.html?url=http://www.ign.com/videos/2014/08/15/dragon-age-inquisition-extended-gameplay-demo-ign-live-gamescom-2014\" width=\"640\" height=\"360\" scrolling=\"no\" frameborder=\"0\"></iframe>\r\n</p>\r\n"
+        },
+        {
+          "title": "Dragon Age: Inquisition — Последний Полет. Глава 1",
+          "url": "/2014/08/14/dragon_age_inquisition_last_flight_chapter_1.html",
+          "text": "<p style=\"text-align:center\">\r\n     <img src=\"http://www.bioware.ru/images/da3/dai_jvm_scans_news_top.jpg\" style=\"width:600px;height:180px\" /><br />\r\n</p>\r\n<p>\r\n     Предлагаем вашему вниманию перевод первой главы нового романа, который выйдет 16 сентября, по вселенной <span style=\"font-weight:bold\">Dragon Age</span> - Последний полет. Переводчики: Резчица, Фра Дженитиви, Reienis. И не забываем, что также можно ознакомится <a href=\"http://www.bioware.ru/2014/07/21/dragon_age_inquisition_the_masked_empire_ru.html\">с переводом романа - Империя Масок</a>.&nbsp;\r\n</p>\r\n<ul>\r\n     <li>\r\n          <a href=\"http://www.bioware.ru/dragon_age_inquisition/articles/other/last_flight_chapter_1.html\">Последний Полет - Глава 1</a>\r\n     </li>\r\n</ul>"
+        },
+        {
+          "title": "Dragon Age: Inquisition — Новые скриншоты",
+          "url": "/2014/08/13/dragon_age_inquisition_gamescom_2014_screenshots.html",
+          "text": "<p style=\"text-align:center\">\r\n     <img src=\"http://www.bioware.ru/images/da3/dai_characters_vivienne_05.jpg\" style=\"width:600px;height:180px\" />\r\n</p>\r\n<p>\r\n     Подборка новых скриншотов с <strong>GamesCom 2014</strong>. Больше под катом новости.\r\n</p>\r\n<p style=\"text-align:center\">\r\n     <a href=\"http://www.bioware.ru/dragon_age_3/gallery/screenshots/6866.html\"><img src=\"http://www.bioware.ru/gallery/thumb/6866/200/0\" style=\"width:200px;height:113px\" /></a>&nbsp;<a href=\"http://www.bioware.ru/dragon_age_3/gallery/screenshots/6867.html\"><img src=\"http://www.bioware.ru/gallery/thumb/6867/200/0\" style=\"width:200px;height:113px\" /></a>&nbsp;<a href=\"http://www.bioware.ru/dragon_age_3/gallery/screenshots/6868.html\"><img src=\"http://www.bioware.ru/gallery/thumb/6868/200/0\" style=\"width:200px;height:113px\" /></a>&nbsp;<a href=\"http://www.bioware.ru/dragon_age_3/gallery/screenshots/6869.html\"><img src=\"http://www.bioware.ru/gallery/thumb/6869/200/0\" style=\"width:200px;height:113px\" /></a>&nbsp;\r\n</p>"
+        },
+        {
+          "title": "Dragon Age: Inquisition — Геймплей с GamesCom 2014",
+          "url": "/2014/08/13/dragon_age_inquisition_gameplay_gamescom_2014.html",
+          "text": "\r\n<p style=\"text-align:center\">\r\n     <img src=\"http://www.bioware.ru/images/da3/dai_cover_art_news_top.jpg\" style=\"width:600px;height:200px\" />\r\n</p>\r\n<p style=\"text-align:center\">\r\n     <iframe width=\"640\" height=\"360\" src=\"//www.youtube.com/embed/cYx4r1MX7g4\" frameborder=\"0\"></iframe>\r\n</p>\r\n"
+        },
+        {
+          "title": "Dragon Age: Inquisition — Враги Тедаса",
+          "url": "/2014/08/13/dragon_age_inquisition_the_enemy_of_thedas.html",
+          "text": "<p style=\"text-align:center\">\r\n     <img src=\"http://www.bioware.ru/images/da3/dai_gamestar_news_top_2.jpg\" style=\"width:600px;height:200px\" />\r\n</p>\r\n<p>\r\n     Тьма опускается на Тедас. Рассказы о Старейшем передаются из уст в уста. Легендарные герои Инквизиции должны держаться вместе, когда их сила и вера подвергаются испытаниям.\r\n</p>\r\n<p>\r\n     Маленький FAQ по трейлеру:\r\n</p>\r\n<ul>\r\n     <li>\r\n          Да, там Хоук, но не наш Серый Страж;\r\n     </li>\r\n     <li>\r\n          Нам дадут возможность изменить внешность наших предыдущих персонажей.\r\n     </li>\r\n</ul>\r\n<p style=\"text-align:center\">\r\n     <iframe width=\"668\" height=\"330\" src=\"//www.youtube.com/embed/4gVw4wee_aU\" frameborder=\"0\"></iframe></p>"
+        },
+        {
+          "title": "Dragon Age: Inquisition — Задайте свой вопрос разработчикам",
+          "url": "/2014/08/03/dragon_age_inquisition_question_to_the_developers.html",
+          "text": "<p style=\"text-align:center\">\r\n     <img src=\"http://www.bioware.ru/images/da3/dai_preorder_news_top_2.jpg\" style=\"width:600px;height:180px\" />\r\n</p>\r\n<p>\r\n     Недавно <strong>BioWare</strong> представили нам <a href=\"http://www.bioware.ru/2014/07/29/dragon_age_inquisition_new_combat_video.html\"><strong>новый ролик о боевой системе</strong></a>, возможно, у вас появились вопросы касательно её работы в игре?\r\n</p>\r\n<p>\r\n     <strong><a href=\"https://vk.com/dragonage\">Официальное сообщество</a></strong> <a href=\"http://www.bioware.ru/dragon_age_inquisition/news/\"><strong>Dragon Age: Inquisition</strong></a> в социальной сети <strong>ВКонтакте</strong> предоставляет вам возможность самим <a href=\"https://vk.com/dragonage?w=wall-55836174_3385\"><strong>задать</strong></a> вопросы разработчикам о <span style=\"text-decoration:underline\">боевой системе</span>. Самые интересные попадут в список тех, на которые ответят прямо из компании <strong>BioWare</strong>.\r\n</p>\r\n<p>\r\n     Вопросы отправляют на следующей неделе. Те, кого нет в <strong>ВК</strong>, могут оставить свои вопросы в этой теме. Мы обязательно передадим их!\r\n</p>"
+        },
+        {
+          "title": "Dragon Age: Inquisition — Интервью с Аликс Риган",
+          "url": "/2014/08/02/dragon_age_inquisition_leading_the_way.html",
+          "text": "<p style=\"text-align:center\">\r\n     <img src=\"http://www.bioware.ru/images/da3/DAI_news_7.jpg\" style=\"width:600px;height:180px\" /></p>\r\n<p>Аликс Вилтон Риган — одна из актрис, озвучивающих женщину-Инквизитора — рассказывает о своей роли в грядущей игре <strong><a href=\"http://www.bioware.ru/dragon_age_inquisition/news/\">Dragon Age: Inquisition</a></strong>.</p>\r\n<p style=\"text-align:center\">\r\n     <iframe width=\"668\" height=\"330\" src=\"//www.youtube.com/embed/Zlhynh5k9fo\" frameborder=\"0\"></iframe></p>"
+        },
+        {
+          "title": "Dragon Age: Inquisition — Голос Жозефины",
+          "url": "/2014/08/02/dragon_age_inquisition_josephine_voice.html",
+          "text": "<p style=\"text-align:center\">\r\n     <img src=\"http://www.bioware.ru/images/da3/DAI_news_5.jpg\" style=\"width:600px;height:180px\" />\r\n</p>\r\n<p>\r\n     Жозефину будет озвучивать актриса <strong><a href=\"https://twitter.com/SimplyAllegra\">Аллегра Кларк</a></strong> — поделился в своём твиттере Кэмерон Ли. Эта девушка может быть вам знакома по косплею Изабеллы из <strong><a href=\"http://www.bioware.ru/dragon_age_2/news/\">Dragon Age II</a></strong> (с 1:49).\r\n</p>\r\n<p style=\"text-align:center\">\r\n     <img src=\"http://www.bioware.ru/images/da3/josephine_voice.PNG\" style=\"width:634px;height:267px\" />\r\n</p>"
+        },
+        {
+          "title": "www.BioWare.ru — Конкурс \"Охотники на привале\". Завершен прием работ.",
+          "url": "/2014/07/31/dragon_age_hunters_at_rest_end.html",
+          "text": "<p style=\"text-align:center\">&nbsp;<img src=\"http://ic.pics.livejournal.com/jeff_kari/1668669/406281/406281_original.jpg\" /></p><br /><div style=\"text-align:left\">Завершен прием работ на конкурс \"Охотники на привале\", посвященный миру Dragon Age. Участникам  было предложено написать пьесу или радиоспектакль, придерживаясь определенных <a href=\"http://www.bioware.ru/forum/topic/29731/\">условий</a>. Двадцать смельчаков вступают в борьбу за право услышать свою пьесу в озвучке настоящих актеров. Их работы можно почитать <a href=\"http://www.bioware.ru/forum/topic/29728\">здесь</a>. Кому из них достанется первый приз, будет решать жюри, которое вынесет свой вердикт через две недели.<br />Но успокаиваться рано! В ваших руках - приз зрительских симпатий, которым вы можете распорядиться в <a href=\"http://www.bioware.ru/forum/topic/29840/\">этой теме</a>. Выбирайте наиболее достойного кандидата! <br />И если вам есть что сказать о прочитанном - не стесняйтесь оставлять свои отзывы. Наиболее активному и вдумчивому критику жюри присудит специальный приз. Будут рассматриваться отзывы, оставленные <a href=\"http://www.bioware.ru/forum/topic/29729/\">в теме обсуждения</a> до 10 августа. <br />Дерзайте! :)<br /><br /></div><a style=\"text-align:left\" href=\"http://www.bioware.ru/forum/topic/29731/\"></a>"
+        },
+        {
+          "title": "BioWare — GamesCom 2014: Конференция Electronic Arts",
+          "url": "/2014/07/31/bioware_gamescom14_electronic_arts.html",
+          "text": "<p style=\"text-align:center\">\r\n     <img src=\"http://www.bioware.ru/images/bioware/gamescom_banner.jpg\" style=\"width:600px;height:180px\" />\r\n</p>\r\n<p>\r\n     <strong>Electronic Arts</strong> проведут собственную пресс-конференцию в этом году на <strong>GamesСom</strong>, и пройдёт она, непосредственно, на стенде издателя в среду 13 августа c 12:00 до 14:00 МСК.\r\n</p>\r\n<p>\r\n     Обещаны свежая информация и трейлеры грядущих игр, а также прямая трансляция происходящего. Вполне очевидно, что покажут много нового, так как два часа — это довольно долгий брифинг. Компания продемонстрирует <a href=\"http://www.bioware.ru/dragon_age_inquisition/news/\">Dragon Age: Inquisition</a>, <span style=\"font-weight:bold\">Shadow Realms,</span> Battlefield: Hardline, The Sims 4, FIFA 15, Dawngate и др.\r\n</p>\r\n<p>\r\n     Трансляция будет на официальном сайте <strong><a href=\"http://live-event.ea.com/gamescom/\">EA</a></strong>, а также на <a href=\"http://www.ign.com/events/gamescom\">IGN</a> и <a href=\"http://www.twitch.tv/eade\">Twitch</a>.\r\n</p>\r\n<p>\r\n     Напоминаем о <strong><a href=\"http://www.bioware.ru/forum/topic/29835/\">теме по GamesCom</a></strong> на нашем форуме, где будут обсуждаться все остальные конференции.\r\n</p>"
+        },
+        {
+          "title": "Dragon Age: Inquisition — Новый ролик боевой системы",
+          "url": "/2014/07/29/dragon_age_inquisition_new_combat_video.html",
+          "text": "<p style=\"text-align:center\">\r\n     <img src=\"http://www.bioware.ru/images/da3/da3_field.jpg\" style=\"width:600px;height:180px\" /><br />\r\n</p>\r\n<p>\r\n     <span style=\"font-weight:bold\">BioWare</span> опубликовали новый геймплейный ролик&nbsp;<a href=\"http://assets.bioware.ru/images/games/small/dragon_age_3.png\">Dragon Age: Inqusition</a>. Видео&nbsp;посвящено тонкостям и&nbsp;особенностями боевой системы игры.\r\n</p>\r\n<p style=\"text-align:center\">\r\n     <iframe width=\"668\" height=\"330\" src=\"//www.youtube.com/embed/I7apCidffmI\" frameborder=\"0\"></iframe></p>"
+        },
+        {
+          "title": "Dragon Age: Inquisition — Инквизитор-эльф",
+          "url": "/2014/07/27/dragon_age_inquisition_inquisitor_elf.html",
+          "text": "<p style=\"text-align:center\">\r\n     <img src=\"http://www.bioware.ru/images/da3/DAI_news_8.jpg\" style=\"width:600px;height:180px\" /></p>\r\n<p>Аарин Флинн в своем твиттере опубликовал изображение эльфийки-инквизитора. Любуемся под катом новости.</p>"
+        },
+        {
+          "title": "Dragon Age: Inquisition — Новая дата выхода игры",
+          "url": "/2014/07/22/dragon_age_inquisition_release_delayed.html",
+          "text": "<p style=\"text-align:center\">&nbsp;<img width=\"600\" height=\"200\" style=\"width:600px;height:200px\" src=\"http://www.bioware.ru/images/da3/dai_general-2.png\" /></p><p>Сегодня стало известно, что дата выхода&nbsp;<a href=\"http://www.bioware.ru/dragon_age_3/news/\">Dragon Age: Inqusition</a>&nbsp;переносится на месяц —&nbsp;18 ноября (21 ноября для Европы).</p>\r\n<p>В <span style=\"font-weight:bold\">Bioware</span> решили, что им нужно больше времени на полировку игры.&nbsp;</p>\r\n<p>«<em>Мы высоко ценим вашу&nbsp;поддержку.&nbsp;Эти несколько недель могут\r\nпоказаться очень длинными, но я знаю, что для лучшей игры, в которую вы будете играть,\r\nэто пойдет на пользу</em>», —  &nbsp;пишет исполнительный продюсер Марк Дарра.</p>"
+        },
+        {
+          "title": "Dragon Age: Inquisition — Роман «Империя масок» на русском",
+          "url": "/2014/07/21/dragon_age_inquisition_the_masked_empire_ru.html",
+          "text": "<p style=\"text-align:center\">\r\n     <img src=\"http://www.bioware.ru/images/da3/1312314214.jpg\" style=\"width:400px;height:597px\" /><br />\r\n</p>\r\n<p>\r\n     Пока издательства молчат, наша&nbsp;бравая команда&nbsp;взялась и перевела, исключительно с целью углубленного изучения английского языка,&nbsp;самый свежий, на данный момент, роман по вселенной <span style=\"font-weight:bold\">Dragon Age</span>&nbsp;- «<span style=\"font-weight:bold\">Империя Масок</span>» Патрика Уикса. Над переводом работали: Резчица, Фра Дженитиви, NoMadKa, lepshin93, Paper Tigers, Reienis, Guiltytwo, Hikari, Snowgist,&nbsp;Unstabled, Шен Мак-Тир. Все благодарности за это уходят им! Приятного чтения.&nbsp;\r\n</p>\r\n<p>\r\n     Если желаете материально поблагодарить команду переводчиков - Яндекс 410011668855680 (Просьба добавлять комментарий к переводу) \r\n</p>\r\n<p>\r\n     <span style=\"font-style:italic\">\r\n          Императрица Селина из Орлея взошла на трон самой могущественной нации в Тедасе благодаря мудрости, уму и безжалостным манипуляциям. Теперь же, империи, которую она привела к веку просвещения, грозит изнутри неминуемая война между храмовниками и магами, а среди угнетенных эльфов зреет восстание. Чтобы спасти Орлей, Селина должна удержать трон любыми возможными средствами.<br /><br />Сражаясь с непревзойденным мастерством Орлесианских Шевалье, великий герцог Гаспар выиграл бесчисленное множество битв для империи и императрицы. Но неужели он сражался впустую? По мере того, как слабеет Круг и разрастается хаос, Гаспар начинает сомневаться в том, что дипломатический подход Селины к проблеме магов и восстаний эльфов сможет сохранить империю в безопасности. Возможно, пришло время для нового лидера, такого, который живет по догматам Кодекса Шевалье и сможет сделать Орлей снова сильным.<br /><br />Бриала служит фрейлиной Селины с тех пор, как обе они были детьми, незаметно используя свое положение, чтобы улучшить жизнь эльфов по всему Орлею. Она — наперсница, глава шпионской сети и любовница Селины, но когда политика заставляет императрицу выбирать между правами народа Бриалы и троном Орлея, Бриала, в свою очередь, должна решить, кому принадлежит ее истинная верность.<br /><br />\r\n          Создаются альянсы и нарушаются обещания, пока Селина и Гаспар сражаются за трон Орлея. Но, в конечном счете, те эльфы, что прячутся по лесам или голодают в эльфинажах, могут определить судьбу империи масок. </span><br />\r\n</p>\r\n<ul>\r\n     <li>\r\n          <a href=\"http://www.bioware.ru/dragon_age_inquisition/files/books/the_masked_empire_ru.html\">«Империя масок» на русском&nbsp;</a>\r\n     </li>\r\n     <li>\r\n          <a href=\"http://www.bioware.ru/dragon_age_inquisition/files/books/the_masked_empire_ru_fb2.html\"> «Империя масок» на русском (fb2)</a> <br />\r\n     </li>\r\n</ul>"
+        },
+        {
+          "title": "BioWare — Comic Con 2014: Расписание",
+          "url": "/2014/07/20/bioware_at_san_diego_comic_con.html",
+          "text": "<p style=\"text-align:center\">\r\n     <img src=\"http://www.bioware.ru/images/da3/dai_sdcc_news_top.jpg\" style=\"width:600px;height:180px\" />\r\n</p>\r\n<p>\r\n     <strong>BioWare</strong> будут присутствовать на <strong>San Diego Comic-Con</strong> на следующей неделе. На выставке выступят разработчики <a href=\"http://www.bioware.ru/dragon_age_inquisition/news/\">Dragon Age: Inquisition</a> в составе из Патрика Уикса, Бэна Гелина и Ника Торнборроу. А также разработчики <a href=\"http://www.bioware.ru/mass_effect_next/news/\">Mass Effect Next</a>, из них будут: Ноэль Лукасевич, Карл Булэй, Фабрис Кондоминас и Майк Гэмбл.\r\n</p>\r\n<p>\r\n     <strong>Расписание (МСК):</strong>\r\n</p>\r\n<p>\r\n     <strong>Четверг, 24 июля</strong>\r\n</p>\r\n<ul>\r\n     <li>\r\n          Команда Mass Effect: 22:00 – 23:00\r\n     </li>\r\n</ul>\r\n<p>\r\n     <strong>Пятница, 25 июля</strong>\r\n</p>\r\n<ul>\r\n     <li>\r\n          Команда Dragon Age: 02:30 – 03:30\r\n     </li>\r\n</ul>\r\n<p>\r\n     <strong>Суббота, 26 июля</strong>\r\n</p>\r\n<ul>\r\n     <li>\r\n          <a href=\"http://comiccon2014.sched.org/event/1f800ee262285bd9888ca33ef6b7dd84?iframe=no#.U8uzH_l_tuD\"> Искусство видео-игр</a>: 03.00 – 04:00\r\n     </li>\r\n     <li>\r\n          Команда Mass Effect: 05:30 – 06:00\r\n     </li>\r\n     <li>\r\n          Команда Dragon Age: 21:00 – 22:00\r\n     </li>\r\n</ul>\r\n<p>\r\n     <strong>Воскресение, 27 июля</strong>\r\n</p>\r\n<ul>\r\n     <li>\r\n          <a href=\"http://comiccon2014.sched.org/event/b917c7e8299eb370ba3c064be38d3c7b#.U8uzIvl_tuD\">Прокладывая курс: Разработка Mass Effect Next</a>: 01:00 – 02:00\r\n     </li>\r\n     <li>\r\n          Команда Mass Effect: 03:00 – 04:00\r\n     </li>\r\n</ul>\r\n<p>\r\n     <strong>Понедельник, 28 июля</strong>\r\n</p>\r\n<ul>\r\n     <li>\r\n          Команда Mass Effect: 01:00 – 02:00\r\n     </li>\r\n</ul>"
+        },
+        {
+          "title": "Dragon Age: Inquisition — Голос Коула",
+          "url": "/2014/07/19/dragon_age_inquisition_cole_voice.html",
+          "text": "<p style=\"text-align:center\">\r\n     &nbsp;<br /><img src=\"http://www.bioware.ru/images/da3/dai_discover_the_dragon_age_news_top.jpg\" style=\"width:600px;height:180px\" /></p>\r\n<p>Патрик Уикс и Дэвид Гейдер подтвердили, что Коула будет озвучивать <a href=\"http://www.imdb.com/name/nm3584268/\">Джеймс Нортон</a> — британский актёр, сыгравший в культовом сериале «Доктор Кто».</p>\r\n<p style=\"text-align:center\"><img src=\"http://www.bioware.ru/images/da3/pw_cole_voice.PNG\" style=\"width:588px;height:118px\" /></p>\r\n<p style=\"text-align:center\"><img src=\"http://www.bioware.ru/images/da3/dg_cole_voice.PNG\" style=\"width:587px;height:118px\" /></p>"
+        },
+        {
+          "title": "www.BioWare.ru — Разделу ФРПГ два года",
+          "url": "/2014/07/17/frpg_two_year.html",
+          "text": "<p style=\"text-align:center\"><img src=\"http://www.bioware.ru/images/bioware/awards/2Ysoha1.png\" style=\"border:0px  #000000;width:700px;height:526px;vertical-align:baseline\" /><br /></p><p>Вслед за юбилейной 40-й игрой <span style=\"font-weight:bold\">Мафии BRC</span> раздел <span style=\"font-weight:bold\">FRPG</span> не отстает, и празднует свое двухлетие. И вы не поверите, но выльется это в праздничную игру! Все детали под катом новости.&nbsp;</p>"
+        },
+        {
+          "title": "Dragon Age: Inquisition — Романы: Железный Бык и Коул",
+          "url": "/2014/07/14/dragon_age_3_iron_bull_and_cole_romance.html",
+          "text": "<p style=\"text-align:center\">\r\n     <br /><img src=\"http://www.bioware.ru/images/da3/da3_kunari_romance.jpg\" style=\"width:600px;height:180px\" /></p>\r\n<p>Пожалуй, начнём с хороших новостей. Патрик Уикс в одном из интервью подтвердил, что Железный Бык является любовным интересом для Инквизиторов обоих полов и без расовых ограничений. Также было уточнено, что он пансексуал.</p>\r\n<p style=\"text-align:center\"><img src=\"http://www.bioware.ru/images/da3/iron_bull_pan.PNG\" style=\"width:586px;height:117px\" /></p>\r\n<p>А теперь плохая новость для фанатов Коула. Патрик Уикс пишет: «Мы получили несколько вопросов о Коуле. Уточняю: мы очень гордимся чертами его характера, но нет, он не ЛИ. Это не дискриминация людей с ограниченными умственными или физическими возможностями, подразумевая, что они недостойны любви. Надеюсь, из профиля Коула понятно, что он находится в состоянии, которое не позволяет начать отношения, так что делать из него ЛИ очень проблематично».</p>\r\n<p style=\"text-align:center\"><img src=\"http://www.bioware.ru/images/da3/cole_li.PNG\" style=\"width:587px;height:358px\" /></p>"
+        }
+      ]
+    },
+    "articles": {
+      "title": "Статьи",
+      "items": [
+        {
+          "title": "Dragon Age: Inquisition Raptr Интервью. Часть 6",
+          "url": "/dragon_age_inquisition/articles/interview/raptr_part_6.html",
+          "text": ""
+        },
+        {
+          "title": "Dragon Age: Inquisition Raptr Интервью. Часть 5",
+          "url": "/dragon_age_inquisition/articles/interview/raptr_part_5.html",
+          "text": ""
+        },
+        {
+          "title": "Dragon Age: Inquisition Raptr Интервью. Часть 4",
+          "url": "/dragon_age_inquisition/articles/interview/raptr_part_4.html",
+          "text": ""
+        },
+        {
+          "title": "Dragon Age: Inquisition Raptr Интервью. Часть 3",
+          "url": "/dragon_age_inquisition/articles/interview/raptr_part_3.html",
+          "text": ""
+        },
+        {
+          "title": "Dragon Age: Inquisition Raptr Интервью. Часть 2",
+          "url": "/dragon_age_inquisition/articles/interview/raptr_part_2.html",
+          "text": ""
+        },
+        {
+          "title": "Dragon Age: Inquisition Raptr Интервью. Часть 1",
+          "url": "/dragon_age_inquisition/articles/interview/raptr_part_1.html",
+          "text": ""
+        },
+        {
+          "title": "Возвращение Кассандры в Dragon Age: Inquisition",
+          "url": "/dragon_age_inquisition/articles/other/cassandra_back.html",
+          "text": ""
+        },
+        {
+          "title": "Возвращение Варрика в Dragon Age: Inquisition",
+          "url": "/dragon_age_inquisition/articles/other/varrick_return.html",
+          "text": ""
+        },
+        {
+          "title": "Dragon Age: Inquisition: об отзывах фанатов, романтических отношениях, возвращение персонажей и открытом мире",
+          "url": "/dragon_age_inquisition/articles/interview/new_mark_pcgamer.html",
+          "text": ""
+        },
+        {
+          "title": "Самые ожидаемые игры 2014 – Dragon Age: Inquisition",
+          "url": "/dragon_age_inquisition/articles/other/anticipated_2014_dragon_age_inquisition.html",
+          "text": ""
+        },
+        {
+          "title": "BioWare о Dragon Age на Xbox One",
+          "url": "/dragon_age_inquisition/articles/interview/bioware_on_bringing_dragon_age_to_xbox_one_oxm.html",
+          "text": ""
+        },
+        {
+          "title": "Heroes of Dragon Age: Интервью с Марком Отеро",
+          "url": "/dragon_age_inquisition/articles/other/heroes_of_dragon_age_interview_with_mark_otero.html",
+          "text": ""
+        },
+        {
+          "title": "Dragon Age: Inquisiton: О кинематографии",
+          "url": "/dragon_age_inquisition/articles/interview/dragon_age_inquisition_cinematics.html",
+          "text": ""
+        },
+        {
+          "title": "Bioware о боях, исследовании мира и выборе в Dragon Age",
+          "url": "/dragon_age_inquisition/articles/interview/bioware_on_combat_exploration_choices_in_dragon_age.html",
+          "text": ""
+        },
+        {
+          "title": "Bioware о расах, романах и R-тайм в Dragon Age",
+          "url": "/dragon_age_inquisition/articles/interview/bioware_on_races_romance_and_rtime_in_dragon_age.html",
+          "text": ""
+        },
+        {
+          "title": "Морриган в Dragon Age: Inquisition — прошлое и настоящее",
+          "url": "/dragon_age_inquisition/articles/interview/morrigan_past_and_present.html",
+          "text": ""
+        },
+        {
+          "title": "Аарин Флинн о Dragon Age: Inquisition",
+          "url": "/dragon_age_inquisition/articles/interview/aaryn_flynn_on_da_inquisition.html",
+          "text": ""
+        },
+        {
+          "title": "Кастомизация сопартийцев в Dragon Age",
+          "url": "/bioware/articles/blog/dragon_age_david_gaider_on_charachter_customization.html",
+          "text": ""
+        },
+        {
+          "title": "Дэвид Гейдер о работе сценаристов над Dragon Age II",
+          "url": "/dragon_age_2/articles/interview/david_gaider_bitmob_interview.html",
+          "text": ""
+        },
+        {
+          "title": "Технология Dragon Age II. Часть 2",
+          "url": "/bioware/articles/blog/technology_of_dragon_age_2_part_2.html",
+          "text": ""
+        }
+      ]
+    }
   }
 }
