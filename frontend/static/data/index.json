@@ -2037,5 +2037,22 @@
      },*/
     "getUser": false,
     "getLoginUrl": "/site/login.html"
+  },
+  "this": {
+    "context": {
+      "encodedTitle": "\"Bio!\" - Ware"
+    }
+  },
+  "game": {
+    "publicUrl": "#"
+  },
+  "article": {
+    "publicUrl": "#",
+    "title": "Статья!",
+    "author": {
+      "members_display_name": "Sonic"
+    },
+    "date": "0",
+    "text": "Text"
   }
 }
