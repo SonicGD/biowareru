@@ -23,6 +23,7 @@
                         {% set desc=desc~'&nbsp;<a target=\'_blank\' href=\''~pic.getFileUrl(key)~'\'>'~ file.res ~'</a>' %}
                     {% endfor %}
                     <a data-ngthumb="{{ pic.getThumbUrl(180,140) }}"
+                       data-ngID="pic.id"
                        href="{{ pic.fullUrl }}"
                        data-ngdesc="{{ desc|raw }}">
                     </a>
