@@ -2069,8 +2069,8 @@
   },
   "searchResults": {
     "query": "dragon",
-    "groups": {
-      "games": {
+    "groups": [
+      {
         "title": "Игры",
         "items": [
           {
@@ -2091,7 +2091,7 @@
         ],
         "url": "/search/index.html?q=dragon&block=games"
       },
-      "news": {
+      {
         "title": "Новости",
         "items": [
           {
@@ -2122,7 +2122,7 @@
         ],
         "url": "/search/index.html?q=dragon&block=news"
       },
-      "articles": {
+      {
         "title": "Статьи",
         "items": [
           {
@@ -2153,6 +2153,6 @@
         ],
         "url": "/search/index.html?q=dragon&block=articles"
       }
-    }
+    ]
   }
 }
