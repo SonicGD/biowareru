@@ -16,6 +16,18 @@ class SiteController extends \bioengine\frontend\controllers\SiteController
 {
     public $breadCrumbs = [];
 
+    /**
+     * @inheritdoc
+     */
+    public function actions()
+    {
+        return [
+            'error' => [
+                'class' => 'yii\web\ErrorAction'
+            ]
+        ];
+    }
+
     public function actionIndex()
     {
         $newsQuery = News::find()->orderBy([
@@ -152,6 +164,10 @@ class SiteController extends \bioengine\frontend\controllers\SiteController
 
     public function actionLogin()
     {
-
+        $login = \Yii::$app->request->post('login');
+        $password = \Yii::$app->request->post('password');
+        $this->enableCsrfValidation = false;
+        \Yii::$app->response->format = Response::FORMAT_JSON;
+        return ['result' => false, 'error' => 'Неверное имя пользователя или пароль'];
     }
 } 
