@@ -8,7 +8,7 @@ return [
     'id'                  => 'app-console',
     'basePath'            => dirname(__DIR__),
     'bootstrap'           => ['log'],
-    'controllerNamespace' => 'bioengine\console\controllers',
+    'controllerNamespace' => 'biowareru\console\controllers',
     'modules'             => [],
     'components'          => [
         'log' => [
@@ -21,4 +21,5 @@ return [
         ],
         'db'  => $params['db']
     ],
+    'params'              => $params
 ];

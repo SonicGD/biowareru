@@ -11,13 +11,13 @@ namespace biowareru\frontend\search\models;
 
 use yii\sphinx\ActiveRecord;
 
-class NewsSearch extends  ActiveRecord
+class GalleryCatSearch extends  ActiveRecord
 {
     /**
      * @return string the name of the index associated with this ActiveRecord class.
      */
     public static function indexName()
     {
-        return 'be_news';
+        return 'be_galleryCats';
     }
 }
