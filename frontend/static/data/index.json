@@ -2124,35 +2124,31 @@
       },
       {
         "title": "Статьи",
-        "items": [
-          {
-            "title": "Dragon Age: Inquisition Raptr Интервью. Часть 6",
-            "url": "/dragon_age_inquisition/articles/interview/raptr_part_6.html",
-            "text": ""
-          },
-          {
-            "title": "Dragon Age: Inquisition Raptr Интервью. Часть 5",
-            "url": "/dragon_age_inquisition/articles/interview/raptr_part_5.html",
-            "text": ""
-          },
-          {
-            "title": "Dragon Age: Inquisition Raptr Интервью. Часть 4",
-            "url": "/dragon_age_inquisition/articles/interview/raptr_part_4.html",
-            "text": ""
-          },
-          {
-            "title": "Dragon Age: Inquisition Raptr Интервью. Часть 3",
-            "url": "/dragon_age_inquisition/articles/interview/raptr_part_3.html",
-            "text": ""
-          },
-          {
-            "title": "Dragon Age: Inquisition Raptr Интервью. Часть 2",
-            "url": "/dragon_age_inquisition/articles/interview/raptr_part_2.html",
-            "text": ""
-          }
-        ],
+        "items": [],
         "url": "/search/index.html?q=dragon&block=articles"
       }
     ]
+  },
+  "searchResultsCat": {
+    "query": "dragon",
+    "title": "Игры",
+    "items": [
+      {
+        "title": "Dragon Age: Начало",
+        "url": "/dragon_age.html",
+        "text": "<p>asdasd</p>\r\n"
+      },
+      {
+        "title": "Dragon Age II",
+        "url": "/dragon_age_2.html",
+        "text": ""
+      },
+      {
+        "title": "Dragon Age: Inquisition",
+        "url": "/dragon_age_inquisition.html",
+        "text": ""
+      }
+    ],
+    "url": "/search/index.html?q=dragon"
   }
 }
