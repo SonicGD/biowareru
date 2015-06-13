@@ -1,5 +1,6 @@
 {
   "production": false,
+  "themeName": "default",
   "news": [
     {
       "publicUrl": "/news/show.html?year=2014&month=08&day=19&newsUrl=dragon_age_hunters_at_rest_result",
