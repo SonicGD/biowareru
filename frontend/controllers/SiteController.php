@@ -162,8 +162,10 @@ class SiteController extends \bioengine\frontend\controllers\SiteController
         return $this->render('@app/static/tmpl/p-index.twig', ['news' => $news, 'pagination' => $pagination]);
     }
 
-    public function actionLogin($login, $password)
+    public function actionLogin()
     {
+        $login = \Yii::$app->request->post('login');
+        $password = \Yii::$app->request->post('password');
         $this->enableCsrfValidation = false;
         \Yii::$app->response->format = Response::FORMAT_JSON;
         return ['result' => false, 'error' => 'Неверное имя пользователя или пароль'];
