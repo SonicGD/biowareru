@@ -186,4 +186,19 @@ class SiteController extends \bioengine\frontend\controllers\SiteController
             return ['result' => true];
         }
     }
+
+    public function actionLogout()
+    {
+        if (!\Yii::$app->user->isGuest) {
+            /**
+             * @var ipbwi_member $member
+             */
+            $member = $this->ipbwi->member;
+            if($member->logout())
+            {
+                \Yii::$app->user->logout();
+            }
+        }
+        return $this->redirect('/');
+    }
 } 
