@@ -70,7 +70,7 @@ class SearchController extends Controller
             $galleryCatResults = $galleryCatSearch->search(['GalleryCatSearch' => ['title' => $q, 'content' => $q]]);
         }
 
-        /*\Yii::$app->response->format = Response::FORMAT_JSON;
+       /* \Yii::$app->response->format = Response::FORMAT_JSON;
         return $results;*/
 
         return $this->render('@app/static/tmpl/p-search.twig', ['searchResults' => $results]);
@@ -87,7 +87,7 @@ class SearchController extends Controller
         $limit = 5
     ) {
         if ($provider->count > 0) {
-            $results['groups'][$key] = [
+            $result = [
                 'title' => $title,
                 'items' => [],
                 'url'   => Url::toRoute(['search/index', 'q' => $results['query'], 'block' => $key])
@@ -99,12 +99,13 @@ class SearchController extends Controller
                     'url'   => $game->$urlField,
                     'text'  => $game->$textField
                 ];
-                $results['groups'][$key]['items'][] = $item;
+                $result['items'][] = $item;
                 $itemsCount++;
                 if ($limit > 0 && $itemsCount === $limit) {
                     break;
                 }
             }
+            $results['groups'][] = $result;
         }
     }
 
