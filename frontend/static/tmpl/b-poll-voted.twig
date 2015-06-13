@@ -1,1 +1,13 @@
-йа опрос, в котором юзер уже проголосовал
+{% set multiple = 1/(poll.optionsArr[0].result) %}
+{% for opt in poll.optionsArr %}
+    {% if  (1/(opt.result) < multiple) %}
+        {% set multiple = 1/(opt.result) %}
+    {% endif %}
+{% endfor %}
+{% for opt in poll.optionsArr %}
+    <div class="sidebar__poll-result-item">
+        {{ opt.text }} <br/>
+        <span class="sidebar__result-number">{{ opt.result * 100 }}%</span>
+        <div class="sidebar__poll-bar" style="width: {{ opt.result * 100 * multiple }}%"></div>
+    </div>
+{% endfor %}
