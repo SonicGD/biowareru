@@ -27,21 +27,23 @@ class SearchController extends Controller
             $gameSearch = new GameSearch();
             $gameResults = $gameSearch->search(['GameSearch' => ['title' => $q]]);
 
-            $this->fillSearchResults($results, 'games', 'Игры', $gameResults, 'title', 'publicUrl', 'news_desc');
+            $this->fillSearchResults($results, 'games', 'Игры', $gameResults, 'title', 'publicUrl', 'news_desc',
+                $block ? 0 : 5);
         }
 
         if (!$block || $block === 'news') {
             $newsSearch = new NewsSearch();
             $newsResults = $newsSearch->search(['NewsSearch' => ['title' => $q, 'short_text' => $q, 'add_text' => $q]]);
 
-            $this->fillSearchResults($results, 'news', 'Новости', $newsResults, 'title', 'publicUrl', 'short_text');
+            $this->fillSearchResults($results, 'news', 'Новости', $newsResults, 'title', 'publicUrl', 'short_text',
+                $block ? 0 : 5);
         }
         if (!$block || $block === 'articles') {
             $articlesSearch = new ArticleSearch();
             $articlesResults = $articlesSearch->search(['ArticleSearch' => ['title' => $q, 'text' => $q]]);
 
             $this->fillSearchResults($results, 'articles', 'Статьи', $articlesResults, 'title', 'publicUrl',
-                'announce');
+                'announce', $block ? 0 : 5);
         }
 
         if (!$block || $block === 'articlesCats') {
@@ -54,7 +56,8 @@ class SearchController extends Controller
             $filesSearch = new FileSearch();
             $filesResults = $filesSearch->search(['FileSearch' => ['title' => $q, 'desc' => $q, 'announce' => $q]]);
 
-            $this->fillSearchResults($results, 'files', 'Файлы', $filesResults, 'title', 'publicUrl', 'announce');
+            $this->fillSearchResults($results, 'files', 'Файлы', $filesResults, 'title', 'publicUrl', 'announce',
+                $block ? 0 : 5);
         }
 
         if (!$block || $block === 'filesCat') {
@@ -73,14 +76,23 @@ class SearchController extends Controller
         return $this->render('@app/static/tmpl/p-search.twig', ['searchResults' => $results]);
     }
 
-    private function fillSearchResults(&$results, $key, $title, $provider, $titleField, $urlField, $textField)
-    {
+    private function fillSearchResults(
+        &$results,
+        $key,
+        $title,
+        $provider,
+        $titleField,
+        $urlField,
+        $textField,
+        $limit = 5
+    ) {
         if ($provider->count > 0) {
             $results['groups'][$key] = [
                 'title' => $title,
                 'items' => [],
                 'url'   => Url::toRoute(['search/index', 'q' => $results['query'], 'block' => $key])
             ];
+            $itemsCount = 0;
             foreach ($provider->models as $game) {
                 $item = [
                     'title' => $game->$titleField,
@@ -88,6 +100,10 @@ class SearchController extends Controller
                     'text'  => $game->$textField
                 ];
                 $results['groups'][$key]['items'][] = $item;
+                $itemsCount++;
+                if ($limit > 0 && $itemsCount === $limit) {
+                    break;
+                }
             }
         }
     }
