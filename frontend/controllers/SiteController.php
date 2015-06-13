@@ -7,6 +7,7 @@ use bioengine\common\BioEngine;
 use bioengine\common\modules\main\models\Menu;
 use bioengine\common\modules\news\models\News;
 use biowareru\frontend\helpers\SliderHelper;
+use IPBWI\ipbwi_member;
 use yii\data\Pagination;
 use yii\validators\UrlValidator;
 use yii\web\NotFoundHttpException;
@@ -164,10 +165,25 @@ class SiteController extends \bioengine\frontend\controllers\SiteController
 
     public function actionLogin()
     {
-        $login = \Yii::$app->request->post('login');
-        $password = \Yii::$app->request->post('password');
-        $this->enableCsrfValidation = false;
         \Yii::$app->response->format = Response::FORMAT_JSON;
-        return ['result' => false, 'error' => 'Неверное имя пользователя или пароль'];
+        $this->enableCsrfValidation = false;
+        if (\Yii::$app->user->isGuest) {
+            $login = \Yii::$app->request->post('login');
+            $password = \Yii::$app->request->post('password');
+
+            /**
+             * @var ipbwi_member $member
+             */
+            $member = $this->ipbwi->member;
+
+            $result = $member->login($login, $password);
+            if ($result) {
+                return ['result' => true];
+            } else {
+                return ['result' => false, 'error' => 'Неверное имя пользователя или пароль'];
+            }
+        } else {
+            return ['result' => true];
+        }
     }
 } 
