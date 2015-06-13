@@ -6,9 +6,9 @@
     <title>{{ this.context.encodedTitle|raw }}</title>
 
     {% if production == true %}
-        <link rel="stylesheet" href="/css/min/style_{{ this.context.themeName or 'default' }}.css" id="stylesheet">
+        <link rel="stylesheet" href="/css/min/style_{{ this.context.themeName ? this.context.themeName : 'default' }}.css" id="stylesheet">
     {% else %}
-        <link rel="stylesheet" href="/css/style_{{ this.context.themeName or 'default' }}.css" id="stylesheet">
+        <link rel="stylesheet" href="/css/style_{{ this.context.themeName ? this.context.themeName : 'default' }}.css" id="stylesheet">
     {% endif %}
 </head>
 <body class="body_me3">
