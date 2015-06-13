@@ -150,8 +150,9 @@ class SiteController extends \bioengine\frontend\controllers\SiteController
         return $this->render('@app/static/tmpl/p-index.twig', ['news' => $news, 'pagination' => $pagination]);
     }
 
-    public function actionLogin()
+    public function actionLogin($login, $password)
     {
-
+        \Yii::$app->response->format = Response::FORMAT_JSON;
+        return ['result' => false, 'error' => 'Неверное имя пользователя или пароль'];
     }
 } 
