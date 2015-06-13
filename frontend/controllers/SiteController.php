@@ -152,6 +152,7 @@ class SiteController extends \bioengine\frontend\controllers\SiteController
 
     public function actionLogin($login, $password)
     {
+        $this->enableCsrfValidation = false;
         \Yii::$app->response->format = Response::FORMAT_JSON;
         return ['result' => false, 'error' => 'Неверное имя пользователя или пароль'];
     }
