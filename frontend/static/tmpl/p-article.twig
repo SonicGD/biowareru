@@ -15,7 +15,7 @@
             </header>
 
             <div class="b-text">
-                {{ article.text|raw }}
+                {{ content.replacePlaceholders(article.text)|raw }}
             </div>
 
             <footer class="article__footer">

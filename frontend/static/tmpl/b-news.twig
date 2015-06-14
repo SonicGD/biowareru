@@ -30,7 +30,7 @@
     <div class="b-text">
         {{ content.replacePlaceholders(item.short_text)|raw }}
         {% if full==true %}
-            {{ item.add_text|raw }}
+            {{ content.replacePlaceholders(item.add_text)|raw }}
         {% endif %}
     </div>
 
