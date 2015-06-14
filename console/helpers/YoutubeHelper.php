@@ -26,7 +26,8 @@ class YoutubeHelper
 
             $snippet = new Google_Service_YouTube_VideoSnippet();
             $snippet->setTitle($file->title);
-            $snippet->setDescription($file->desc);
+            $snippet->setDescription(strip_tags(htmlspecialchars_decode($file->desc)));
+            $snippet->setTags(['bioware', $file->getParent()->getTitle()]);
             $status = new Google_Service_YouTube_VideoStatus();
             $status->privacyStatus = 'public';
             $snippet->setCategoryId('20');
@@ -42,33 +43,45 @@ class YoutubeHelper
             $client->setDefer(true);
 
             $youtube = new Google_Service_YouTube($client);
+            try {
+                // Create a request for the API's videos.insert method to create and upload the video.
+                $insertRequest = $youtube->videos->insert('status,snippet', $video);
+                $media = new Google_Http_MediaFileUpload(
+                    $client,
+                    $insertRequest,
+                    'video/*',
+                    null,
+                    true,
+                    $chunkSizeBytes
+                );
 
-            // Create a request for the API's videos.insert method to create and upload the video.
-            $insertRequest = $youtube->videos->insert('status,snippet', $video);
-            $media = new Google_Http_MediaFileUpload(
-                $client,
-                $insertRequest,
-                'video/*',
-                null,
-                true,
-                $chunkSizeBytes
-            );
-            $media->setFileSize(filesize($file->size));
+                $videoPath = str_ireplace('http://files.bioware.ru/', '/var/www/bioware/bioware.ru/files/',
+                    $file->link);
+                $media->setFileSize(filesize($videoPath));
 
-            $status = false;
-            $handle = fopen($videoPath, 'rb');
-            while (!$status && !feof($handle)) {
-                $chunk = fread($handle, $chunkSizeBytes);
-                $status = $media->nextChunk($chunk);
+
+                //die($videoPath);
+
+                $status = false;
+                $handle = fopen($videoPath, 'rb');
+                while (!$status && !feof($handle)) {
+                    $chunk = fread($handle, $chunkSizeBytes);
+                    $status = $media->nextChunk($chunk);
+                }
+
+                fclose($handle);
+
+                $client->setDefer(false);
+
+                $file->yt_id = $status['id'];
+                $file->save();
+                return true;
+            } catch (\Exception $ex) {
+                echo $ex->getMessage() . PHP_EOL;
+                return false;
             }
-
-            fclose($handle);
-
-            $client->setDefer(false);
-
-            var_dump($status['snippet']['title']);
-            var_dump($status['id']);
         }
+        return false;
     }
 
     /**
