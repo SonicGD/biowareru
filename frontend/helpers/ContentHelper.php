@@ -35,42 +35,42 @@ class ContentHelper
             'onlyUrl'     => true
         ],
         [
-            'placeholder' => '\[news:([a-zA-Z0-9_]+)\]',
+            'placeholder' => '\[news:([0-9]+)\]',
             'method'      => 'replaceNews',
             'onlyUrl'     => false
         ],
         [
-            'placeholder' => '\[newsUrl:([a-zA-Z0-9_]+)\]',
+            'placeholder' => '\[newsUrl:([0-9]+)\]',
             'method'      => 'replaceNews',
             'onlyUrl'     => true
         ],
         [
-            'placeholder' => '\[file:([a-zA-Z0-9_\/]+)\]',
+            'placeholder' => '\[file:([0-9]+)\]',
             'method'      => 'replaceFile',
             'onlyUrl'     => false
         ],
         [
-            'placeholder' => '\[fileUrl:([a-zA-Z0-9_\/]+)\]',
+            'placeholder' => '\[fileUrl:([0-9]+)\]',
             'method'      => 'replaceFile',
             'onlyUrl'     => true
         ],
         [
-            'placeholder' => '\[article:([a-zA-Z0-9_\/]+)\]',
+            'placeholder' => '\[article:([0-9]+)\]',
             'method'      => 'replaceArticle',
             'onlyUrl'     => false
         ],
         [
-            'placeholder' => '\[articleUrl:([a-zA-Z0-9_\/]+)\]',
+            'placeholder' => '\[articleUrl:([0-9]+)\]',
             'method'      => 'replaceArticle',
             'onlyUrl'     => true
         ],
         [
-            'placeholder' => '\[gallery:([a-zA-Z0-9_\/]+)\]',
+            'placeholder' => '\[gallery:([0-9]+)\]',
             'method'      => 'replaceGallery',
             'onlyUrl'     => false
         ],
         [
-            'placeholder' => '\[galleryUrl:([a-zA-Z0-9_\/]+)\]',
+            'placeholder' => '\[galleryUrl:([0-9]+)\]',
             'method'      => 'replaceGallery',
             'onlyUrl'     => true
         ]
@@ -130,11 +130,13 @@ class ContentHelper
 
     private static function replaceNews($id, $onlyUrl = false)
     {
+        if (!is_numeric($id)) {
+            return false;
+        }
         /**
          * @var News $news
          */
-        $condition = is_numeric($id) ? $id : ['url' => $id];
-        $news = News::findOne($condition);
+        $news = News::findOne($id);
         if ($news) {
             $url = $news->getPublicUrl();
             if ($onlyUrl) {
@@ -147,14 +149,13 @@ class ContentHelper
 
     private static function replaceFile($id, $onlyUrl = false)
     {
+        if (!is_numeric($id)) {
+            return false;
+        }
         /**
          * @var File $file
          */
-        if (is_numeric($id)) {
-            $file = File::findOne($id);
-        } else {
-            $file = File::getByUrl($id);
-        }
+        $file = File::findOne($id);
         if ($file) {
             $url = $file->getPublicUrl();
             if ($onlyUrl) {
@@ -167,14 +168,13 @@ class ContentHelper
 
     private static function replaceArticle($id, $onlyUrl = false)
     {
+        if (!is_numeric($id)) {
+            return false;
+        }
         /**
          * @var Article $article
          */
-        if (is_numeric($id)) {
-            $article = Article::findOne($id);
-        } else {
-            $article = Article::getByUrl($id);
-        }
+        $article = Article::findOne($id);
         if ($article) {
             $url = $article->getPublicUrl();
             if ($onlyUrl) {
@@ -187,14 +187,13 @@ class ContentHelper
 
     private static function replaceGallery($id, $onlyUrl = false)
     {
+        if (!is_numeric($id)) {
+            return false;
+        }
         /**
          * @var GalleryPic $picture
          */
-        if (is_numeric($id)) {
-            $picture = GalleryPic::findOne($id);
-        } else {
-            $picture = GalleryPic::getByUrl($id);
-        }
+        $picture = GalleryPic::findOne($id);
         if ($picture) {
             $url = $picture->getPublicUrl();
             $url .= '#nanogallery/nanoGallery/0/' . $picture->id;
