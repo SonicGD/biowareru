@@ -86,7 +86,7 @@
                         <h3>Последнее в галерее:</h3>
                         <div>
                             {% for pic in game.lastPics %}
-                                <a href="{{ pic.cat.publicUrl }}#nanogallery/nanoGallery/0/{{ pic.id }}"><img
+                                <a href="{{ pic.publicUrl }}#nanogallery/nanoGallery/0/{{ pic.id }}"><img
                                             src="{{ pic.getThumbUrl(115,115) }}"
                                             alt=""/></a>
                             {% endfor %}
