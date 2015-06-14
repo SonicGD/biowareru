@@ -7,6 +7,8 @@ use bioengine\common\BioEngine;
 use bioengine\common\modules\main\models\Menu;
 use bioengine\common\modules\news\models\News;
 use biowareru\frontend\helpers\SliderHelper;
+use Google_Client;
+use Google_Service_YouTube;
 use IPBWI\ipbwi_member;
 use yii\data\Pagination;
 use yii\validators\UrlValidator;
@@ -194,11 +196,76 @@ class SiteController extends \bioengine\frontend\controllers\SiteController
              * @var ipbwi_member $member
              */
             $member = $this->ipbwi->member;
-            if($member->logout())
-            {
+            if ($member->logout()) {
                 \Yii::$app->user->logout();
             }
         }
         return $this->redirect('/');
     }
-} 
+
+    public function actionOauth()
+    {
+        $OAUTH2_CLIENT_ID = '580173741933-a4qbnr6c6ic7k05050vqreobh0fp52t3.apps.googleusercontent.com';
+        $OAUTH2_CLIENT_SECRET = 'ROnux265Uk7vBIidKxQMI43e';
+        //$refreshToken = '1\/V-9z8MapSHmYsl2kNBn_1uGlbrYtGeNlpsV_YNDbHyJIgOrJDtdun6zK6XiATCKT';
+        //$accessToken = 'ya29.kgFVYW70_3a4UU1Vh-BLQPKxlyktKUy4Q21XxzCPZgwjEqgxEWcB0Ey-OXB1itfCfcy9Gz_znhwRzw';
+
+        $token = '{"access_token":"ya29.kgFVYW70_3a4UU1Vh-BLQPKxlyktKUy4Q21XxzCPZgwjEqgxEWcB0Ey-OXB1itfCfcy9Gz_znhwRzw","token_type":"Bearer","expires_in":3600,"refresh_token":"1\/V-9z8MapSHmYsl2kNBn_1uGlbrYtGeNlpsV_YNDbHyJIgOrJDtdun6zK6XiATCKT","created":1434275779}';
+
+        $client = new Google_Client();
+        $client->setClientId($OAUTH2_CLIENT_ID);
+        $client->setClientSecret($OAUTH2_CLIENT_SECRET);
+        $client->setScopes('https://www.googleapis.com/auth/youtube');
+        $client->setAccessType('offline');
+        $client->setApprovalPrompt('force');
+        $redirect = 'http://bw.localhost.ru/site/oauth.html';
+        $client->setRedirectUri($redirect);
+        $client->setAccessToken($token);
+        // Define an object that will be used to make all API requests.
+        $youtube = new Google_Service_YouTube($client);
+
+        /*if (isset($_GET['code'])) {
+            if (strval($_SESSION['state']) !== strval($_GET['state'])) {
+                die('The session state did not match.');
+            }
+
+            $client->authenticate($_GET['code']);
+            $_SESSION['token'] = $client->getAccessToken();
+            header('Location: ' . $redirect);
+        }
+
+        if (isset($_SESSION['token'])) {
+            $client->setAccessToken($_SESSION['token']);
+        } else {
+            $authUrl = $client->createAuthUrl();
+            $this->redirect($authUrl);
+        }*/
+
+// Check to ensure that the access token was successfully acquired.
+        if ($client->getAccessToken()) {
+            // var_dump($client->getAccessToken());
+            $channelsResponse = $youtube->channels->listChannels('contentDetails', [
+                'mine' => 'true',
+            ]);
+
+
+            foreach ($channelsResponse['items'] as $channel) {
+                // Extract the unique playlist ID that identifies the list of videos
+                // uploaded to the channel, and then call the playlistItems.list method
+                // to retrieve that list.
+                $uploadsListId = $channel['contentDetails']['relatedPlaylists']['uploads'];
+
+                $playlistItemsResponse = $youtube->playlistItems->listPlaylistItems('snippet', [
+                    'playlistId' => $uploadsListId,
+                    'maxResults' => 50
+                ]);
+
+                foreach ($playlistItemsResponse['items'] as $playlistItem) {
+                    var_dump($playlistItem['snippet']['title'], $playlistItem['snippet']['resourceId']['videoId']);
+                }
+            }
+        } else {
+            var_dump('No');
+        }
+    }
+}

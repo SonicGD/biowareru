@@ -74,7 +74,12 @@ class YoutubeHelper
                 $client->setDefer(false);
 
                 $file->yt_id = $status['id'];
-                $file->save();
+                if ($file->validate()) {
+                    $file->save(false);
+                } else {
+                    var_dump($file->errors);
+                    return false;
+                }
                 return true;
             } catch (\Exception $ex) {
                 echo $ex->getMessage() . PHP_EOL;
