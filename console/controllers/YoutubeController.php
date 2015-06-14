@@ -38,11 +38,11 @@ class YoutubeController extends Controller
                     continue;
                 }
                 if ($file->size > 0 && $file->yt_id === '') {
-                    echo 'File ' . $file->title . ' starts' . PHP_EOL;
                     $info = pathinfo(parse_url($file->link, PHP_URL_PATH), PATHINFO_EXTENSION);
                     if (!in_array($info, $extensions, true)) {
                         continue;
                     }
+                    echo 'File ' . $file->title . ' starts' . PHP_EOL;
                     if (YoutubeHelper::upload($file)) {
                         echo 'File ' . $file->title . ' done' . PHP_EOL;
                     } else {
