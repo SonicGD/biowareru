@@ -14,27 +14,33 @@
                          alt="{{ file.parent.title }}">
                 </a>
             </header>
+            {% if file.yt_id!='' %}
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ file.yt_id }}"
+                        frameborder="0"
+                        allowfullscreen></iframe>
+                <div class="file__desc b-text">
+                    {{ file.desc|raw }}
+                </div>
+            {% else %}
+                <dl class="file__desc-list">
+                    <dt class="file__desc-title">Скачали</dt>
+                    <dd class="file__desc-value">{{ file.count }}</dd>
+                </dl>
+                <dl class="file__desc-list">
+                    <dt class="file__desc-title">Дата последнего обновления</dt>
+                    <dd class="file__desc-value">{{ date|date("d.m.Y") }}</dd>
+                </dl>
+                <div class="file__desc b-text">
+                    {{ file.desc|raw }}
+                </div>
+                <div class="file__download">
+                    <a class="file__download-btn" href="{{ file.downloadUrl }}">Скачать
+                        <small>({{ file.sizeInMb }}Mb)</small>
+                    </a>
+                </div>
+            {% endif %}
 
-            <dl class="file__desc-list">
-                <dt class="file__desc-title">Скачали</dt>
-                <dd class="file__desc-value">{{ file.count }}</dd>
-            </dl>
-            <dl class="file__desc-list">
-                <dt class="file__desc-title">Дата последнего обновления</dt>
-                <dd class="file__desc-value">{{ date|date("d.m.Y") }}</dd>
-            </dl>
-            <div class="file__desc b-text">
-                {{ file.desc|raw }}
-                {% if file.stream==1 %}
-                    <br><br>
-                    Тут будет видео
-                {% endif %}
-            </div>
-            <div class="file__download">
-                <a class="file__download-btn" href="{{ file.downloadUrl }}">Скачать
-                    <small>({{ file.sizeInMb }}Mb)</small>
-                </a>
-            </div>
+
         </article>
 
     </div>
