@@ -14,11 +14,21 @@
                          alt="{{ parent.title }}">
                 </a>
             </header>
-
+            {% for child in children %}
+                <div class="files__cat">
+                    <ul class="files__list">
+                        <li class="files__item">
+                            <h2 class="files__title">
+                                <a class="files__link" href="{{ child.publicUrl }}">{{ child.title }}</a>
+                            </h2>
+                        </li>
+                    </ul>
+                </div>
+            {% endfor %}
             <ul class="files__list">
                 {% for file in files %}
                     <li class="files__item">
-                        <a class="files__link" href="{{ file.publicUrl }}">{{ file.title }}</a>
+                        <a class="files__link" href="{{ file.publicUrl }}">{{ file.title|raw }}</a>
                         <br>
                         {{ file.announce|raw }}
                     </li>

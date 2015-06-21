@@ -58,6 +58,7 @@ class FilesController extends IndexController
         ])->where(['cat_id' => $cat->id]);
         $pagination = new Pagination(['totalCount' => $filesQuery->count(), 'pageSize' => 24]);
 
+        $children = $cat->getChildren()->all();
         $files = $filesQuery->offset($pagination->offset)
             ->limit($pagination->limit)->all();
 
@@ -82,13 +83,19 @@ class FilesController extends IndexController
         array_reverse($this->breadCrumbs);
 
         return $this->render('@app/static/tmpl/p-files-cat.twig',
-            ['parent' => $parent, 'cat' => $cat, 'files' => $files, 'pagination' => $pagination]);
+            ['parent'     => $parent,
+             'children'   => $children,
+             'cat'        => $cat,
+             'files'      => $files,
+             'pagination' => $pagination
+            ]);
     }
 
     public function actionShow($parentUrl, $catUrl, $fileUrl)
     {
         list($parent, $cat, $file) = $this->getFile($parentUrl, $catUrl, $fileUrl);
         if (!$file) {
+
             return $this->showCat($parentUrl, $catUrl . '/' . $fileUrl);
         }
 

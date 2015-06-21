@@ -15,9 +15,11 @@
                 </a>
             </header>
             {% if file.yt_id!='' %}
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ file.yt_id }}"
-                        frameborder="0"
-                        allowfullscreen></iframe>
+                <div style="text-align: center">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ file.yt_id }}"
+                            frameborder="0"
+                            allowfullscreen></iframe>
+                </div>
                 <div class="file__desc b-text">
                     {{ file.desc|raw }}
                 </div>
