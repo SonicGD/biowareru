@@ -2155,5 +2155,94 @@
       }
     ],
     "url": "/search/index.html?q=dragon"
-  }
+  },
+  "cat": {
+    "title": "Категория"
+  },
+  "children": [
+    {
+      "title": "Подкатегория 1",
+      "publicUrl": "#"
+    },
+    {
+      "title": "Подкатегория 2",
+      "publicUrl": "#"
+    },
+    {
+      "title": "Подкатегория 3",
+      "publicUrl": "#"
+    },
+    {
+      "title": "Подкатегория 4",
+      "publicUrl": "#"
+    }
+  ],
+  "files": [
+    {
+      "title": "Файл 1",
+      "publicUrl": "#"
+    },
+    {
+      "title": "Файл 2",
+      "publicUrl": "#"
+    },
+    {
+      "title": "Файл 3",
+      "publicUrl": "#"
+    },
+    {
+      "title": "Файл 4",
+      "publicUrl": "#"
+    },
+    {
+      "title": "Файл 5",
+      "publicUrl": "#"
+    },
+    {
+      "title": "Файл 6",
+      "publicUrl": "#"
+    },
+    {
+      "title": "Файл 1",
+      "publicUrl": "#"
+    },
+    {
+      "title": "Файл 7",
+      "publicUrl": "#",
+      "announce": "Одиннадцатибуквенная интернационализированная одиннадцатиклассница. Одиннадцатибуквенная интернационализированная одиннадцатиклассница."
+    },
+    {
+      "title": "Файл 8",
+      "publicUrl": "#"
+    },
+    {
+      "title": "Файл 9",
+      "publicUrl": "#"
+    },
+    {
+      "title": "Файл 10",
+      "publicUrl": "#"
+    },
+    {
+      "title": "Файл 11",
+      "publicUrl": "#",
+      "announce": "Анонс. Короткий"
+    },
+    {
+      "title": "Файл 12",
+      "publicUrl": "#"
+    },
+    {
+      "title": "Файл 13",
+      "publicUrl": "#"
+    },
+    {
+      "title": "Файл 14",
+      "publicUrl": "#"
+    },
+    {
+      "title": "Файл 15",
+      "publicUrl": "#"
+    }
+  ]
 }
