@@ -44,7 +44,7 @@ class ArticlesController extends IndexController
         $articles = $articlesQuery->offset($pagination->offset)
             ->limit($pagination->limit)->all();
 
-
+        $children = $cat->getChildren()->all();
         $parentCat = $cat->parent;
         while ($parentCat) {
             $this->breadCrumbs[] = [
@@ -65,7 +65,12 @@ class ArticlesController extends IndexController
         array_reverse($this->breadCrumbs);
 
         return $this->render('@app/static/tmpl/p-articles-cat.twig',
-            ['parent' => $parent, 'cat' => $cat, 'articles' => $articles, 'pagination' => $pagination]);
+            ['parent'     => $parent,
+             'cat'        => $cat,
+             'children' => $children,
+             'articles'   => $articles,
+             'pagination' => $pagination
+            ]);
     }
 
     public function actionShow($parentUrl, $catUrl, $articleUrl)

@@ -15,10 +15,21 @@
                 </a>
             </header>
             {% if cat.content=='' %}
+                {% for child in children %}
+                    <div class="files__cat">
+                        <ul class="files__list">
+                            <li class="files__item">
+                                <h2 class="files__title">
+                                    <a class="files__link" href="{{ child.publicUrl }}">{{ child.title|raw }}</a>
+                                </h2>
+                            </li>
+                        </ul>
+                    </div>
+                {% endfor %}
                 <ul class="files__list">
                     {% for article in articles %}
                         <li class="files__item">
-                            <a class="files__link" href="{{ article.publicUrl }}">{{ article.title }}</a>
+                            <a class="files__link" href="{{ article.publicUrl }}">{{ article.title|raw }}</a>
                             <br>
 
                             <p>{{ article.announce|raw }}</p>
