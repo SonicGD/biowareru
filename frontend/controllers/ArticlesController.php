@@ -22,7 +22,7 @@ class ArticlesController extends IndexController
 
     private function showCat($parentUrl, $catUrl)
     {
-        $parent = BioEngine::ParentByUrl($parentUrl);
+        $parent = BioEngine::getParentByUrl($parentUrl);
         if (!$parent) {
             throw new NotFoundHttpException;
         }
