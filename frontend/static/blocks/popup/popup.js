@@ -1,69 +1,70 @@
 $(function () {
-    if ($('.auth__text').length) {
-        var popupOpened = false;
-        var $auth = $('.auth');
-        var $popup  = $('.popup');
+    var $auth = $('.auth'),
+        $popupWrp = $('.popup__wrp'),
+        $popup  = $popupWrp.find('.popup'),
+        $form = $('.popup__login-form'),
+        popupOpened = false,
+        POPUP_WIDTH = 262,
+        POPUP_HEIGHT = 219;
 
-        $('.auth__text').on('click', function () {
-            showPopup();
-        });
+    $auth.find('.auth__login').on('click', function () {
+        showPopup();
+    });
 
-        $('.popup__wrp').on('click', function (event) {
-            if ($(event.target).closest('.popup').length == 0) {
-                closePopup();
-            }
-        });
+    $popupWrp.on('click', function (event) {
+        if (!$(event.target).closest('.popup').length) {
+            closePopup();
+        }
+    });
 
-        $(document).on('keyup', function (event) {
-            var keyCode = event.keyCode;
-            if (keyCode == 27 && popupOpened) {
-                closePopup();
-            }
-        });
-    }
+    $(document).on('keyup', function (event) {
+        if (event.keyCode === 27 && popupOpened) {
+            closePopup();
+        }
+    });
 
     function showPopup () {
+        var offset = $auth.offset(),
+            leftStart = offset.left,
+            topStart = offset.top - $(document).scrollTop(),
+            $window = $(window),
+            authHeight, leftFinish, topFinish;
 
-            var leftStart = $auth.offset().left;
-            var topStart = $auth.offset().top - $(document).scrollTop();
+        popupOpened = true;
 
-            popupOpened = true;
+        $popupWrp.addClass('show');
+        $auth.css('visibility', 'hidden');
 
-            $('.popup__wrp').addClass('show');
-            $auth.css('visibility', 'hidden');
+        authHeight = $auth.height();
 
-            var authHeight = $auth.height();
+        $popup.css({
+            left: leftStart + 'px',
+            top: topStart + 'px',
+            height: authHeight
+        });
 
-            $popup.css({
-                'left': leftStart + 'px',
-                'top': topStart + 'px',
-                'height': authHeight
-            })
-                .animate({
-                    'height': '170px'
-                }, function() {
-                    $popup.css('height', 'auto');
-                });
-            $('.popup__login-form').fadeIn(3000);
+        leftFinish = ~~(($window.width() - POPUP_WIDTH) / 2);
+        topFinish = ~~(($window.height() - POPUP_HEIGHT) / 2);
 
-            $('input[name="login"]', $popup).focus();
+        $popup.stop().animate({
+            left: leftFinish,
+            top: topFinish,
+            height: '170px'
+        }, 600, function () {
+            $popup.css('height', 'auto');
+        });
 
-            var leftFinish = ($(window).width() - $popup.width())/2;
-            var topFinish = ($(window).height() - $popup.height())/2;
+        $form.fadeIn(3000);
 
-            $popup.animate({
-                'left': leftFinish,
-                'top': topFinish
-            }, 600);
+        $popup.find('input').first().focus();
     }
 
     function closePopup () {
-        $('.popup__login-form').hide();
-        $('.popup__wrp').removeClass('show');
+        $form.hide();
+        $popupWrp.removeClass('show');
         $auth.css('visibility', 'visible');
         popupOpened = false;
     }
-
 });
 
 $(function () {
