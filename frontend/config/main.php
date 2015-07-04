@@ -6,6 +6,7 @@
  * Time: 11:37
  */
 
+use biowareru\frontend\helpers\AdHelper;
 use biowareru\frontend\helpers\BioHtml;
 use biowareru\frontend\helpers\ContentHelper;
 
@@ -70,7 +71,8 @@ return [
                         'polls'      => 'biowareru\frontend\helpers\PollsHelper',
                         'html'       => '\yii\helpers\Html',
                         'bioHtml'    => BioHtml::class,
-                        'content'    => ContentHelper::class
+                        'content'    => ContentHelper::class,
+                        'ads'        => AdHelper::class
                     ]
                     // ... see ViewRenderer for more options
                 ]

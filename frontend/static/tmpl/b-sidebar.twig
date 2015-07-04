@@ -3,16 +3,16 @@
 <div class="sidebar__content-wrp">
     {% include 'b-search.twig' %}
     <div class="sidebar__image">
-        <img src="http://www.bioware.ru/images/donate_2.png" alt="banner"/>
+        {{ ads.getAd()|raw }}
     </div>
     <div class="sidebar__image">
-        <img src="https://mmedia.ozone.ru/multimedia/audio_cd_covers/1010094281.jpg" alt="banner"/>
+        {{ ads.getAd()|raw }}
     </div>
     {% include 'b-poll.twig' %}
     <div class="sidebar__image">
-        <img src="https://mmedia.ozone.ru/multimedia/audio_cd_covers/1010094281.jpg" alt="banner"/>
+        {{ ads.getAd()|raw }}
     </div>
     <div class="sidebar__image">
-        <img src="http://uploads.bioware.ru/banners/e6360-1411998405.jpg" alt="banner"/>
+        {{ ads.getAd()|raw }}
     </div>
 </div>
