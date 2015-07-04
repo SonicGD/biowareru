@@ -2244,5 +2244,8 @@
       "title": "Файл 15",
       "publicUrl": "#"
     }
-  ]
+  ],
+  "ads": {
+    "getAd": "<a href=\"#\"><img src=\"http://uploads.bioware.ru/banners/68b87-1405059256.jpg\"></a>"
+  }
 }
