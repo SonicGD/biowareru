@@ -60,10 +60,8 @@
                     <ul class="files__list">
                         {% for article in articles %}
                             <li class="files__item">
-                                <time class="article-list__date"
-                                      datetime="{{ article.date|date("Y-M-D h:m:s") }}">{{ article.date|date("d.m.Y H:i:s") }}</time>
-                                <br/>
-                                <a class="files__link" href="{{ article.publicUrl }}">{{ article.title|raw }}</a>
+                                <a class="files__link" href="{{ article.publicUrl }}">{{ article.title|raw }}</a>, <span
+                                        class="article-list__date">{{ article.countText }}</span>
                             </li>
                         {% endfor %}
                     </ul>
