@@ -58,11 +58,14 @@
     &:before
       content ''
       display inline-block
-      background url("/img/auth__user-icon.gif") 50% 50% no-repeat
+      background url("/img/auth_user-icon-blue.svg") 50% 50% no-repeat
       width 16px
       height 16px
       background-size contain
       margin 0 5px -2px 3px
+    &.auth__username-renegate
+      &:before
+        background url("/img/auth_user-icon-red.svg") 50% 50% no-repeat
   .auth__exit
     color white
     text-decoration none

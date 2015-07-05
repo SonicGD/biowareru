@@ -24,7 +24,7 @@ return [
     'layout'              => false,
     'components'          => [
         'user'         => [
-            'identityClass'   => \bioengine\common\modules\ipb\models\IpbMember::class,
+            'identityClass'   => \biowareru\common\models\BWMember::className(),
             'enableAutoLogin' => true
         ],
         'sphinx'       => [

@@ -2042,13 +2042,14 @@
     }
   },
   "user": {
-    /* "getUser": {
-       "avatarUrl": "#",
-       "members_display_name": "User",
-       "profileUrl": "#",
-       "logoutUrl": "#"
-     },*/
-    "getUser": false,
+    "getUser": {
+      "avatarUrl": "#",
+      "members_display_name": "User",
+      "profileUrl": "#",
+      "logoutUrl": "#",
+      "renegate": false
+    },
+    //"getUser": false,
     "getLoginUrl": "/site/login.html"
   },
   "this": {

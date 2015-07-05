@@ -4,13 +4,18 @@ namespace biowareru\frontend\helpers;
 
 
 use bioengine\common\helpers\UserHelper;
+use bioengine\common\modules\ipb\models\IpbMember;
 use yii\helpers\Url;
 
 class UsersHelper
 {
     public static function getUser()
     {
-        return UserHelper::getUser();
+        $user = UserHelper::getUser();
+        if ($user) {
+
+        }
+        return $user;
     }
 
     public static function __callStatic($name, array $params)
@@ -26,4 +31,9 @@ class UsersHelper
     {
         return Url::toRoute(['site/login']);
     }
+}
+
+class BioWareMemeber extends IpbMember
+{
+    public $renegate = false;
 }

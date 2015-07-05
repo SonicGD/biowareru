@@ -72,7 +72,7 @@ module.exports = (grunt) ->
           expand:  true
           flatten: true
           cwd:     'blocks',
-          src:     ['**/*.{png,jpg,jpeg,gif}', '!**/*_sprite.{png,jpg,jpeg,gif}']
+          src:     ['**/*.{png,jpg,jpeg,gif,svg}', '!**/*_sprite.{png,jpg,jpeg,gif}']
           dest:    '../web/img'
         }]
 
@@ -81,7 +81,7 @@ module.exports = (grunt) ->
     clean:
       pubimages:
         src: [
-          "../web/img/*.{png,gif,jpg,jpeg}"
+          "../web/img/*.{png,gif,jpg,jpeg,svg}"
         ]
 
 
@@ -181,7 +181,7 @@ module.exports = (grunt) ->
 
       images:
         files: [
-          'blocks/**/*.{png,jpg,jpeg,gif}'
+          'blocks/**/*.{png,jpg,jpeg,gif,svg}'
         ]
         tasks: ['copy:images']
 
