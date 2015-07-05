@@ -19,16 +19,9 @@ class SiteController extends \bioengine\frontend\controllers\SiteController
 {
     public $breadCrumbs = [];
 
-    /**
-     * @inheritdoc
-     */
-    public function actions()
+    public function actionError()
     {
-        return [
-            'error' => [
-                'class' => 'yii\web\ErrorAction'
-            ]
-        ];
+        return $this->render('@app/static/tmpl/p-404.twig');
     }
 
     public function actionIndex()
