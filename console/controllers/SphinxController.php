@@ -115,7 +115,6 @@ index {$key}
 	dict			= keywords
 	mlock			= 0
 	morphology		= stem_en, stem_ru
-	charset_type = utf-8
 	min_word_len		= 1
 	html_strip		= 0
 }
