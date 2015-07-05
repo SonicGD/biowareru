@@ -2,35 +2,37 @@
 
 {% block content %}
     <div class="search-page">
-      <h2 class="search-page__title">Поиск</h2>
-      {% include 'b-search.twig' with {'query': searchResults.query, 'mix': 'search-page__form'} %}
-      <div class="search-page__content">
-        {% set MAX_ITEMS_IN_CAT = 5 %}
-        {% for cat in searchResults.groups %}
-            <div class="search-page__cat">
-              <h3 class="search-page__cat-title">
-                <a class="search-page__cat-link" href="{{ cat.url }}">{{ cat.title|raw }}</a>
-              </h3>
-              <div class="search-page__cat-items">
-                {% if cat.items is empty %}
-                    <div class="search-page__item">
-                      <em>В этом разделе по вашему запросу ничего не найдено.</em>
+        <h2 class="search-page__title">Поиск</h2>
+        {% include 'b-search.twig' with {'query': searchResults.query, 'mix': 'search-page__form'} %}
+        <div class="search-page__content">
+            {% set MAX_ITEMS_IN_CAT = 5 %}
+            {% for cat in searchResults.groups %}
+                <div class="search-page__cat">
+                    <h3 class="search-page__cat-title">
+                        <a class="search-page__cat-link" href="{{ cat.url }}">{{ cat.title|raw }}</a>
+                    </h3>
+
+                    <div class="search-page__cat-items">
+                        {% if cat.items is empty %}
+                            <div class="search-page__item">
+                                <em>В этом разделе по вашему запросу ничего не найдено.</em>
+                            </div>
+                        {% else %}
+                            {% for res in cat.items %}
+                                <div class="search-page__item">
+                                    <a class="search-page__link" href="{{ res.url }}">{{ res.title }}</a>
+
+                                    <p class="search-page__desc">{{ res.text| striptags | slice(0, 250) | raw }}</p>
+                                </div>
+                            {% endfor %}
+                            {% set moreItems = cat.count - MAX_ITEMS_IN_CAT %}
+                            {% if moreItems > 0 %}
+                                <a class="search-page__more-link" href="{{ cat.url }}">+ ещё {{ moreItems }}</a>
+                            {% endif %}
+                        {% endif %}
                     </div>
-                {% else %}
-                    {% for res in cat.items %}
-                        <div class="search-page__item">
-                          <a class="search-page__link" href="{{ res.url }}">{{ res.title }}</a>
-                          <p class="search-page__desc">{{ res.text| raw | striptags  | slice(0, 250) }}</p>
-                        </div>
-                    {% endfor %}
-                    {% set moreItems = cat.count - MAX_ITEMS_IN_CAT %}
-                    {% if moreItems > 0 %}
-                        <a class="search-page__more-link" href="{{ cat.url }}">+ ещё {{ moreItems }}</a>
-                    {% endif %}
-                {% endif %}
-              </div>
-            </div>
-        {% endfor %}
-      </div>
+                </div>
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}
