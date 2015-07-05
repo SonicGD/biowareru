@@ -14,17 +14,51 @@
                          alt="{{ parent.title }}">
                 </a>
             </header>
-            {% for child in children %}
-                <div class="files__cat">
-                    <ul class="files__list">
-                        <li class="files__item">
-                            <h2 class="files__title">
-                                <a class="files__link" href="{{ child.publicUrl }}">{{ child.title }}</a>
-                            </h2>
-                        </li>
-                    </ul>
+            {% if children %}
+                <h3>Подкатегории</h3>
+                <div class="files">
+                    {% for child in children %}
+                        <div class="files__cat">
+                            <ul class="files__list">
+                                <li class="files__item">
+                                    <h2 class="files__title">
+                                        <a class="files__link" href="{{ child.publicUrl }}">{{ child.title }}</a>
+                                    </h2>
+                                    <ul class="files__list">
+                                        {% for file in child.lastFiles %}
+                                            <li class="files__item">
+                                                <a class="files__link"
+                                                   href="{{ file.publicUrl }}">{{ file.title }}</a><br>
+                                                {{ file.announce|raw }}
+                                            </li>
+                                        {% endfor %}
+                                        {% for subCat in child.children %}
+                                            <li class="files__item">
+                                                <h3 class="files__title">
+                                                    <a class="files__link"
+                                                       href="{{ subCat.publicUrl }}">{{ subCat.title }}</a>
+                                                </h3>
+                                                <ul class="files__list">
+                                                    {% for file in subCat.lastFiles %}
+                                                        <li class="files__item">
+                                                            <a class="files__link"
+                                                               href="{{ file.publicUrl }}">{{ file.title }}</a><br>
+                                                            {{ file.announce|raw }}
+                                                        </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </li>
+                                        {% endfor %}
+
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    {% endfor %}
+
                 </div>
-            {% endfor %}
+            {% endif %}
+            <h3>Файлы</h3>
             <ul class="files__list">
                 {% for file in files %}
                     <li class="files__item">
