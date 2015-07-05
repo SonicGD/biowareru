@@ -54,7 +54,7 @@ class PollsController extends IndexController
                 }
             }
             $poll->recount();
-            $this->redirect(\Yii::$app->user->returnUrl);
+            $this->redirect(\Yii::$app->request->referrer);
         }
     }
 }
