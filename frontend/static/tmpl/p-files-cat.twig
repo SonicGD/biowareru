@@ -64,26 +64,12 @@
             <div class="files">
                 <ul class="files__list">
                     {% for file in files %}
-                        {% if loop.index % 2 == 0 %}
-                            <li class="files__item">
-                                <a class="files__link" href="{{ file.publicUrl }}">{{ file.title|raw }}</a>, <span
-                                        class="article-list__date">{{ file.countText }}</span>
-                                <br>
-                                {{ file.announce|raw }}
-                            </li>
-                        {% endif %}
-                    {% endfor %}
-                </ul>
-                <ul class="files__list">
-                    {% for file in files %}
-                        {% if loop.index % 2 == 1 %}
-                            <li class="files__item">
-                                <a class="files__link" href="{{ file.publicUrl }}">{{ file.title|raw }}</a>, <span
-                                        class="article-list__date">{{ file.countText }}</span>
-                                <br>
-                                {{ file.announce|raw }}
-                            </li>
-                        {% endif %}
+                        <li class="files__item">
+                            <a class="files__link" href="{{ file.publicUrl }}">{{ file.title|raw }}</a>, <span
+                                    class="article-list__date">{{ file.countText }}</span>
+                            <br>
+                            {{ file.announce|raw }}
+                        </li>
                     {% endfor %}
                 </ul>
             </div>
