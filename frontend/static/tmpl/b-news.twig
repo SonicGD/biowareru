@@ -16,7 +16,7 @@
 
             </h2>
             <time class="article-list__date"
-                  datetime="">{{ item.last_change_date|date("d.m.Y H:i:s") }}</time>
+                  datetime="{{ item.last_change_date|date("Y-M-D h:m:s") }}">{{ item.last_change_date|date("d.m.Y H:i:s") }}</time>
         </div>
         <a class="article-list__title-image" href="{{ item.parent.newsUrl }}"
            title="{{ item.parent.title }}">
