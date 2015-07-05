@@ -31,8 +31,8 @@ class SliderHelper
                 'url'   => 'dragon_age_inquisition'
             ],
             'me4'   => [
-                'title' => 'Mass Effect Next',
-                'url'   => 'mass_effect_next'
+                'title' => 'Mass Effect: Andromeda',
+                'url'   => 'mass_effect_andromeda'
             ],
             'me3'   => [
                 'title' => 'Mass Effect 3',
