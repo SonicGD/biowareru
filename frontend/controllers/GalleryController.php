@@ -67,7 +67,7 @@ class GalleryController extends \bioengine\common\modules\gallery\controllers\fr
      * @return $this
      * @throws NotFoundHttpException
      */
-    public function actionThumb($picId, $width, $height)
+    public function actionThumb($picId, $width = 100, $height = 0)
     {
         /**
          * @var GalleryPic $pic
