@@ -8,6 +8,7 @@ use bioengine\common\modules\gallery\models\GalleryCat;
 use bioengine\common\modules\gallery\models\GalleryPic;
 use yii\data\Pagination;
 use yii\web\NotFoundHttpException;
+use yii\web\Response;
 
 class GalleryController extends \bioengine\common\modules\gallery\controllers\frontend\GalleryController
 {
@@ -58,4 +59,28 @@ class GalleryController extends \bioengine\common\modules\gallery\controllers\fr
         return $this->render('@app/static/tmpl/p-gallery.twig',
             ['parent' => $parent, 'cat' => $cat, 'pics' => $pics, 'pagination' => $pagination]);
     }
+
+    /**
+     * @param $picId
+     * @param $width
+     * @param $height
+     * @return $this
+     * @throws NotFoundHttpException
+     */
+    public function actionThumb($picId, $width, $height)
+    {
+        /**
+         * @var GalleryPic $pic
+         */
+        $pic = GalleryPic::findOne($picId);
+        if ($pic && $pic->pub) {
+            $thumbPath = $pic->getThumbPath($width, $height);
+            if ($thumbPath) {
+                return \Yii::$app->response->sendFile($thumbPath, $pic->getFileName());
+            }
+        }
+
+        throw new NotFoundHttpException();
+    }
+
 }
