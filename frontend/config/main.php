@@ -23,6 +23,9 @@ return [
     'vendorPath'          => dirname(dirname(__DIR__)) . '/vendor',
     'layout'              => false,
     'components'          => [
+        'feed'         => [
+            'class' => \yii\feed\FeedDriver::class,
+        ],
         'user'         => [
             'identityClass'   => \biowareru\common\models\BWMember::className(),
             'enableAutoLogin' => true

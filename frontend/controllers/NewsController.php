@@ -73,4 +73,65 @@ class NewsController extends IndexController
 
         return $data;
     }
+
+    public function actionRss()
+    {
+        /**
+         * @var \Zend\Feed\Writer\Feed $feed
+         */
+        $feed = \Yii::$app->feed->writer();
+
+        $feed->setTitle('www.BioWare.ru');
+        $feed->setLink('https://bioware.ru');
+        $feed->setFeedLink('https://bioware.ru/news/rss.xml', 'rss');
+        $feed->setDescription(\Yii::t('app', 'Последние новости'));
+        $feed->setGenerator('https://bioware.ru/news/rss.xml');
+        $feed->setDateModified(time());
+
+        /**
+         * @var News[] $latestNews
+         */
+        $latestNews = News::find()->orderBy([
+            'sticky' => SORT_DESC,
+            'id'     => SORT_DESC
+        ])->where(['pub' => 1])->limit(20)->all();
+        foreach ($latestNews as $news) {
+            $entry = $feed->createEntry();
+            $entry->setTitle($news->title);
+            $entry->setLink($news->getPublicUrl(true));
+            $entry->setDateModified((int)$news->last_change_date);
+            $entry->setDateCreated((int)$news->date);
+            $entry->setContent(
+                $news->short_text
+            );
+            $entry->setEnclosure(
+                [
+                    'uri'    => $news->getParent()->getIcon(),
+                    'type'   => 'image/png',
+                    'length' => $news->getParent()->getIconSize()
+                ]
+            );
+            $feed->addEntry($entry);
+        }
+        header('Content-type: text/xml');
+        \Yii::$app->response->format = Response::FORMAT_RAW;
+        $out = $feed->export('rss');
+
+        return $out;
+    }
+
+    private function remoteFilesize($url)
+    {
+        static $regex = '/^Content-Length: *+\K\d++$/im';
+        if (!$fp = @fopen($url, 'rb')) {
+            return false;
+        }
+        if (
+            isset($http_response_header) &&
+            preg_match($regex, implode("\n", $http_response_header), $matches)
+        ) {
+            return (int)$matches[0];
+        }
+        return strlen(stream_get_contents($fp));
+    }
 }
