@@ -42,7 +42,7 @@
 
         <div class="article-list__footer-controls">
 
-            {% include 'b-likes.twig' with {'url':item.publicUrl} %}
+            {% include 'b-likes.twig' with {'url':item.getPublicUrl(true)} %}
             <a class="article-list__comments" href="{{ item.forumUrl }}">{{ item.commentsText }}</a>
         </div>
     </footer>
