@@ -4,6 +4,7 @@ namespace biowareru\frontend\controllers;
 
 
 use bioengine\common\BioEngine;
+use bioengine\common\helpers\UserHelper;
 use bioengine\common\modules\main\models\Menu;
 use bioengine\common\modules\news\models\News;
 use biowareru\frontend\helpers\SliderHelper;
@@ -29,7 +30,18 @@ class SiteController extends \bioengine\frontend\controllers\SiteController
         $newsQuery = News::find()->orderBy([
             'sticky' => SORT_DESC,
             'id'     => SORT_DESC
-        ])->where(['pub' => 1]);
+        ]);
+        $user = UserHelper::getUser();
+        if ($user) {
+            if ($user->isSiteTeam()) {
+                $newsQuery->where(['pub' => 1]);
+                $newsQuery->orWhere(['author_id' => $user->member_id]);
+            } elseif (!$user->isAdmin()) {
+                $newsQuery->where(['pub' => 1]);
+            }
+        } else {
+            $newsQuery->where(['pub' => 1]);
+        }
 
         $this->pageTitle = 'www.BioWare.ru - Новости';
         return $this->renderNews($newsQuery);

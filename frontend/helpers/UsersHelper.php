@@ -9,12 +9,12 @@ use yii\helpers\Url;
 
 class UsersHelper
 {
+    /**
+     * @return IpbMember
+     */
     public static function getUser()
     {
         $user = UserHelper::getUser();
-        if ($user) {
-
-        }
         return $user;
     }
 
