@@ -30,7 +30,7 @@ class SliderHelper
                 'title' => 'Dragon Age: Инквизиция',
                 'url'   => 'dragon_age_inquisition'
             ],
-            'me4'   => [
+            'mea'   => [
                 'title' => 'Mass Effect: Andromeda',
                 'url'   => 'mass_effect_andromeda'
             ],
