@@ -56,6 +56,8 @@ class GalleryController extends \bioengine\common\modules\gallery\controllers\fr
 
         array_reverse($this->breadCrumbs);
 
+        $this->pageTitle = $cat->title . ' - ' . $parent->title;
+
         return $this->render('@app/static/tmpl/p-gallery.twig',
             ['parent' => $parent, 'cat' => $cat, 'pics' => $pics, 'pagination' => $pagination]);
     }
@@ -94,6 +96,25 @@ class GalleryController extends \bioengine\common\modules\gallery\controllers\fr
         }
 
         throw new NotFoundHttpException();
+    }
+
+    public function actionRoot($parentUrl)
+    {
+        $parent = BioEngine::getParentByUrl($parentUrl);
+        if (!$parent) {
+            throw new NotFoundHttpException;
+        }
+
+        $cats = GalleryCat::find()->where([$parent->parentKey => $parent->id, 'pid' => 0])->all();
+        $this->breadCrumbs[] = [
+            'title' => $parent->title,
+            'url'   => $parent->getPublicUrl()
+        ];
+
+        $this->pageTitle = $parent->title . ' - Галерея';
+
+        return $this->render('@app/static/tmpl/p-gallery-game.twig',
+            ['parent' => $parent, 'cats' => $cats]);
     }
 
 }

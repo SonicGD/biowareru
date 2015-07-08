@@ -14,6 +14,8 @@ class GamesController extends \bioengine\common\modules\main\controllers\fronten
             throw new NotFoundHttpException();
         }
 
+        $this->pageTitle = $game->title;
+
         return $this->render('@app/static/tmpl/p-game-page.twig', ['game' => $game]);
     }
 }

@@ -1,0 +1,54 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+    <div class="article__block">
+        {% include 'b-breadcrumbs.twig' %}
+        <article class="article">
+            <header class="article__header">
+                <div>
+                    <h2 class="article__title">Галерея</h2>
+                </div>
+                <a class="article-list__title-image" href="{{ parent.publicUrl }}"
+                   title="{{ parent.title }}">
+                    <img src="{{ parent.icon }}"
+                         alt="{{ parent.title }}">
+                </a>
+            </header>
+
+            <div class="files">
+                {% for cat in cats %}
+                    <div class="files__cat">
+                        <ul class="files__list">
+                            <li class="files__item">
+                                <h2 class="files__title">
+                                    <a class="files__link" href="{{ cat.publicUrl }}">{{ cat.title }}</a>
+                                </h2>
+                                <div>
+                                    {% for pic in cat.lastPics %}
+                                        <a href="{{ pic.publicUrl }}#nanogallery/nanoGallery/0/{{ pic.id }}"><img
+                                                    src="{{ pic.getThumbUrl(115,115) }}"
+                                                    alt=""/></a>
+                                    {% endfor %}
+                                </div>
+                                <ul class="files__list">
+                                    {% for subCat in cat.children %}
+                                        <li class="files__item">
+                                            <h3 class="files__title">
+                                                <a class="files__link"
+                                                   href="{{ subCat.publicUrl }}">{{ subCat.title }}</a>
+                                            </h3>
+                                        </li>
+                                    {% endfor %}
+
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                {% endfor %}
+
+            </div>
+
+        </article>
+
+    </div>
+{% endblock %}

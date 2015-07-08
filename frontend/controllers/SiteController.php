@@ -71,6 +71,8 @@ class SiteController extends \bioengine\frontend\controllers\SiteController
             'id'     => SORT_DESC
         ])->where(['pub' => 1, $parent->parentKey => $parent->id]);
 
+        $this->pageTitle = $parent->title . ' - Новости';
+
         return $this->renderNews($newsQuery);
     }
 

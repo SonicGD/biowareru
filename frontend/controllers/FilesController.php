@@ -28,6 +28,9 @@ class FilesController extends IndexController
             'title' => $parent->title,
             'url'   => $parent->getPublicUrl()
         ];
+
+        $this->pageTitle = $parent->title . ' - Файлы';
+
         return $this->render('@app/static/tmpl/p-files-game.twig',
             ['parent' => $parent, 'cats' => $cats]);
     }
@@ -82,17 +85,22 @@ class FilesController extends IndexController
 
         array_reverse($this->breadCrumbs);
 
+
         return $this->render('@app/static/tmpl/p-files-cat.twig',
-            ['parent'     => $parent,
-             'children'   => $children,
-             'cat'        => $cat,
-             'files'      => $files,
-             'pagination' => $pagination
+            [
+                'parent'     => $parent,
+                'children'   => $children,
+                'cat'        => $cat,
+                'files'      => $files,
+                'pagination' => $pagination
             ]);
     }
 
     public function actionShow($parentUrl, $catUrl, $fileUrl)
     {
+        /**
+         * @var File $file
+         */
         list($parent, $cat, $file) = $this->getFile($parentUrl, $catUrl, $fileUrl);
         if (!$file) {
 
@@ -100,6 +108,8 @@ class FilesController extends IndexController
         }
 
         $this->fillFileBreadcrumbs($cat, $parent);
+
+        $this->pageTitle = $file->title . ' - ' . $cat->title . ' - ' . $parent->title;
 
         return $this->render('@app/static/tmpl/p-files-file.twig',
             ['parent' => $parent, 'cat' => $cat, 'file' => $file]);

@@ -18,6 +18,9 @@ class NewsController extends IndexController
     {
         $dateStart = mktime(0, 0, 0, $month, $day, $year);
         $dateEnd = mktime(23, 59, 59, $month, $day, $year);
+        /**
+         * @var News $news
+         */
         $news = News::find()
             ->where(['url' => $newsUrl])
             ->andWhere(['>=', 'date', $dateStart])
@@ -36,42 +39,9 @@ class NewsController extends IndexController
             'url'   => $news->parent->getNewsUrl()
         ];
 
+        $this->pageTitle = $news->title;
+
         return $this->render('@app/static/tmpl/p-news-page.twig', ['singleNews' => $news]);
-    }
-
-    public function actionJson()
-    {
-        /**
-         * @var News $item
-         */
-        $item = News::find()->one();
-        $data['breadCrumbs'][] = [
-            'title' => 'Новости',
-            'url'   => '/'
-        ];
-        $data['breadCrumbs'][] = [
-            'title' => $item->parent->title,
-            'url'   => $item->parent->getNewsUrl()
-        ];
-        $data['singleNews'] = [
-            'publicUrl'        => $item->getPublicUrl(),
-            'sticky'           => $item->sticky,
-            'title'            => $item->title,
-            'last_change_date' => $item->last_change_date,
-            'short_text'       => $item->short_text,
-            'add_text'         => $item->add_text,
-            'hasMore'          => $item->getHasMore(),
-            'comments'         => $item->comments,
-            'forumUrl'         => $item->getForumUrl(),
-            'parent'           => [
-                'title'   => $item->parent->title,
-                'icon'    => $item->parent->getIcon(),
-                'newsUrl' => $item->parent->getNewsUrl()
-            ]
-        ];
-        \Yii::$app->response->format = Response::FORMAT_JSON;
-
-        return $data;
     }
 
     public function actionRss()
@@ -118,20 +88,5 @@ class NewsController extends IndexController
         $out = $feed->export('rss');
 
         return $out;
-    }
-
-    private function remoteFilesize($url)
-    {
-        static $regex = '/^Content-Length: *+\K\d++$/im';
-        if (!$fp = @fopen($url, 'rb')) {
-            return false;
-        }
-        if (
-            isset($http_response_header) &&
-            preg_match($regex, implode("\n", $http_response_header), $matches)
-        ) {
-            return (int)$matches[0];
-        }
-        return strlen(stream_get_contents($fp));
     }
 }

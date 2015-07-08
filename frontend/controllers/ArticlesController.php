@@ -65,11 +65,12 @@ class ArticlesController extends IndexController
         array_reverse($this->breadCrumbs);
 
         return $this->render('@app/static/tmpl/p-articles-cat.twig',
-            ['parent'     => $parent,
-             'cat'        => $cat,
-             'children' => $children,
-             'articles'   => $articles,
-             'pagination' => $pagination
+            [
+                'parent'     => $parent,
+                'cat'        => $cat,
+                'children'   => $children,
+                'articles'   => $articles,
+                'pagination' => $pagination
             ]);
     }
 
@@ -81,6 +82,12 @@ class ArticlesController extends IndexController
         }
 
         $this->pageTitle = $article->title;
+        if ($cat) {
+            $this->pageTitle .= ' - ' . $cat->title;
+        }
+        if ($parent) {
+            $this->pageTitle .= ' - ' . $parent->title;
+        }
 
         $parentCat = $cat->parent;
         while ($parentCat) {
@@ -121,6 +128,9 @@ class ArticlesController extends IndexController
             'title' => $parent->title,
             'url'   => $parent->getPublicUrl()
         ];
+
+        $this->pageTitle = $parent->title . ' - Статьи';
+
         return $this->render('@app/static/tmpl/p-articles-game.twig',
             ['parent' => $parent, 'cats' => $cats]);
     }
