@@ -34,8 +34,10 @@ class SiteController extends \bioengine\frontend\controllers\SiteController
         $user = UserHelper::getUser();
         if ($user) {
             if ($user->isSiteTeam()) {
-                $newsQuery->where(['pub' => 1]);
-                $newsQuery->orWhere(['author_id' => $user->member_id]);
+                if (!$user->hasRights('pubNews')) {
+                    $newsQuery->where(['pub' => 1]);
+                    $newsQuery->orWhere(['author_id' => $user->member_id]);
+                }
             } elseif (!$user->isAdmin()) {
                 $newsQuery->where(['pub' => 1]);
             }
