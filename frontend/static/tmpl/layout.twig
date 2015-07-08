@@ -4,6 +4,7 @@
 <head lang="en">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width"/>
+    <link rel='alternate' type='application/rss+xml' title='RSS' href='https://www.bioware.ru/news/rss.xml'>
     <title>{{ this.context.encodedTitle|raw }}</title>
     {{ html.csrfMetaTags() | raw }}
     {% if production == true %}
@@ -15,7 +16,7 @@
               id="stylesheet">
     {% endif %}
     {{ this.head() }}
-    <script>window.twttr = (function(d, s, id) {
+    <script>window.twttr = (function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0],
                     t = window.twttr || {};
             if (d.getElementById(id)) return t;
@@ -25,7 +26,7 @@
             fjs.parentNode.insertBefore(js, fjs);
 
             t._e = [];
-            t.ready = function(f) {
+            t.ready = function (f) {
                 t._e.push(f);
             };
 
