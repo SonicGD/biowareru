@@ -78,6 +78,10 @@ class ContentHelper
             'placeholder' => 'http:',
             'method'      => 'replaceHttp',
             'onlyUrl'     => true
+        ],
+        [
+            'placeholder' => '\[video id\=([0-9]+?) uri\=(.*?)\](.*?)\[\/video\]',
+            'method'      => 'replaceVideo',
         ]
     ];
 
@@ -119,6 +123,20 @@ class ContentHelper
 
     private static function replaceHttp($id, $onlyUrl = false)
     {
+        return null;
+    }
+
+    private static function replaceVideo($id, $onlyUrl = false)
+    {
+        /**
+         * @var File $file
+         */
+        $file = File::findOne($id);
+        if ($file && $file->yt_id) {
+            return '<iframe width="560" height="315" src="//www.youtube.com/embed/' . $file->yt_id . '"
+                            frameborder="0"
+                            allowfullscreen></iframe>';
+        }
         return null;
     }
 

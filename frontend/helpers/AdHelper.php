@@ -49,7 +49,7 @@ class AdHelper
 
         $library = self::getLibrary();
         $html = $library->makeAdvertImage($ad);
-
+        $html = str_ireplace('index.php?/index.php?/index.php?/index.php', 'index.php', $html);
         return $html;
     }
 
