@@ -16,9 +16,11 @@ switch (strtoupper(substr(PHP_OS, 0, 3))) {
 }
 define('BIOENGINE_PATH', $path);
 
+$_SERVER['REQUEST_URI'] = str_ireplace('.xml', '.html', $_SERVER['REQUEST_URI']);
 if ($_SERVER['REQUEST_URI'] !== '/' && stripos($_SERVER['REQUEST_URI'], '.html') === false) {
     $_SERVER['REQUEST_URI'] .= '.html';
 }
+
 
 require(__DIR__ . '/../../override.php');
 require(__DIR__ . '/../../vendor/yiisoft/yii2/Yii.php');
