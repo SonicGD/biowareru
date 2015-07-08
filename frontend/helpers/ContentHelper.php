@@ -73,6 +73,11 @@ class ContentHelper
             'placeholder' => '\[galleryUrl:([0-9]+)\]',
             'method'      => 'replaceGallery',
             'onlyUrl'     => true
+        ],
+        [
+            'placeholder' => 'http:',
+            'method'      => 'replaceHttp',
+            'onlyUrl'     => true
         ]
     ];
 
@@ -86,7 +91,7 @@ class ContentHelper
                 foreach ($matches[0] as $key => $match) {
                     $value = $matches[1][$key];
                     $replacement = self::$method($value, $placeholder['onlyUrl']);
-                    if (!$replacement) {
+                    if ($replacement === false) {
                         $replacement = 'n/a';
                     }
                     $text = str_ireplace($match, $replacement, $text);
@@ -110,6 +115,11 @@ class ContentHelper
             return Html::a($game->title, $url, ['title' => $game->title]);
         }
         return false;
+    }
+
+    private static function replaceHttp($id, $onlyUrl = false)
+    {
+        return null;
     }
 
     private static function replaceDeveloper($id, $onlyUrl = false)
