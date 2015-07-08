@@ -19,7 +19,8 @@
 
             </h2>
             <time class="article-list__date"
-                  datetime="{{ item.last_change_date|date("Y-M-D h:m:s") }}">{{ item.last_change_date|date("d.m.Y H:i:s") }}, {{ item.author.members_display_name }}</time>
+                  datetime="{{ item.last_change_date|date("Y-M-D h:m:s") }}">{{ item.last_change_date|date("d.m.Y H:i:s") }}
+                , {{ item.author.members_display_name }}</time>
         </div>
         <a class="article-list__title-image" href="{{ item.parent.newsUrl }}"
            title="{{ item.parent.title }}">
@@ -27,8 +28,6 @@
                  alt="{{ item.parent.title }}">
         </a>
     </header>
-    <!--<img class="article-list__news-illustration"
-         src="http://ic.pics.livejournal.com/jeff_kari/1668669/428515/428515_original.jpg">-->
 
     <div class="b-text">
         {{ content.replacePlaceholders(item.short_text)|raw }}
