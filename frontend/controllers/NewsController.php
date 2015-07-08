@@ -3,8 +3,10 @@
 namespace biowareru\frontend\controllers;
 
 
+use bioengine\common\modules\ipb\models\IpbPost;
 use bioengine\common\modules\news\controllers\frontend\IndexController;
 use bioengine\common\modules\news\models\News;
+use biowareru\frontend\helpers\ContentHelper;
 use yii\web\HttpException;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
@@ -88,5 +90,33 @@ class NewsController extends IndexController
         $out = $feed->export('rss');
 
         return $out;
+    }
+
+    public function actionUpdateForumPost($newsId)
+    {
+        /**
+         * @var News $news
+         */
+        $news = News::findOne($newsId);
+        if (!$news) {
+            return;
+        }
+        /**
+         * @var IpbPost $post
+         */
+        $post = IpbPost::findOne($news->pid);
+        if (!$post) {
+            return;
+        }
+
+        $post->post = ContentHelper::replacePlaceholders($post->post);
+        $post->save();
+
+        \Yii::$app->db->createCommand()->delete('be_content_cache_posts',
+            ['cache_content_id' => $post->pid])->execute();
+
+        var_dump($post->errors);
+
+        return $post->pid;
     }
 }

@@ -149,7 +149,9 @@ class ContentHelper
 
     private static function replaceTW($id, $onlyUrl = false)
     {
-        $script = <<<EOF
+        $html = <<<EOF
+        <div class="embed-twit" id="twitter{$id}"></div>
+        <script type="text/javascript">
         twttr.ready(function(){
 twttr.widgets.createTweet(
   "{$id}",
@@ -160,9 +162,9 @@ twttr.widgets.createTweet(
   }
 );
 });
+</script>
 EOF;
-        \Yii::$app->view->registerJs($script, View::POS_END);
-        return '<div class="embed-twit" id="twitter' . $id . '"></div>';
+        return $html;
     }
 
     private static function replaceDeveloper($id, $onlyUrl = false)
