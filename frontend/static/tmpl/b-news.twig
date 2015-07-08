@@ -1,4 +1,4 @@
-<article class="article-list__item">
+<article class="{% if full!=true %}article-list__item{% else %}article{% endif %}">
     <header class="article-list__header">
         <div>
             <h2 class="article-list__title">
@@ -11,12 +11,15 @@
                         {% if item.sticky %}
                             Важно!
                         {% endif %} {{ item.title|raw }}
+                        {% if item.pub!=1 %}
+                            (Неопубликовано)
+                        {% endif %}
                     </a>
                 {% endif %}
 
             </h2>
             <time class="article-list__date"
-                  datetime="{{ item.last_change_date|date("Y-M-D h:m:s") }}">{{ item.last_change_date|date("d.m.Y H:i:s") }}</time>
+                  datetime="{{ item.last_change_date|date("Y-M-D h:m:s") }}">{{ item.last_change_date|date("d.m.Y H:i:s") }}, {{ item.author.members_display_name }}</time>
         </div>
         <a class="article-list__title-image" href="{{ item.parent.newsUrl }}"
            title="{{ item.parent.title }}">
