@@ -10,6 +10,7 @@ use bioengine\common\modules\main\models\Developer;
 use bioengine\common\modules\main\models\Game;
 use bioengine\common\modules\news\models\News;
 use yii\helpers\Html;
+use yii\web\View;
 
 class ContentHelper
 {
@@ -82,7 +83,12 @@ class ContentHelper
         [
             'placeholder' => '\[video id\=([0-9]+?) uri\=(.*?)\](.*?)\[\/video\]',
             'method'      => 'replaceVideo',
-        ]
+        ],
+        [
+            'placeholder' => '\[twitter:([0-9]+)\]',
+            'method'      => 'replaceTW',
+            'onlyUrl'     => false
+        ],
     ];
 
     public static function replacePlaceholders($text)
@@ -138,6 +144,25 @@ class ContentHelper
                             allowfullscreen></iframe>';
         }
         return null;
+    }
+
+
+    private static function replaceTW($id, $onlyUrl = false)
+    {
+        $script = <<<EOF
+        twttr.ready(function(){
+twttr.widgets.createTweet(
+  "{$id}",
+  document.getElementById("twitter{$id}"),
+  {
+    linkColor: "#55acee",
+    conversation: "none"
+  }
+);
+});
+EOF;
+        \Yii::$app->view->registerJs($script, View::POS_END);
+        return '<div class="embed-twit" id="twitter' . $id . '"></div>';
     }
 
     private static function replaceDeveloper($id, $onlyUrl = false)
