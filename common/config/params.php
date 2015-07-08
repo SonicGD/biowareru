@@ -25,23 +25,11 @@ $config = [
         'class'    => \yii\redis\Connection::className(),
         'hostname' => 'localhost',
         'port'     => 6379,
-        'database' => 5
-    ],
-    'components.redis_dev'   => [
-        'class'    => \yii\redis\Connection::className(),
-        'hostname' => 'localhost',
-        'port'     => 6379,
-        'database' => 6
-    ],
-    'components.redis_test'  => [
-        'class'    => \yii\redis\Connection::className(),
-        'hostname' => 'localhost',
-        'port'     => 6379,
-        'database' => 7
+        'database' => 12
     ],
     'components.cache'       => [
         'class'     => \yii\redis\Cache::className(),
-        'keyPrefix' => 'cgcache',
+        'keyPrefix' => 'biocache',
     ]
 ];
 

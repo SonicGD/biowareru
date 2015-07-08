@@ -23,6 +23,8 @@ return [
     'vendorPath'          => dirname(dirname(__DIR__)) . '/vendor',
     'layout'              => false,
     'components'          => [
+        'cache'        => $params['components.cache'],
+        'redis'        => $params['components.redis'],
         'feed'         => [
             'class' => \yii\feed\FeedDriver::class,
         ],

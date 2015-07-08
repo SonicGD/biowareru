@@ -76,8 +76,21 @@ class GalleryController extends \bioengine\common\modules\gallery\controllers\fr
         if ($pic && $pic->pub) {
             $thumbPath = $pic->getThumbPath($width, $height);
             if ($thumbPath) {
-                return \Yii::$app->response->sendFile($thumbPath, $pic->getFileName());
+                return \Yii::$app->response->sendFile($thumbPath, $pic->getFileName(), ['inline' => true]);
             }
+        }
+
+        throw new NotFoundHttpException();
+    }
+
+    public function actionShow($picId)
+    {
+        /**
+         * @var GalleryPic $pic
+         */
+        $pic = GalleryPic::findOne($picId);
+        if ($pic && $pic->pub) {
+            return $this->redirect($pic->getPublicUrl(true) . '#nanogallery/nanoGallery/0/' . $picId);
         }
 
         throw new NotFoundHttpException();

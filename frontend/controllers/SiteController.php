@@ -32,7 +32,6 @@ class SiteController extends \bioengine\frontend\controllers\SiteController
         ])->where(['pub' => 1]);
 
         $this->pageTitle = 'www.BioWare.ru - Новости';
-
         return $this->renderNews($newsQuery);
     }
 
