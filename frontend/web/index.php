@@ -15,10 +15,17 @@ switch (strtoupper(substr(PHP_OS, 0, 3))) {
         break;
 }
 define('BIOENGINE_PATH', $path);
-
+if ($_SERVER['REQUEST_URI'] !== '/') {
+    $_SERVER['REQUEST_URI'] = trim($_SERVER['REQUEST_URI'], '/');
+}
 $_SERVER['REQUEST_URI'] = str_ireplace('.xml', '.html', $_SERVER['REQUEST_URI']);
 if ($_SERVER['REQUEST_URI'] !== '/' && stripos($_SERVER['REQUEST_URI'], '.html') === false) {
     $_SERVER['REQUEST_URI'] .= '.html';
+    if (stripos($_SERVER['REQUEST_URI'], 'rss') === false && stripos($_SERVER['REQUEST_URI'], 'thumb') === false) {
+        header('HTTP/1.1 301 Moved Permanently');
+        header('Location: https://www.bioware.ru' . DIRECTORY_SEPARATOR . $_SERVER['REQUEST_URI']);
+        exit();
+    }
 }
 
 
