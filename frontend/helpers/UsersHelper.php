@@ -32,8 +32,3 @@ class UsersHelper
         return Url::toRoute(['site/login']);
     }
 }
-
-class BioWareMemeber extends IpbMember
-{
-    public $renegate = false;
-}
