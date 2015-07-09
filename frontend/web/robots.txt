@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: *.css
+Host: www.bioware.ru
+Sitemap:  https://www.bioware.ru/sitemap.xml
