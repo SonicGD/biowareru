@@ -31,4 +31,17 @@ class UsersHelper
     {
         return Url::toRoute(['site/login']);
     }
+
+    /**
+     * @return bool
+     */
+    public static function isRenegade()
+    {
+        $renegade = false;
+        $user = self::getUser();
+        if ($user) {
+            $renegade = $user->warn_level > 0;
+        }
+        return $renegade;
+    }
 }

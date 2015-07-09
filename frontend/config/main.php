@@ -28,10 +28,6 @@ return [
         'feed'         => [
             'class' => \yii\feed\FeedDriver::class,
         ],
-        'user'         => [
-            'identityClass'   => \biowareru\common\models\BWMember::className(),
-            'enableAutoLogin' => true
-        ],
         'sphinx'       => [
             'class'    => 'yii\sphinx\Connection',
             'dsn'      => 'mysql:host=127.0.0.1;port=9306;',
