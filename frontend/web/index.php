@@ -19,10 +19,7 @@ switch (strtoupper(substr(PHP_OS, 0, 3))) {
 define('BIOENGINE_PATH', $path);
 $oldRequest = $_SERVER['REQUEST_URI'];
 if ($_SERVER['REQUEST_URI'] !== '/') {
-    $l = strlen($_SERVER['REQUEST_URI']);
-    if ($_SERVER['REQUEST_URI'][$l - 1] === '/') {
-        unset($_SERVER['REQUEST_URI'][$l - 1]);
-    }
+    $_SERVER['REQUEST_URI'] = '/' . trim($_SERVER['REQUEST_URI'], '/');
 }
 $_SERVER['REQUEST_URI'] = str_ireplace('.xml', '.html', $_SERVER['REQUEST_URI']);
 if ($_SERVER['REQUEST_URI'] !== '/' && stripos($_SERVER['REQUEST_URI'], '.html') === false) {
@@ -32,7 +29,7 @@ if ($_SERVER['REQUEST_URI'] !== '/' && stripos($_SERVER['REQUEST_URI'], '.html')
             sendToKato('Redirect from ' . $oldRequest . ' to ' . $_SERVER['REQUEST_URI']);
         }
         header('HTTP/1.1 301 Moved Permanently');
-        header('Location: https://www.bioware.ru' . DIRECTORY_SEPARATOR . $_SERVER['REQUEST_URI']);
+        header('Location: https://www.bioware.ru' . $_SERVER['REQUEST_URI']);
         exit();
     }
 }
