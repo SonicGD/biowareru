@@ -44,6 +44,7 @@ return [
             ]
         ],
         'errorHandler' => [
+            'class'       => \biowareru\common\components\ErrorHandler::className(),
             'errorAction' => 'site/error'
         ],
         'db'           => $params['db'],
