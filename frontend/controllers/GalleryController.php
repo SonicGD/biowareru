@@ -76,10 +76,7 @@ class GalleryController extends \bioengine\common\modules\gallery\controllers\fr
          */
         $pic = GalleryPic::findOne($picId);
         if ($pic && $pic->pub) {
-            $thumbPath = $pic->getThumbPath($width, $height);
-            if ($thumbPath) {
-                return \Yii::$app->response->sendFile($thumbPath, $pic->getFileName(), ['inline' => true]);
-            }
+            return $this->redirect($pic->getThumbUrl($width, $height), 301);
         }
 
         throw new NotFoundHttpException();
