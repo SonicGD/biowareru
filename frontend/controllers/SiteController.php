@@ -171,7 +171,7 @@ class SiteController extends \bioengine\frontend\controllers\SiteController
         //$pagination->route = 'site/index';
         $news = $newsQuery->offset($pagination->offset)
             ->limit($pagination->limit)->all();
-
+        \Yii::trace('Render news');
         return $this->render('@app/static/tmpl/p-index.twig', ['news' => $news, 'pagination' => $pagination]);
     }
 
