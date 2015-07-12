@@ -71,6 +71,11 @@ class ContentHelper
             'onlyUrl'     => false
         ],
         [
+            'placeholder' => '\[gallery:([0-9]+):([0-9]+):([0-9]+)\]',
+            'method'      => 'replaceGallery',
+            'onlyUrl'     => false
+        ],
+        [
             'placeholder' => '\[galleryUrl:([0-9]+)\]',
             'method'      => 'replaceGallery',
             'onlyUrl'     => true
@@ -98,9 +103,19 @@ class ContentHelper
             preg_match_all('/' . $placeholder['placeholder'] . '/', $text, $matches);
             if ($matches[0]) {
                 $method = $placeholder['method'];
+
                 foreach ($matches[0] as $key => $match) {
-                    $value = $matches[1][$key];
-                    $replacement = self::$method($value, $placeholder['onlyUrl']);
+                    $attrs = [];
+                    foreach ($matches as $index => $group) {
+                        if ($index > 0) {
+                            $attrs[] = $group[$key];
+                            if ($index === 1) {
+                                $attrs[] = $placeholder['onlyUrl'];
+                            }
+                        }
+                    }
+                    $replacement = call_user_func_array([self::class, $method], $attrs);
+
                     if ($replacement === false) {
                         $replacement = 'n/a';
                     }
@@ -127,7 +142,7 @@ class ContentHelper
         return false;
     }
 
-    private static function replaceHttp($id, $onlyUrl = false)
+    private static function replaceHttp()
     {
         return null;
     }
@@ -240,11 +255,12 @@ EOF;
         return false;
     }
 
-    private static function replaceGallery($id, $onlyUrl = false)
+    private static function replaceGallery($id, $onlyUrl = false, $width = 300, $height = 300)
     {
         if (!is_numeric($id)) {
             return false;
         }
+
         /**
          * @var GalleryPic $picture
          */
@@ -256,7 +272,7 @@ EOF;
                 return $url;
             }
 
-            $html = Html::img($picture->getThumbUrl(300, 500), ['alt' => $picture->desc]);
+            $html = Html::img($picture->getThumbUrl($width, $height), ['alt' => $picture->desc]);
 
             return Html::a($html, $url, ['title' => $picture->desc]);
         }
