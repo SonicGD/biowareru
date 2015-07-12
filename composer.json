@@ -19,15 +19,15 @@
     "php": ">=5.4.0",
     "sonicgd/bioengine": "*",
     "bower-asset/jquery-ui": "~1.11@dev",
-    "yiisoft/yii2-redis": "~2.0.3",
-    "yiisoft/yii2-twig": "~2.0.3",
+    "yiisoft/yii2-redis": "~2.0.5",
+    "yiisoft/yii2-twig": "~2.0.5",
     "yiisoft/yii2-sphinx": "^2.0@dev",
     "google/apiclient": "~1.1.4",
     "yurkinx/yii2-rss": "dev-master"
   },
   "require-dev": {
     "yiisoft/yii2-gii": "*",
-    "yiisoft/yii2-debug": "~2.0.3"
+    "yiisoft/yii2-debug": "~2.0.5"
   },
   "suggest": {
   },
