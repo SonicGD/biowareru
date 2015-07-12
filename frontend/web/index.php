@@ -1,9 +1,5 @@
 <?php
 
-defined('YII_DEBUG') or define('YII_DEBUG', false);
-defined('YII_ENV') or define('YII_ENV', 'prod');
-error_reporting(E_ALL);
-ini_set('display_errors', 'on');
 $path = '';
 switch (strtoupper(substr(PHP_OS, 0, 3))) {
     case 'WIN':
@@ -22,9 +18,11 @@ if ($_SERVER['REQUEST_URI'] !== '/') {
     $_SERVER['REQUEST_URI'] = '/' . trim($_SERVER['REQUEST_URI'], '/');
 }
 $_SERVER['REQUEST_URI'] = str_ireplace('.xml', '.html', $_SERVER['REQUEST_URI']);
-if ($_SERVER['REQUEST_URI'] !== '/' && stripos($_SERVER['REQUEST_URI'], '.html') === false) {
-    $_SERVER['REQUEST_URI'] .= '.html';
-    if (stripos($_SERVER['REQUEST_URI'], 'rss') === false && stripos($_SERVER['REQUEST_URI'], 'thumb') === false) {
+$url = parse_url($_SERVER['REQUEST_URI']);
+if ($url['path'] !== '/' && stripos($url['path'], '.html') === false) {
+    $url['path'] .= '.html';
+    $_SERVER['REQUEST_URI'] = unparse_url($url);
+    if (stripos($url['path'], 'rss') === false && stripos($url['path'], 'thumb') === false) {
         if ($oldRequest !== $_SERVER['REQUEST_URI']) {
             sendToKato('Redirect from ' . $oldRequest . ' to ' . $_SERVER['REQUEST_URI']);
         }
@@ -70,4 +68,18 @@ function sendToKato($text, $color = 'red', $formatter = 'text')
     curl_setopt($ch, CURLOPT_URL,
         'https://api.kato.im/rooms/28e7979cc1026a68861c7a2e7d2138e4ef13da70e96b8078a3ae61744efb73e/simple');
     curl_exec($ch);
+}
+
+function unparse_url($parsed_url)
+{
+    $scheme = isset($parsed_url['scheme']) ? $parsed_url['scheme'] . '://' : '';
+    $host = isset($parsed_url['host']) ? $parsed_url['host'] : '';
+    $port = isset($parsed_url['port']) ? ':' . $parsed_url['port'] : '';
+    $user = isset($parsed_url['user']) ? $parsed_url['user'] : '';
+    $pass = isset($parsed_url['pass']) ? ':' . $parsed_url['pass'] : '';
+    $pass = ($user || $pass) ? "$pass@" : '';
+    $path = isset($parsed_url['path']) ? $parsed_url['path'] : '';
+    $query = isset($parsed_url['query']) ? '?' . $parsed_url['query'] : '';
+    $fragment = isset($parsed_url['fragment']) ? '#' . $parsed_url['fragment'] : '';
+    return "$scheme$user$pass$host$port$path$query$fragment";
 }
