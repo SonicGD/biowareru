@@ -15,7 +15,7 @@ $params = array_merge(
     require(__DIR__ . '/params.php')
 );
 
-return [
+$config = [
     'id'                  => 'app-frontend',
     'basePath'            => dirname(__DIR__),
     'bootstrap'           => ['log'],
@@ -83,3 +83,11 @@ return [
     ],
     'params'              => $params
 ];
+
+if (YII_DEBUG) {
+    // configuration adjustments for 'dev' environment
+    $config['bootstrap'][] = 'debug';
+    $config['modules']['debug'] = 'yii\debug\Module';
+}
+
+return $config;
