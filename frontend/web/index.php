@@ -1,5 +1,21 @@
 <?php
 
+$debug = false;
+if (isset($_GET['enableDebugPlease']) && $_GET['enableDebugPlease'] == 42) {
+    setcookie('bwdebug', 1);
+    $debug = true;
+}
+if (isset($_COOKIE['bwdebug'])) {
+    $debug = true;
+}
+
+if ($debug) {
+    defined('YII_DEBUG') or define('YII_DEBUG', true);
+    defined('YII_ENV') or define('YII_ENV', 'dev');
+    error_reporting(E_ALL);
+    ini_set('display_errors', 'on');
+}
+
 $path = '';
 switch (strtoupper(substr(PHP_OS, 0, 3))) {
     case 'WIN':
@@ -23,18 +39,11 @@ if ($url['path'] !== '/' && stripos($url['path'], '.html') === false) {
     $url['path'] .= '.html';
     $_SERVER['REQUEST_URI'] = unparse_url($url);
     if (stripos($url['path'], 'rss') === false && stripos($url['path'], 'thumb') === false) {
-        if ($oldRequest !== $_SERVER['REQUEST_URI']) {
-            sendToKato('Redirect from ' . $oldRequest . ' to ' . $_SERVER['REQUEST_URI']);
-        }
         header('HTTP/1.1 301 Moved Permanently');
         header('Location: https://www.bioware.ru' . $_SERVER['REQUEST_URI']);
         exit();
     }
 }
-if ($oldRequest !== $_SERVER['REQUEST_URI']) {
-    sendToKato('Rename from ' . $oldRequest . ' to ' . $_SERVER['REQUEST_URI']);
-}
-
 
 require(__DIR__ . '/../../override.php');
 require(__DIR__ . '/../../vendor/yiisoft/yii2/Yii.php');
@@ -49,26 +58,6 @@ $config = yii\helpers\ArrayHelper::merge(
 $application = new \bioengine\common\BioEngine($config);
 require(__DIR__ . '/../../vendor/sonicgd/bioengine/common/config/ipbwi.config.php');
 $application->run();
-
-function sendToKato($text, $color = 'red', $formatter = 'text')
-{
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 0);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-    curl_setopt($ch, CURLOPT_HEADER, 'Content-Type: application/json; charset=utf-8\r\n');
-    $obj = [
-        'from'     => 'MY.CG',
-        'color'    => $color,
-        'renderer' => $formatter,
-        'text'     => $text
-    ];
-    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($obj));
-    curl_setopt($ch, CURLOPT_URL,
-        'https://api.kato.im/rooms/28e7979cc1026a68861c7a2e7d2138e4ef13da70e96b8078a3ae61744efb73e/simple');
-    curl_exec($ch);
-}
 
 function unparse_url($parsed_url)
 {

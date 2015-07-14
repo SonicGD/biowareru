@@ -13,7 +13,6 @@ class ErrorHandler extends \yii\web\ErrorHandler
      */
     protected function convertExceptionToArray($exception)
     {
-        sendToKato($exception->getMessage() . ' ' . $exception->getTraceAsString());
         return parent::convertExceptionToArray($exception);
     }
 }
