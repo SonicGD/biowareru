@@ -76,9 +76,16 @@ class ArticlesController extends IndexController
 
     public function actionShow($parentUrl, $catUrl, $articleUrl)
     {
+        /**
+         * @var Article $article
+         */
         list($article, $parent, $cat) = Article::getByParent($parentUrl, $catUrl, $articleUrl);
         if (!$article) {
             throw new HttpException(404, 'Страница не найдена');
+        }
+
+        if ($article->getPublicUrl() !== \Yii::$app->request->url) {
+            return $this->redirect($article->getPublicUrl(true), 301);
         }
 
         $this->pageTitle = $article->title;
