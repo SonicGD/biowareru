@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Георгий
- * Date: 07.07.2014
- * Time: 11:37
- */
 
 use biowareru\frontend\helpers\AdHelper;
 use biowareru\frontend\helpers\BioHtml;
@@ -79,7 +73,11 @@ $config = [
                     // ... see ViewRenderer for more options
                 ]
             ]
-        ]
+        ],
+        'assetManager' => [
+            'class' => 'yii\web\AssetManager',
+            'appendTimestamp' => true,
+        ],
     ],
     'params'              => $params
 ];

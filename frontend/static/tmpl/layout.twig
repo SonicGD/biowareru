@@ -1,4 +1,6 @@
 {{ this.beginPage() }}
+{{ use('frontend/assets/BWAsset') }}
+{{ register_b_w_asset() }}
 <!DOCTYPE html>
 <html>
 <head lang="ru">
@@ -21,11 +23,7 @@
     <meta name="theme-color" content="#ffffff">
     <title>{{ this.context.encodedTitle|raw }}</title>
     {{ html.csrfMetaTags() | raw }}
-    {% if production == true %}
-        <link rel="stylesheet"
-              href="/css/min/style_{{ this.context.themeName ? this.context.themeName : 'default' }}.css"
-              id="stylesheet">
-    {% else %}
+    {% if production == true %}    {% else %}
         <link rel="stylesheet" href="/css/style_{{ this.context.themeName ? this.context.themeName : 'default' }}.css"
               id="stylesheet">
     {% endif %}
@@ -83,7 +81,7 @@
 </div>
 
 {% if production == true %}
-    <script src="/js/script.min.js"></script>
+
 {% else %}
     <script src="/js/script.js"></script>
     <script src="http://localhost:35729/livereload.js"></script>
