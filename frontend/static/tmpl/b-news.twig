@@ -19,33 +19,32 @@
 
             </h2>
             <time class="article-list__date"
-                  datetime="{{ item.last_change_date|date("Y-M-D h:m:s") }}">{{ item.last_change_date|date("d.m.Y H:i:s") }}
-                , {{ item.author.members_display_name }}</time>
+                  datetime="{{ item.last_change_date|date("Y-M-D h:m:s") }}">{{ item.last_change_date|date("d.m.Y H:i:s") }, {{ item.author.members_display_name }}</time>
+                </div>
+                <a class="article-list__title-image" href="{{ item.parent.newsUrl }}"
+                title="{{ item.parent.title }}">
+                <img src="{{ item.parent.icon }}"
+                alt="{{ item.parent.title }}">
+                </a>
+                </header>
+
+                <div class="b-text">
+                {{ content.replacePlaceholders(item.short_text)|raw }}
+                {% if full==true %}
+                {{ content.replacePlaceholders(item.add_text)|raw }}
+                {% endif %}
         </div>
-        <a class="article-list__title-image" href="{{ item.parent.newsUrl }}"
-           title="{{ item.parent.title }}">
-            <img src="{{ item.parent.icon }}"
-                 alt="{{ item.parent.title }}">
-        </a>
-    </header>
-
-    <div class="b-text">
-        {{ content.replacePlaceholders(item.short_text)|raw }}
-        {% if full==true %}
-            {{ content.replacePlaceholders(item.add_text)|raw }}
-        {% endif %}
-    </div>
 
 
-    <footer class="article-list__footer">
-        {% if item.hasMore and full != true %}
-            <a class="article-list__morelink" href="{{ item.publicUrl }}">Подробнее</a>
-        {% endif %}
+        <footer class="article-list__footer">
+            {% if item.hasMore and full != true %}
+                <a class="article-list__morelink" href="{{ item.publicUrl }}">Подробнее</a>
+            {% endif %}
 
-        <div class="article-list__footer-controls">
+            <div class="article-list__footer-controls">
 
-            {% include 'b-likes.twig' with {'url':item.getPublicUrl(true)} %}
-            <a class="article-list__comments" href="{{ item.forumUrl }}">{{ item.commentsText }}</a>
-        </div>
-    </footer>
+                {% include 'b-likes.twig' with {'url':item.getPublicUrl(true)} %}
+                <a class="article-list__comments" href="{{ item.forumUrl }}">{{ item.commentsText }}</a>
+            </div>
+        </footer>
 </article>
