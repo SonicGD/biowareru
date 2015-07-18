@@ -24,10 +24,11 @@ class ShutDownHelper
 
     public static function execute()
     {
-        if (fastcgi_finish_request()) {
-            foreach (self::$functions as $func) {
-                $func();
-            }
+        if (!defined('YII_DEBUG') || !YII_DEBUG) {
+            fastcgi_finish_request();
+        }
+        foreach (self::$functions as $func) {
+            $func();
         }
     }
 }
