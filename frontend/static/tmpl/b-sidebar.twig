@@ -2,17 +2,9 @@
 {% include 'b-auth.twig' with {"member":user.getUser} %}
 <div class="sidebar__content-wrp">
     {% include 'b-search.twig' %}
-    <div class="sidebar__image">
-        {{ ads.getAd|raw }}
-    </div>
-    <div class="sidebar__image">
-        {{ ads.getAd|raw }}
-    </div>
+    {% include 'b-banner.twig' with {"ad":ads.getAd} %}
+    {% include 'b-banner.twig' with {"ad":ads.getAd} %}
     {% include 'b-poll.twig' %}
-    <div class="sidebar__image">
-        {{ ads.getAd|raw }}
-    </div>
-    <div class="sidebar__image">
-        {{ ads.getAd|raw }}
-    </div>
+    {% include 'b-banner.twig' with {"ad":ads.getAd} %}
+    {% include 'b-banner.twig' with {"ad":ads.getAd} %}
 </div>

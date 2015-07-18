@@ -3,41 +3,33 @@
 namespace biowareru\frontend\helpers;
 
 
+use biowareru\common\models\AdvAdvert;
 use yii\db\Expression;
 
 class AdHelper
 {
+    /**
+     * @var AdvAdvert[]
+     */
     private static $ads = [];
     private static $library;
 
     public static $adsShowed = [];
 
     /**
-     * @return advAdvertsLibrary
+     * @return \biowareru\common\models\AdvAdvert[]
      */
-    private static function getLibrary()
-    {
-        if (!self::$library) {
-            $registry = \ipsRegistry::instance();
-            $classToLoad = \IPSLib::loadLibrary(\IPSLib::getAppDir('advadverts') . '/sources/classes/library.php',
-                'advAdvertsLibrary', 'advadverts');
-            self::$library = new $classToLoad($registry);
-        }
-        return self::$library;
-    }
-
     public static function getAds()
     {
         if (!self::$ads) {
-            $advAdvertsLibrary = self::getLibrary();
-            $cache_array = $advAdvertsLibrary->cache->getCache('adv_adverts');
-
-            $adverts = $cache_array['mp_sidebar'];
-
+            /**
+             * @var AdvAdvert[] $adverts
+             */
+            $adverts = AdvAdvert::find()->where(['a_enable' => 1, 'a_type' => 1, 'a_section_id' => 2])->all();
             shuffle($adverts);
             self::setAds($adverts);
 
-            register_shutdown_function(function () {
+            ShutDownHelper::addFunction(function () {
                 \Yii::$app->db->createCommand()->update(\Yii::$app->db->tablePrefix . 'dp3_adv_adverts',
                     ['a_views' => new Expression('a_views + 1')],
                     ['a_id' => AdHelper::$adsShowed])->execute();
@@ -53,18 +45,22 @@ class AdHelper
         \Yii::trace('Get ad');
         $ads = self::getAds();
         \Yii::trace('Pop ad');
+        /**
+         * @var AdvAdvert $ad
+         */
         $ad = array_pop($ads);
         \Yii::trace('Set ads');
         self::setAds($ads);
         \Yii::trace('Update views');
         self::updateView($ad);
-        \Yii::trace('Get library');
-        $library = self::getLibrary();
+
         \Yii::trace('Make advert');
-        $html = $library->makeAdvertImage($ad);
-        $html = str_ireplace('index.php?/index.php?/index.php?/index.php', 'index.php', $html);
+        $htmlData = [
+            'link'  => '/forum/index.php?app=advadverts&module=core&section=main&do=redir&aid=' . $ad->a_id . '&appReferrer=',
+            'image' => 'https://uploads.bioware.ru/banners/' . $ad->a_image
+        ];
         \Yii::trace('Ad loaded');
-        return $html;
+        return $htmlData;
     }
 
     public static function updateView($advert)
@@ -72,6 +68,9 @@ class AdHelper
         self::$adsShowed[] = $advert['a_id'];
     }
 
+    /**
+     * @param AdvAdvert[] $ads
+     */
     private static function setAds($ads)
     {
         self::$ads = $ads;
