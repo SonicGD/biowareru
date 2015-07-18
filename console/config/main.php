@@ -11,7 +11,7 @@ return [
     'controllerNamespace' => 'biowareru\console\controllers',
     'modules'             => [],
     'components'          => [
-        'log' => [
+        'log'   => [
             'targets' => [
                 [
                     'class'  => 'yii\log\FileTarget',
@@ -19,7 +19,9 @@ return [
                 ],
             ],
         ],
-        'db'  => $params['db']
+        'db'    => $params['db'],
+        'cache' => $params['components.cache'],
+        'redis' => $params['components.redis']
     ],
     'params'              => $params
 ];
