@@ -98,6 +98,11 @@ class ContentHelper
 
     public static function replacePlaceholders($text)
     {
+        $hash = md5($text);
+        $cached = \Yii::$app->cache->get('parsed_text_' . $hash);
+        if ($cached) {
+            return $cached;
+        }
         foreach (self::$placeholders as $placeholder) {
             $matches = [];
             preg_match_all('/' . $placeholder['placeholder'] . '/', $text, $matches);
@@ -123,6 +128,7 @@ class ContentHelper
                 }
             }
         }
+        \Yii::$app->cache->set('parsed_text_' . $hash, $text);
         return $text;
     }
 
