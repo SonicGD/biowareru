@@ -56,6 +56,10 @@
     {
       "type": "vcs",
       "url": "git@github.com:sonicgd/bioengine.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@github.com:SonicGD/yii2-redis.git"
     }
   ]
 }

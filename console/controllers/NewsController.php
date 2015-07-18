@@ -10,16 +10,24 @@ use yii\console\Controller;
 class NewsController extends Controller
 {
 
-    public function actionRefresh($newsId)
+    public function actionRefresh($newsId, $new = true)
     {
         /**
          * @var News $news
          */
         $news = News::findOne($newsId);
         if ($news) {
-            $news->comments = IpbPost::find()->where(['topic_id' => $news->tid])->count();
+            $news->comments = IpbPost::find()->where(['topic_id' => $news->tid, 'queued' => 0])->andWhere([
+                'not',
+                ['pid' => $news->pid]
+            ])->count();
+            if ($new) {
+                $news->comments++;
+            }
             if ($news->validate()) {
                 $news->save(false);
+            } else {
+                var_dump($news->errors);
             }
         }
     }
