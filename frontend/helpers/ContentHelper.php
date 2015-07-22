@@ -284,4 +284,31 @@ EOF;
         }
         return false;
     }
+
+    public static function getImage($html)
+    {
+        preg_match('/<img.+src=[\'"](?P<src>.+?)[\'"].*>/i', $html, $image);
+        return isset($image['src']) ? $image['src'] : null;
+    }
+
+    public static function getDescription($html)
+    {
+        $html = str_ireplace(PHP_EOL, ' ', self::replacePlaceholders($html));
+        $content = trim(preg_replace('#<[^>]+>#', '  ', $html));
+
+        $content = str_ireplace('&nbsp;', ' ', $content);
+        $content = str_ireplace('  ', '', $content);
+
+        $words = explode(' ', $content);
+
+        $count = count($words);
+
+
+        $content = trim(implode(' ', array_slice($words, 0, 20)));
+        if ($count > 20) {
+            $content .= '...';
+        }
+
+        return htmlspecialchars_decode($content);
+    }
 }

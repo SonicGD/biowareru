@@ -26,13 +26,13 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="{{ this.context.siteTitle }}">
     <meta name="twitter:title" content="{{ this.context.encodedTitle }}">
-    <meta name="twitter:description" content="{{ this.context.description }}">
+    <meta name="twitter:description" content="{{ this.context.description|raw }}">
     <meta property="twitter:image:src" content="{{ this.context.image }}">
 
 
     <!-- G+ -->
     <meta itemprop="name" content="{{ this.context.encodedTitle }}">
-    <meta itemprop="description" content="{{ this.context.description }}">
+    <meta itemprop="description" content="{{ this.context.description|raw }}">
     <meta itemprop="image" content="{{ this.context.image }}">
 
     <!-- Facebook Markup -->
@@ -40,7 +40,7 @@
     <meta property="og:type" content="website">
     <meta property="og:image" content="{{ this.context.image }}">
     <meta property="og:url" content="{{ bioHtml.currentUrl() }}">
-    <meta property="og:description" content="{{ this.context.description }}">
+    <meta property="og:description" content="{{ this.context.description|raw }}">
 
     <title>{{ this.context.encodedTitle|raw }}</title>
     {{ html.csrfMetaTags() | raw }}

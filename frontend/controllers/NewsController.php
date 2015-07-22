@@ -43,6 +43,12 @@ class NewsController extends IndexController
 
         $this->pageTitle = $news->title;
 
+        $this->image = ContentHelper::getImage($news->short_text);
+        $desc = ContentHelper::getDescription($news->short_text);
+        if ($desc !== null) {
+            $this->description = $desc;
+        }
+
         return $this->render('@app/static/tmpl/p-news-page.twig', ['singleNews' => $news]);
     }
 
