@@ -311,4 +311,36 @@ EOF;
 
         return htmlspecialchars_decode($content);
     }
+
+    public static function getRemoteFileSizeAndMime($url)
+    {
+        try {
+            $headers = get_headers($url, 1);
+            if ($headers) {
+                $size = $headers['Content-Length'];
+                $mime = $headers['Content-Type'];
+                return ['size' => $size, 'mime' => $mime];
+            }
+        }
+        catch(\Exception $ex)
+        {
+
+        }
+        return null;
+    }
+
+    public static function getRemoteFileSize($url)
+    {
+        static $regex = '/^Content-Length: *+\K\d++$/im';
+        if (!$fp = @fopen($url, 'rb')) {
+            return 0;
+        }
+        if (
+            isset($http_response_header) &&
+            preg_match($regex, implode("\n", $http_response_header), $matches)
+        ) {
+            return (int)$matches[0];
+        }
+        return strlen(stream_get_contents($fp));
+    }
 }

@@ -60,11 +60,12 @@ class NewsController extends IndexController
         $feed = \Yii::$app->feed->writer();
 
         $feed->setTitle('www.BioWare.ru');
-        $feed->setLink('https://bioware.ru');
-        $feed->setFeedLink('https://bioware.ru/news/rss.xml', 'rss');
+        $feed->setLink('https://www.bioware.ru');
+        $feed->setFeedLink('https://www.bioware.ru/news/rss.xml', 'rss');
         $feed->setDescription(\Yii::t('app', 'Последние новости'));
-        $feed->setGenerator('https://bioware.ru/news/rss.xml');
+        $feed->setGenerator('https://www.bioware.ru/news/rss.xml');
         $feed->setDateModified(time());
+        $feed->setLastBuildDate(time());
 
         /**
          * @var News[] $latestNews
@@ -75,20 +76,26 @@ class NewsController extends IndexController
         ])->where(['pub' => 1])->limit(20)->all();
         foreach ($latestNews as $news) {
             $entry = $feed->createEntry();
-            $entry->setTitle($news->title);
+            $entry->setTitle(htmlspecialchars_decode($news->title));
             $entry->setLink($news->getPublicUrl(true));
             $entry->setDateModified((int)$news->last_change_date);
             $entry->setDateCreated((int)$news->date);
+            $entry->setDescription(ContentHelper::getDescription($news->short_text));
             $entry->setContent(
                 $news->short_text
             );
-            $entry->setEnclosure(
-                [
-                    'uri'    => $news->getParent()->getIcon(),
-                    'type'   => 'image/png',
-                    'length' => $news->getParent()->getIconSize()
-                ]
-            );
+            $entry->setCommentCount($news->comments);
+            $img = ContentHelper::getImage($news->short_text);
+            $imgData = ContentHelper::getRemoteFileSizeAndMime($img);
+            if ($imgData) {
+                $entry->setEnclosure(
+                    [
+                        'uri'    => $img,
+                        'type'   => $imgData['mime'],
+                        'length' => $imgData['size']
+                    ]
+                );
+            }
             $feed->addEntry($entry);
         }
         header('Content-type: text/xml');
