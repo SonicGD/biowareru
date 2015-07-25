@@ -71,11 +71,14 @@ class SearchController extends Controller
             'groups' => []
         ];
 
+        $blockTitle = null;
+
         if (!$block || $block === 'games') {
             $count = 0;
             $limit = $block ? 0 : 5;
             $games = $this->getModels(GamesSearch::class, Game::class, $q, $count, $limit);
-            $this->fillSearchResults($results, 'games', 'Игры', $games, 'title', 'publicUrl', 'news_desc',
+            $blockTitle = 'Игры';
+            $this->fillSearchResults($results, 'games', $blockTitle, $games, 'title', 'publicUrl', 'news_desc',
                 $count);
         }
 
@@ -83,14 +86,16 @@ class SearchController extends Controller
             $count = 0;
             $limit = $block ? 0 : 5;
             $news = $this->getModels(NewsSearch::class, News::class, $q, $count, $limit);
-            $this->fillSearchResults($results, 'news', 'Новости', $news, 'title', 'publicUrl', 'short_text',
+            $blockTitle = 'Новости';
+            $this->fillSearchResults($results, 'news', $blockTitle, $news, 'title', 'publicUrl', 'short_text',
                 $count);
         }
         if (!$block || $block === 'articles') {
             $count = 0;
             $limit = $block ? 0 : 5;
             $articles = $this->getModels(ArticlesSearch::class, Article::class, $q, $count, $limit);
-            $this->fillSearchResults($results, 'articles', 'Статьи', $articles, 'title', 'publicUrl',
+            $blockTitle = 'Статьи';
+            $this->fillSearchResults($results, 'articles', $blockTitle, $articles, 'title', 'publicUrl',
                 'announce', $count);
         }
 
@@ -98,7 +103,8 @@ class SearchController extends Controller
             $count = 0;
             $limit = $block ? 0 : 5;
             $articlesCats = $this->getModels(ArticlesCatSearch::class, ArticleCat::class, $q, $count, $limit);
-            $this->fillSearchResults($results, 'articlesCats', 'Категории статей', $articlesCats, 'title', 'publicUrl',
+            $blockTitle = 'Категории статей';
+            $this->fillSearchResults($results, 'articlesCats', $blockTitle, $articlesCats, 'title', 'publicUrl',
                 'descr', $count);
         }
 
@@ -106,7 +112,8 @@ class SearchController extends Controller
             $count = 0;
             $limit = $block ? 0 : 5;
             $files = $this->getModels(FilesSearch::class, File::class, $q, $count, $limit);
-            $this->fillSearchResults($results, 'files', 'Файлы', $files, 'title', 'publicUrl',
+            $blockTitle = 'Файлы';
+            $this->fillSearchResults($results, 'files', $blockTitle, $files, 'title', 'publicUrl',
                 'announce',
                 $count);
         }
@@ -115,7 +122,8 @@ class SearchController extends Controller
             $count = 0;
             $limit = $block ? 0 : 5;
             $filesCats = $this->getModels(FilesCatSearch::class, FileCat::class, $q, $count, $limit);
-            $this->fillSearchResults($results, 'articlesCats', 'Категории файлов', $filesCats, 'title', 'publicUrl',
+            $blockTitle = 'Категории файлов';
+            $this->fillSearchResults($results, 'articlesCats', $blockTitle, $filesCats, 'title', 'publicUrl',
                 'announce', $count);
         }
 
@@ -124,7 +132,8 @@ class SearchController extends Controller
             $limit = $block ? 0 : 5;
             $galleryCats = $this->getModels(GalleryCatSearch::class,
                 GalleryCat::class, $q, $count, $limit);
-            $this->fillSearchResults($results, 'articlesCats', 'Категории картинок', $galleryCats, 'title', 'publicUrl',
+            $blockTitle = 'Категории картинок';
+            $this->fillSearchResults($results, 'articlesCats', $blockTitle, $galleryCats, 'title', 'publicUrl',
                 'desc', $count);
         }
 
@@ -132,10 +141,12 @@ class SearchController extends Controller
         /* \Yii::$app->response->format = Response::FORMAT_JSON;
          return $results;*/
         if ($block) {
+            $this->pageTitle = 'Поиск - ' . $blockTitle . ' - ' . $q;
             $results['url'] = Url::toRoute(['search/index', 'q' => $results['query']]);
             return $this->render('@app/static/tmpl/p-search-cat.twig',
                 ['searchResultsCat' => $results, 'pagination' => $this->pagination]);
         } else {
+            $this->pageTitle = 'Поиск - ' . $q;
             return $this->render('@app/static/tmpl/p-search.twig', ['searchResults' => $results]);
         }
     }
