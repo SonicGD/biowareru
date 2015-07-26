@@ -114,4 +114,34 @@ class GalleryController extends \bioengine\common\modules\gallery\controllers\fr
             ['parent' => $parent, 'cats' => $cats]);
     }
 
+    public function actionShowByFileName($parentUrl, $catUrl, $fileName)
+    {
+        $parent = BioEngine::getParentByUrl($parentUrl);
+        if (!$parent) {
+            throw new NotFoundHttpException;
+        }
+
+        /**
+         * @var GalleryCat $cat
+         */
+        $cat = GalleryCat::find()->where(['url' => $catUrl, $parent->parentKey => $parent->id])->one();
+        if (!$cat) {
+            throw new NotFoundHttpException;
+        }
+
+        /**
+         * @var GalleryPic[] $pics
+         */
+        $pics = $cat->getPics()->andWhere(['like', 'files', $fileName])->all();
+        if ($pics) {
+            /**
+             * @var GalleryPic $pic
+             */
+            $pic = reset($pics);
+            return $this->redirect($pic->getPublicUrl(true) . '#nanogallery/nanoGallery/0/' . $pic->id, 301);
+        } else {
+            throw new NotFoundHttpException;
+        }
+    }
+
 }
