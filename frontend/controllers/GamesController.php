@@ -9,9 +9,16 @@ class GamesController extends \bioengine\common\modules\main\controllers\fronten
 {
     public function actionShow($gameUrl)
     {
+        /**
+         * @var Game $game
+         */
         $game = Game::find()->where(['url' => $gameUrl])->one();
         if (!$game) {
             throw new NotFoundHttpException();
+        }
+
+        if ($game->getPublicUrl() !== \Yii::$app->request->url) {
+            return $this->redirect($game->getPublicUrl(true), 301);
         }
 
         $this->pageTitle = $game->title;
