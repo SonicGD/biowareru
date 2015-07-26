@@ -3,6 +3,7 @@
 namespace biowareru\frontend\controllers;
 
 
+use bioengine\common\helpers\UserHelper;
 use bioengine\common\modules\ipb\models\IpbPost;
 use bioengine\common\modules\news\controllers\frontend\IndexController;
 use bioengine\common\modules\news\models\News;
@@ -22,11 +23,26 @@ class NewsController extends IndexController
         /**
          * @var News $news
          */
-        $news = News::find()
+        $newsQuery = News::find()
             ->where(['url' => $newsUrl])
             ->andWhere(['>=', 'date', $dateStart])
-            ->andWhere(['<=', 'date', $dateEnd])
-            ->one();
+            ->andWhere(['<=', 'date', $dateEnd]);
+
+        $user = UserHelper::getUser();
+        if ($user) {
+            if ($user->isSiteTeam()) {
+                if (!$user->hasRights('pubNews')) {
+                    $newsQuery->where(['pub' => 1]);
+                    $newsQuery->orWhere(['author_id' => $user->member_id]);
+                }
+            } elseif (!$user->isAdmin()) {
+                $newsQuery->where(['pub' => 1]);
+            }
+        } else {
+            $newsQuery->where(['pub' => 1]);
+        }
+
+        $news = $newsQuery->one();
 
         if (!$news) {
             throw new NotFoundHttpException();
