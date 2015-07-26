@@ -23,10 +23,7 @@ class NewsController extends IndexController
         /**
          * @var News $news
          */
-        $newsQuery = News::find()
-            ->where(['url' => $newsUrl])
-            ->andWhere(['>=', 'date', $dateStart])
-            ->andWhere(['<=', 'date', $dateEnd]);
+        $newsQuery = News::find();
 
         $user = UserHelper::getUser();
         if ($user) {
@@ -41,6 +38,10 @@ class NewsController extends IndexController
         } else {
             $newsQuery->where(['pub' => 1]);
         }
+        
+        $newsQuery->andWhere(['url' => $newsUrl])
+            ->andWhere(['>=', 'date', $dateStart])
+            ->andWhere(['<=', 'date', $dateEnd]);
 
         $news = $newsQuery->one();
 
