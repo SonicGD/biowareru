@@ -7,7 +7,6 @@ use bioengine\common\modules\ipb\models\IpbPost;
 use bioengine\common\modules\news\controllers\frontend\IndexController;
 use bioengine\common\modules\news\models\News;
 use biowareru\frontend\helpers\ContentHelper;
-use yii\web\HttpException;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
 

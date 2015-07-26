@@ -4,6 +4,7 @@ namespace biowareru\frontend\controllers;
 
 
 use bioengine\common\BioEngine;
+use bioengine\common\helpers\UrlHelper;
 use bioengine\common\helpers\UserHelper;
 use bioengine\common\modules\main\models\Menu;
 use bioengine\common\modules\news\models\News;
@@ -72,6 +73,60 @@ class SiteController extends \bioengine\frontend\controllers\SiteController
         ])->where(['pub' => 1, $parent->parentKey => $parent->id]);
 
         $this->pageTitle = $parent->title . ' - Новости';
+
+        return $this->renderNews($newsQuery);
+    }
+
+    public function actionDate($year, $month = null, $day = null)
+    {
+        $monthStart = $month ?: 1;
+        $monthEnd = $month ?: 12;
+        $dayStart = $day ?: 1;
+        $dayEnd = $day ?: 31;
+        $dateStart = mktime(0, 0, 0, $monthStart, $dayStart, $year);
+        $dateEnd = mktime(23, 59, 59, $monthEnd, $dayEnd, $year);
+
+        $newsQuery = News::find()
+            ->andWhere(['>=', 'date', $dateStart])
+            ->andWhere(['<=', 'date', $dateEnd])
+            ->orderBy([
+                'sticky' => SORT_DESC,
+                'id'     => SORT_DESC
+            ]);
+
+        $user = UserHelper::getUser();
+        if ($user) {
+            if ($user->isSiteTeam()) {
+                if (!$user->hasRights('pubNews')) {
+                    $newsQuery->where(['pub' => 1]);
+                    $newsQuery->orWhere(['author_id' => $user->member_id]);
+                }
+            } elseif (!$user->isAdmin()) {
+                $newsQuery->where(['pub' => 1]);
+            }
+        } else {
+            $newsQuery->where(['pub' => 1]);
+        }
+
+       /* $this->breadCrumbs[] = [
+            'title' => 'Новости',
+            'url'   => '/'
+        ];
+
+        $this->breadCrumbs[] = [
+            'title' => $year,
+            'url'   => UrlHelper::createUrl('index/date', ['year' => $year])
+        ];*/
+        if ($month && $day) {
+            $this->breadCrumbs[] = [
+                'title' => $month,
+                'url'   => UrlHelper::createUrl('index/date', ['year' => $year, 'month' => $month])
+            ];
+        }
+        $this->pageTitle = 'www.BioWare.ru - Новости за ' . date('d.m.Y', $dateStart);
+        if (!$day) {
+            $this->pageTitle .= ' - ' . date('d.m.Y', $dateEnd);
+        }
 
         return $this->renderNews($newsQuery);
     }
