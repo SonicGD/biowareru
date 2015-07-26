@@ -79,9 +79,10 @@ class ArticlesController extends IndexController
         /**
          * @var Article $article
          */
-        list($article, $parent, $cat) = Article::getByParent($parentUrl, $catUrl, $articleUrl);
-        if (!$article) {
-            throw new HttpException(404, 'Страница не найдена');
+        try {
+            list($article, $parent, $cat) = Article::getByParent($parentUrl, $catUrl, $articleUrl);
+        } catch (HttpException $ex) {
+            return $this->showCat($parentUrl, $catUrl . '/' . $articleUrl);
         }
 
         if ($article->getPublicUrl() !== \Yii::$app->request->url) {
