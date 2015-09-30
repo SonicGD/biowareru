@@ -3,7 +3,7 @@
         <span class="upper">ОПРОС</span><br/>
         {{ polls.current.question|raw }}
     </h3>
-    {% if polls.current.voted %}
+    {% if polls.current.isVoted %}
         {% include 'b-poll-voted.twig' with {'poll':polls.current} %}
     {% else %}
         {% include 'b-poll-form.twig' with {'poll':polls.current} %}
