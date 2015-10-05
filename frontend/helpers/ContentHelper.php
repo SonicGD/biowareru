@@ -81,7 +81,7 @@ class ContentHelper
             'onlyUrl'     => true
         ],
         [
-            'placeholder' => 'http:',
+            'placeholder' => 'src=\"http:',
             'method'      => 'replaceHttp',
             'onlyUrl'     => true
         ],
@@ -150,7 +150,7 @@ class ContentHelper
 
     private static function replaceHttp()
     {
-        return null;
+        return 'src="';
     }
 
     private static function replaceVideo($id, $onlyUrl = false)
