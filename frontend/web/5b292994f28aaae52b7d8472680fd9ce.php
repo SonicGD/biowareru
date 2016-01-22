@@ -3,7 +3,7 @@ $body = @file_get_contents('php://input');
 $payload = json_decode($body, true);
 if ($payload['ref'] == 'refs/heads/master') {
 
-    $root = '/var/www/bioware/bioware.ru/subdomains/test';
+    $root = '/var/www/bioware/bioware.ru/www';
     $admin_mail = 'sonicgd@gmail.com';
     $send_to_admin = true;
 
