@@ -3,7 +3,7 @@ $(function () {
     var counter = $('#counter');
     var date = new Date(counter.text());
     counter.countdown(
-        {until: date, serverSync: serverTime});
+        {until: date});
 
     function serverTime() {
         var time = null;
