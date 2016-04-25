@@ -1,5 +1,4 @@
 $(function () {
-    $.countdown.setDefaults($.countdown.regional['ru']);
     var counter = $('#counter');
     var date = new Date(counter.text());
     counter.countdown(
