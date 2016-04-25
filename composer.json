@@ -21,7 +21,7 @@
     "bower-asset/jquery-ui": "~1.11@dev",
     "yiisoft/yii2-twig": "~2.0.4@stable",
     "yiisoft/yii2-sphinx": "~2.0.5@stable",
-    "google/apiclient": "~1.1.5@stable",
+    "google/apiclient": "~1.1.7@stable",
     "yurkinx/yii2-rss": "~1.0.1@stable"
   },
   "require-dev": {
