@@ -121,7 +121,7 @@ module.exports = (grunt) ->
 
       css:
         files:
-        skinConcatConfigCssFiles
+          skinConcatConfigCssFiles
 
     uglify:
       dist:
