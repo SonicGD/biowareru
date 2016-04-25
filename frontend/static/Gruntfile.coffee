@@ -197,7 +197,7 @@ module.exports = (grunt) ->
 
 
     stylus:
-    skinStylusConfig
+      skinStylusConfig
 
 
     autoprefixer:
