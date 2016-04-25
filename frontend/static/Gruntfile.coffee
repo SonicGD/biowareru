@@ -9,7 +9,7 @@ module.exports = (grunt) ->
     'jquery-mousewheel/jquery.mousewheel.min.js',
     'nanogallery/dist/jquery.nanogallery.min.js',
     'social-likes/social-likes.min.js'
-  ].map( (path) ->
+  ].map((path) ->
     return '../web/js/' + path;
   );
 
@@ -27,24 +27,30 @@ module.exports = (grunt) ->
 
   skinStylusItemConfig =
     expand: true
-    cwd:    'blocks/'
-    src:    [
+    cwd: 'blocks/'
+    src: [
       '**/*.styl',
       '!mixins/**/*.styl',
       '!config*.styl',
     ]
     dest: 'blocks'
-    ext:  '.css'
-  
+    ext: '.css'
+
   for skinName in skinList
     do (skinName) ->
-      skinStylusConfig[skinName] = _.extend({}, skinStylusItemConfig, { options: { import: ['config.styl', 'mixins/**/*.styl', 'config_' + skinName + '.styl'] }, ext:  '_' + skinName + '.css' })
+      skinStylusConfig[skinName] = _.extend({}, skinStylusItemConfig, {
+        options: {
+          import: ['config.styl', 'mixins/**/*.styl', 'config_' + skinName + '.styl']
+        }, ext: '_' + skinName + '.css'
+      })
       skinConcatConfigCssFiles['../web/css/style_' + skinName + '.css'] = [
         '../web/js/owl.carousel/dist/assets/owl.carousel.min.css',
         '../web/js/nanogallery/dist/css/nanogallery.min.css',
         '../web/js/nanogallery/dist/css/nanogallery.woff.min.css',
         '../web/js/social-likes/social-likes_flat.css',
-        'blocks/**/*_' + skinName + '.css'
+        'blocks/**/*_' + skinName + '.css',
+        'assets/**/*.css',
+
       ]
 
 
@@ -57,11 +63,12 @@ module.exports = (grunt) ->
           base: '../web'
           middleware: (connect, options) ->
             return [
-              # Serve static files.
+# Serve static files.
               connect.static(options.base)
-              # Show only html files and folders.
-              connect.directory(options.base, { hidden:false, icons:true, filter:(file) ->
-                return /\.html/.test(file) || !/\./.test(file);
+# Show only html files and folders.
+              connect.directory(options.base, {
+                hidden: false, icons: true, filter: (file) ->
+                  return /\.html/.test(file) || !/\./.test(file);
               })
             ]
 
@@ -69,11 +76,11 @@ module.exports = (grunt) ->
     copy:
       images:
         files: [{
-          expand:  true
+          expand: true
           flatten: true
-          cwd:     'blocks',
-          src:     ['**/*.{png,jpg,jpeg,gif,svg}', '!**/*_sprite.{png,jpg,jpeg,gif}']
-          dest:    '../web/img'
+          cwd: 'blocks',
+          src: ['**/*.{png,jpg,jpeg,gif,svg}', '!**/*_sprite.{png,jpg,jpeg,gif}']
+          dest: '../web/img'
         }]
 
 
@@ -92,26 +99,29 @@ module.exports = (grunt) ->
         files: [
           {
             expand: true
-            cwd:    '../web/img/'
-            src:    '**/*.{png,jpg,jpeg}'
-            dest:   '../web/img/'
+            cwd: '../web/img/'
+            src: '**/*.{png,jpg,jpeg}'
+            dest: '../web/img/'
           },
           {
             expand: true
-            cwd:    '../web'
-            src:    '*.{png,jpg,jpeg,ico}'
-            dest:   '../web'
+            cwd: '../web'
+            src: '*.{png,jpg,jpeg,ico}'
+            dest: '../web'
           },
         ]
 
     concat:
       js:
-        src: jsLibs.concat('blocks/**/*.js')
+        src: [
+          jsLibs.concat('blocks/**/*.js'),
+          jsLibs.concat('assets/**/*.js')
+        ]
         dest: '../web/js/script.js'
 
       css:
         files:
-          skinConcatConfigCssFiles
+        skinConcatConfigCssFiles
 
     uglify:
       dist:
@@ -124,15 +134,15 @@ module.exports = (grunt) ->
         'blocks/**/*.js'
       ]
       options:
-        curly:    true
-        eqeqeq:   true
-        eqnull:   true
-        # quotmark: true
-        undef:    true
-        unused:   false
+        curly: true
+        eqeqeq: true
+        eqnull: true
+# quotmark: true
+        undef: true
+        unused: false
 
-        browser:  true
-        jquery:   true
+        browser: true
+        jquery: true
         globals:
           console: true
 
@@ -140,7 +150,7 @@ module.exports = (grunt) ->
     watch:
       options:
         livereload: false
-        spawn:      false
+        spawn: false
 
       stylus:
         options:
@@ -148,7 +158,7 @@ module.exports = (grunt) ->
         files: [
           'blocks/**/*.styl'
         ]
-        tasks: ['stylus', 'newer:concat:css','newer:autoprefixer']
+        tasks: ['stylus', 'newer:concat:css', 'newer:autoprefixer']
 
       js:
         options:
@@ -165,7 +175,7 @@ module.exports = (grunt) ->
         files: [
           'Gruntfile.coffee'  # auto reload gruntfile config
         ]
-        tasks: ['newer:concat:js', 'stylus', 'newer:concat:css','newer:autoprefixer']
+        tasks: ['newer:concat:js', 'stylus', 'newer:concat:css', 'newer:autoprefixer']
 
       twig:
         options:
@@ -187,7 +197,7 @@ module.exports = (grunt) ->
 
 
     stylus:
-      skinStylusConfig
+    skinStylusConfig
 
 
     autoprefixer:
@@ -195,9 +205,9 @@ module.exports = (grunt) ->
         options:
           browsers: ['> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1', 'ie 9']       #default
         expand: true
-        cwd:    '../web/css/'
-        src:    '*.css'
-        dest:   '../web/css/'
+        cwd: '../web/css/'
+        src: '*.css'
+        dest: '../web/css/'
 
 
     cssmin: {
@@ -218,7 +228,7 @@ module.exports = (grunt) ->
 
     twigRender:
       your_target: {
-        files : [
+        files: [
           {
             data: 'data/index.json',
             expand: true,
@@ -231,6 +241,6 @@ module.exports = (grunt) ->
       },
 
 
-  @registerTask( 'default',    [ 'concat:js', 'stylus',  'newer:concat:css', 'autoprefixer', 'twigRender'])
-  @registerTask( 'livereload', [ 'default', 'connect', 'open', 'watch' ])
-  @registerTask( 'publish',    [ 'default', 'uglify', 'cssmin'])
+  @registerTask('default', ['concat:js', 'stylus', 'newer:concat:css', 'autoprefixer', 'twigRender'])
+  @registerTask('livereload', ['default', 'connect', 'open', 'watch'])
+  @registerTask('publish', ['default', 'uglify', 'cssmin'])

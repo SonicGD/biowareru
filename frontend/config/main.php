@@ -65,6 +65,7 @@ $config = [
                         'menu'       => 'biowareru\frontend\helpers\MenuHelper',
                         'slider'     => 'biowareru\frontend\helpers\SliderHelper',
                         'polls'      => 'biowareru\frontend\helpers\PollsHelper',
+                        'blocks'      => 'biowareru\frontend\helpers\BlocksHelper',
                         'html'       => '\yii\helpers\Html',
                         'bioHtml'    => BioHtml::class,
                         'content'    => ContentHelper::class,
