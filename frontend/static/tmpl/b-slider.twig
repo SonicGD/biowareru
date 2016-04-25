@@ -1,7 +1,7 @@
 <nav class="slider">
     <button class="slider__control slider__control_left" title="Влево"></button>
     <div class="slider__list">
-        <div class="slider__list-items">
+        <div class="slider__list-items owl-carousel">
             {% for key, item in slider.getGames %}
                 <a class="slider__list-item" href="/{{ item.url }}.html">
                     <span class="slider__image"
