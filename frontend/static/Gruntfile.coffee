@@ -113,10 +113,7 @@ module.exports = (grunt) ->
 
     concat:
       js:
-        src: [
-          jsLibs.concat('blocks/**/*.js'),
-          jsLibs.concat('assets/**/*.js')
-        ]
+        src: jsLibs.concat('blocks/**/*.js', 'assets/**/*.js'),
         dest: '../web/js/script.js'
 
       css:
