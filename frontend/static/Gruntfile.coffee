@@ -8,7 +8,7 @@ module.exports = (grunt) ->
     'owl.carousel/dist/owl.carousel.min.js',
     'jquery-mousewheel/jquery.mousewheel.min.js',
     'nanogallery/dist/jquery.nanogallery.min.js',
-    'social-likes/social-likes.min.js'
+    'social-likes/dist/social-likes.min.js'
   ].map((path) ->
     return '../web/js/' + path;
   );
@@ -47,7 +47,7 @@ module.exports = (grunt) ->
         '../web/js/owl.carousel/dist/assets/owl.carousel.min.css',
         '../web/js/nanogallery/dist/css/nanogallery.min.css',
         '../web/js/nanogallery/dist/css/nanogallery.woff.min.css',
-        '../web/js/social-likes/social-likes_flat.css',
+        '../web/js/social-likes/dist/social-likes_flat.css',
         'blocks/**/*_' + skinName + '.css',
         'assets/**/*.css',
 
