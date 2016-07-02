@@ -42,7 +42,7 @@ class NewsController extends Controller
         $news = News::findOne($newsId);
         if ($news) {
 
-            if (!$news->topic_id) {
+            if (!$news->tid) {
                 //create new topic
 
                 $topic = [
@@ -55,7 +55,7 @@ class NewsController extends Controller
 
                 $response = $this->doApiRequest("/forums/topics", $topic);
                 if ($response->isOk) {
-                    $news->topic_id = $response->data['id'];
+                    $news->tid = $response->data['id'];
                     $news->pid = $response->data['firstPost']['id'];
                 }
             } else {
@@ -66,7 +66,7 @@ class NewsController extends Controller
                     'hidden' => $news->pub ? 0 : 1
                 ];
 
-                $response = $this->doApiRequest("/forum/topics/" . $news->topic_id, $topic);
+                $response = $this->doApiRequest("/forum/topics/" . $news->tid, $topic);
                 if ($response->isOk) {
                     $post = [
                         'post' => $this->getPostContent($news)
