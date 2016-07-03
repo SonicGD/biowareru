@@ -124,6 +124,7 @@ class NewsController extends IndexController
 
     public function actionUpdateForumPost($newsId)
     {
+        if(!$this->settings['ipbApiKey']) return false;
         /**
          * @var News $news
          */
@@ -190,7 +191,7 @@ class NewsController extends IndexController
         $request = $client->createRequest()
             ->setMethod('post')
             ->setHeaders([
-                'Authorization' => 'Basic ' . $this->sett
+                'Authorization' => 'Basic ' . $this->settings['ipbApiKey']
             ])
             ->setUrl('http://ipb4.bioware.ru/api' . $path)
             ->setData($data);
