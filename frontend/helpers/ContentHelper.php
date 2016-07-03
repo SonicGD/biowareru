@@ -115,7 +115,7 @@ class ContentHelper
                         if ($index > 0) {
                             $attrs[] = $group[$key];
                             if ($index === 1) {
-                                $attrs[] = $placeholder['onlyUrl'];
+                                $attrs[] = $placeholder['onlyUrl']??null;
                             }
                         }
                     }
