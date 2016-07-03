@@ -2044,7 +2044,7 @@
   "user": {
     "getUser": {
       "avatarUrl": "#",
-      "members_display_name": "User",
+      "name": "User",
       "profileUrl": "#",
       "logoutUrl": "#",
       "renegate": false
@@ -2064,7 +2064,7 @@
     "publicUrl": "#",
     "title": "Статья!",
     "author": {
-      "members_display_name": "Sonic"
+      "name": "Sonic"
     },
     "date": "0",
     "text": "Text"

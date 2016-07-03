@@ -41,7 +41,7 @@ class PollsController extends IndexController
                 $vote = new PollWho;
                 $vote->user_id = $user ? $user->member_id : 0;
                 $vote->poll_id = $poll->poll_id;
-                $vote->login = $user ? $user->members_display_name : 'guest';
+                $vote->login = $user ? $user->name : 'guest';
                 $vote->vote_date = time();
                 $vote->voteoption = $voteValue;
                 $vote->ip = $_SERVER['REMOTE_ADDR'];

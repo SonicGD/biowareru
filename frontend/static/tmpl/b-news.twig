@@ -19,7 +19,7 @@
 
             </h2>
             <time class="article-list__date"
-                  datetime="{{ item.date|date("Y-M-D h:m:s") }}">{{ item.date|date("d.m.Y H:i:s") }}, {{ item.author.members_display_name }}</time>
+                  datetime="{{ item.date|date("Y-M-D h:m:s") }}">{{ item.date|date("d.m.Y H:i:s") }}, {{ item.author.name }}</time>
         </div>
         <a class="article-list__title-image" href="{{ item.parent.newsUrl }}"
            title="{{ item.parent.title }}">
