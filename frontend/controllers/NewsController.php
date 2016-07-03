@@ -124,7 +124,9 @@ class NewsController extends IndexController
 
     public function actionUpdateForumPost($newsId)
     {
-        if(!isset($this->settings['ipbApiKey'])) return false;
+        if (!isset($this->settings['ipbApiKey'])) {
+            return false;
+        }
         /**
          * @var News $news
          */
@@ -185,7 +187,7 @@ class NewsController extends IndexController
         return $this->client;
     }
 
-    private function doApiRequest($path, $data):Response
+    private function doApiRequest($path, $data):\yii\httpclient\Response
     {
         $client = $this->getClient();
         $request = $client->createRequest()
