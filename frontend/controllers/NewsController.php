@@ -195,7 +195,7 @@ class NewsController extends IndexController
             ->setHeaders([
                 'Authorization' => 'Basic ' . base64_encode($this->settings['ipbApiKey'] . ':')
             ])
-            ->setUrl('http://ipb4.bioware.ru/api' . $path)
+            ->setUrl(\Yii::$app->params['ipb_url'] . '/api' . $path)
             ->setData($data);
         $response = $request->send();
         return $response;
