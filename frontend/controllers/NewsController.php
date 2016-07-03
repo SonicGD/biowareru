@@ -141,7 +141,8 @@ class NewsController extends IndexController
                     'author' => $news->author_id,
                     'title'  => $news->title,
                     'post'   => $this->getPostContent($news),
-                    'hidden' => $news->pub ? 0 : 1
+                    'hidden' => $news->pub ? 0 : 1,
+                    'pinned' => $news->sticky
                 ];
 
                 $response = $this->doApiRequest("/forums/topics", $topic);
@@ -154,7 +155,8 @@ class NewsController extends IndexController
 
                 $topic = [
                     'title'  => $news->title,
-                    'hidden' => $news->pub ? 0 : 1
+                    'hidden' => $news->pub ? 0 : 1,
+                    'pinned' => $news->sticky
                 ];
 
                 $response = $this->doApiRequest("/forums/topics/" . $news->tid, $topic);
