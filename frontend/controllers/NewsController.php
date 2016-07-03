@@ -193,7 +193,7 @@ class NewsController extends IndexController
         $request = $client->createRequest()
             ->setMethod('post')
             ->setHeaders([
-                'Authorization' => 'Basic ' . $this->settings['ipbApiKey']
+                'Authorization' => 'Basic ' . base64_encode($this->settings['ipbApiKey'])
             ])
             ->setUrl('http://ipb4.bioware.ru/api' . $path)
             ->setData($data);
