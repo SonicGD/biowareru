@@ -157,12 +157,12 @@ class NewsController extends IndexController
                     'hidden' => $news->pub ? 0 : 1
                 ];
 
-                $response = $this->doApiRequest("/forum/topics/" . $news->tid, $topic);
+                $response = $this->doApiRequest("/forums/topics/" . $news->tid, $topic);
                 if ($response->isOk) {
                     $post = [
                         'post' => $this->getPostContent($news)
                     ];
-                    $postResponse = $this->doApiRequest("/forum/posts/" . $news->pid, $post);
+                    $postResponse = $this->doApiRequest("/forums/posts/" . $news->pid, $post);
                     if (!$postResponse->isOk) {
                         //error
                     }
@@ -189,15 +189,18 @@ class NewsController extends IndexController
 
     private function doApiRequest($path, $data):\yii\httpclient\Response
     {
+        $url = \Yii::$app->params['ipb_url'] . '/api' . $path;
+        var_dump($url);
         $client = $this->getClient();
         $request = $client->createRequest()
             ->setMethod('post')
             ->setHeaders([
                 'Authorization' => 'Basic ' . base64_encode($this->settings['ipbApiKey'] . ':')
             ])
-            ->setUrl(\Yii::$app->params['ipb_url'] . '/api' . $path)
+            ->setUrl($url)
             ->setData($data);
         $response = $request->send();
+        var_dump($response);
         return $response;
     }
 
