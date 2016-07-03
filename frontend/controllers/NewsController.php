@@ -189,7 +189,7 @@ class NewsController extends IndexController
 
     private function doApiRequest($path, $data):\yii\httpclient\Response
     {
-        $url = \Yii::$app->params['ipb_url'] . '/api' . $path;
+        $url = \Yii::$app->params['ipb_url'] . 'api' . $path;
         var_dump($url);
         $client = $this->getClient();
         $request = $client->createRequest()
