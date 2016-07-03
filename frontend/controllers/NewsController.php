@@ -124,7 +124,7 @@ class NewsController extends IndexController
 
     public function actionUpdateForumPost($newsId)
     {
-        if(!$this->settings['ipbApiKey']) return false;
+        if(!isset($this->settings['ipbApiKey'])) return false;
         /**
          * @var News $news
          */
