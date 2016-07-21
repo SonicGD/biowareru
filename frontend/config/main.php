@@ -19,9 +19,6 @@ $config = [
     'components'          => [
         'cache'        => $params['components.cache'],
         'redis'        => $params['components.redis'],
-        'feed'         => [
-            'class' => \yii\feed\FeedDriver::class,
-        ],
         'sphinx'       => [
             'class'    => 'yii\sphinx\Connection',
             'dsn'      => 'mysql:host=sphinx;port=9306;',
@@ -85,8 +82,8 @@ $config = [
 
 if (YII_DEBUG) {
     // configuration adjustments for 'dev' environment
-    $config['bootstrap'][] = 'debug';
-    $config['modules']['debug'] = ['class' => 'yii\debug\Module', 'allowedIPs' => ['127.0.0.1']];
+    //$config['bootstrap'][] = 'debug';
+    //$config['modules']['debug'] = ['class' => 'yii\debug\Module', 'allowedIPs' => ['127.0.0.1']];
 }
 
 return $config;

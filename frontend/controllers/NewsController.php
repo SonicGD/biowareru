@@ -8,6 +8,12 @@ use bioengine\common\modules\ipb\models\IpbPost;
 use bioengine\common\modules\news\controllers\frontend\IndexController;
 use bioengine\common\modules\news\models\News;
 use biowareru\frontend\helpers\ContentHelper;
+use Suin\RSSWriter\Channel;
+use Suin\RSSWriter\Feed;
+use Suin\RSSWriter\Item;
+use yii\base\ErrorException;
+use yii\data\ActiveDataProvider;
+use yii\db\Query;
 use yii\httpclient\Client;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
@@ -74,7 +80,7 @@ class NewsController extends IndexController
         /**
          * @var \Zend\Feed\Writer\Feed $feed
          */
-        $feed = \Yii::$app->feed->writer();
+        /*$feed = \Yii::$app->feed->writer();
 
         $feed->setTitle('www.BioWare.ru');
         $feed->setLink('https://www.bioware.ru');
@@ -82,17 +88,19 @@ class NewsController extends IndexController
         $feed->setDescription(\Yii::t('app', 'Последние новости'));
         $feed->setGenerator('https://www.bioware.ru/news/rss.xml');
         $feed->setDateModified(time());
-        $feed->setLastBuildDate(time());
+        $feed->setLastBuildDate(time());*/
 
         /**
          * @var News[] $latestNews
          */
-        $latestNews = News::find()->orderBy([
+        /*$latestNews = News::find()->orderBy([
             'sticky' => SORT_DESC,
             'id'     => SORT_DESC
         ])->where(['pub' => 1])->limit(20)->all();
+
         foreach ($latestNews as $news) {
             $entry = $feed->createEntry();
+            die('ddd');
             $entry->setTitle(htmlspecialchars_decode($news->title));
             $entry->setLink($news->getPublicUrl(true));
             $entry->setDateModified((int)$news->last_change_date);
@@ -117,9 +125,51 @@ class NewsController extends IndexController
         }
         header('Content-type: text/xml');
         \Yii::$app->response->format = Response::FORMAT_RAW;
-        $out = $feed->export('rss');
+        $out = $feed->export('rss');*/
 
-        return $out;
+        //return $out;
+
+        $feed = new Feed();
+        $channel = new Channel();
+        $channel
+            ->title('www.BioWare.ru')
+            ->description(\Yii::t('app', 'Последние новости'))
+            ->url('https://www.bioware.ru')
+            ->language('ru-RU')
+            ->pubDate(time())
+            ->lastBuildDate(time())
+            ->ttl(60)
+            ->appendTo($feed);
+
+        /**
+         * @var News[] $latestNews
+         */
+        $latestNews = News::find()->orderBy([
+            'sticky' => SORT_DESC,
+            'id'     => SORT_DESC
+        ])->where(['pub' => 1])->with('author')->limit(20)->all();
+
+        foreach ($latestNews as $news) {
+            $item = new Item();
+            $item
+                ->title($news->title)
+                ->description(ContentHelper::getDescription($news->short_text))
+                ->contentEncoded(ContentHelper::replacePlaceholders($news->short_text))
+                ->url($news->getPublicUrl(true))
+                ->pubDate((int)$news->last_change_date)
+                ->guid($news->getPublicUrl(true), true)
+                ->author($news->author->name);
+            $img = ContentHelper::getImage($news->short_text);
+            $imgData = ContentHelper::getRemoteFileSizeAndMime($img);
+            if ($imgData) {
+                $item->enclosure($img, $imgData['size'], $imgData['mime']);
+            }
+            $item->appendTo($channel);
+        }
+
+        \Yii::$app->response->getHeaders()->set('Content-Type', 'text/xml; charset=UTF-8');
+        \Yii::$app->response->format = Response::FORMAT_RAW;
+        return $feed->render();
     }
 
     public function actionUpdateForumPost($newsId)
@@ -153,13 +203,28 @@ class NewsController extends IndexController
             } else {
                 //upd topic
 
-                $topic = [
-                    'title'  => $news->title,
+                $query = new Query();
+                $topic = $query->from("be_forums_topics")->where(['tid' => $news->tid])->one();
+
+
+                /* */
+
+                if ($topic['title'] != $news->title) {
+                    $topicData = ['title' => $news->title];
+                    $response = $this->doApiRequest("/forums/topics/" . $news->tid, $topicData);
+                    if (!$response->isOk) {
+                        throw new ErrorException("Can't update title");
+                    }
+                }
+
+                $topicData = [
                     'hidden' => $news->pub ? 0 : 1,
                     'pinned' => $news->sticky
                 ];
 
-                $response = $this->doApiRequest("/forums/topics/" . $news->tid, $topic);
+                //var_dump($topic);
+
+                $response = $this->doApiRequest("/forums/topics/" . $news->tid, $topicData);
                 if ($response->isOk) {
                     $post = [
                         'post' => $this->getPostContent($news)
@@ -179,6 +244,34 @@ class NewsController extends IndexController
         }
     }
 
+    public function actionDeleteForumPost($newsId)
+    {
+        if (!isset($this->settings['ipbApiKey'])) {
+            return false;
+        }
+        /**
+         * @var News $news
+         */
+        $news = News::findOne($newsId);
+        if ($news) {
+
+            if (!$news->tid) {
+                //continue
+            } else {
+                $response = $this->doApiRequest("/forums/topics/" . $news->tid, null, 'delete');
+                var_dump($response->content);
+                if ($response->isOk) {
+                    return true;
+                } else {
+                    //error
+                    var_dump($response->content);
+                }
+            }
+        }
+
+        return true;
+    }
+
     private $client;
 
     private function getClient():Client
@@ -189,20 +282,20 @@ class NewsController extends IndexController
         return $this->client;
     }
 
-    private function doApiRequest($path, $data):\yii\httpclient\Response
+    private function doApiRequest($path, $data, $method = 'post'):\yii\httpclient\Response
     {
         $url = \Yii::$app->params['ipb_url'] . 'api' . $path;
-        var_dump($url);
+        //var_dump($url);
         $client = $this->getClient();
         $request = $client->createRequest()
-            ->setMethod('post')
+            ->setMethod($method)
             ->setHeaders([
                 'Authorization' => 'Basic ' . base64_encode($this->settings['ipbApiKey'] . ':')
             ])
             ->setUrl($url)
             ->setData($data);
         $response = $request->send();
-        var_dump($response);
+        var_dump($response->content, json_decode($response->content));
         return $response;
     }
 
