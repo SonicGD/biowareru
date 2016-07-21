@@ -314,16 +314,22 @@ EOF;
 
     public static function getRemoteFileSizeAndMime($url)
     {
+        $hash = md5($url);
+        $cached = \Yii::$app->cache->get('parsed_img_' . $hash);
+        if ($cached) {
+            return $cached;
+        }
         try {
             $headers = get_headers($url, 1);
             if ($headers) {
                 $size = $headers['Content-Length'];
                 $mime = $headers['Content-Type'];
-                return ['size' => $size, 'mime' => $mime];
+                $result = ['size' => $size, 'mime' => $mime];
+                \Yii::$app->cache->set('parsed_img_' . $hash, $result);
+
+                return $result;
             }
-        }
-        catch(\Exception $ex)
-        {
+        } catch (\Exception $ex) {
 
         }
         return null;
