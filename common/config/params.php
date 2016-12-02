@@ -24,7 +24,7 @@ $config = [
     'ipbwi_COOKIE_DOMAIN'    => '.bioware.ru',
     'components.redis'       => [
         'class'    => \yii\redis\Connection::className(),
-        'hostname' => 'redis',
+        'hostname' => 'redisbw',
         'port'     => 6379,
         'database' => 12
     ],
