@@ -137,10 +137,10 @@ class NewsController extends IndexController
             ->url('https://www.bioware.ru')
             ->language('ru-RU')
             ->pubDate(time())
-            ->lastBuildDate(time())
             ->ttl(60)
             ->appendTo($feed);
 
+        $buildDate = 0;
         /**
          * @var News[] $latestNews
          */
@@ -156,7 +156,7 @@ class NewsController extends IndexController
                 ->description(ContentHelper::getDescription($news->short_text))
                 ->contentEncoded(ContentHelper::replacePlaceholders($news->short_text))
                 ->url($news->getPublicUrl(true))
-                ->pubDate((int)$news->last_change_date)
+                ->pubDate((int)$news->date)
                 ->guid($news->getPublicUrl(true), true)
                 ->author($news->author->name);
             $img = ContentHelper::getImage($news->short_text);
@@ -165,7 +165,12 @@ class NewsController extends IndexController
                 $item->enclosure($img, $imgData['size'], $imgData['mime']);
             }
             $item->appendTo($channel);
+            if ($news->date > $buildDate) {
+                $buildDate = $news->date;
+            }
         }
+
+        $channel->lastBuildDate($buildDate);
 
         \Yii::$app->response->getHeaders()->set('Content-Type', 'text/xml; charset=UTF-8');
         \Yii::$app->response->format = Response::FORMAT_RAW;
