@@ -3,13 +3,12 @@
 namespace biowareru\frontend\helpers;
 
 
-use biowareru\common\models\AdvAdvert;
-use yii\db\Expression;
+use biowareru\frontend\models\Advertisement;
 
 class AdHelper
 {
     /**
-     * @var AdvAdvert[]
+     * @var Advertisement[]
      */
     private static $ads = [];
     private static $library;
@@ -17,23 +16,27 @@ class AdHelper
     public static $adsShowed = [];
 
     /**
-     * @return \biowareru\common\models\AdvAdvert[]
+     * @return Advertisement[]
      */
     public static function getAds()
     {
         if (!self::$ads) {
             /**
-             * @var AdvAdvert[] $adverts
+             * @var Advertisement[] $adverts
              */
-            $adverts = AdvAdvert::find()->where(['a_enable' => 1, 'a_type' => 1, 'a_section_id' => 2])->all();
+            $adverts = Advertisement::find()->where(['ad_active' => 1, 'ad_location' => 'ad_sidebar'])->andWhere([
+                'or',
+                ['ad_end' => 0],
+                ['>', 'ad_end', time()]
+            ])->all();
             shuffle($adverts);
             self::setAds($adverts);
 
-            ShutDownHelper::addFunction(function () {
+            /*ShutDownHelper::addFunction(function () {
                 \Yii::$app->db->createCommand()->update(\Yii::$app->db->tablePrefix . 'dp3_adv_adverts',
                     ['a_views' => new Expression('a_views + 1')],
                     ['a_id' => AdHelper::$adsShowed])->execute();
-            });
+            });*/
         }
 
         return self::$ads;
@@ -46,18 +49,18 @@ class AdHelper
         $ads = self::getAds();
         \Yii::trace('Pop ad');
         /**
-         * @var AdvAdvert $ad
+         * @var Advertisement $ad
          */
         $ad = array_pop($ads);
         \Yii::trace('Set ads');
         self::setAds($ads);
         \Yii::trace('Update views');
-        self::updateView($ad);
+        //self::updateView($ad);
 
         \Yii::trace('Make advert');
         $htmlData = [
-            'link'  => '/forum/index.php?app=advadverts&module=core&section=main&do=redir&aid=' . $ad->a_id . '&appReferrer=',
-            'image' => 'https://uploads.bioware.ru/banners/' . $ad->a_image
+            'link'  => $ad->ad_link,
+            'image' => 'https://uploads.bioware.ru/' . $ad->getImage()
         ];
         \Yii::trace('Ad loaded');
         return $htmlData;
@@ -69,7 +72,7 @@ class AdHelper
     }
 
     /**
-     * @param AdvAdvert[] $ads
+     * @param Advertisement[] $ads
      */
     private static function setAds($ads)
     {
