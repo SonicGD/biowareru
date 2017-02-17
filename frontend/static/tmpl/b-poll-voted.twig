@@ -1,7 +1,7 @@
-{% set multiple = 1/(poll.results[0].result) %}
+{% set multiple = 1/(poll.results[0]>0?poll.results[0].result:1) %}
 {% for opt in poll.results %}
-    {% if  (1/(opt.result) < multiple) %}
-        {% set multiple = 1/(opt.result) %}
+    {% if  (1/(opt.result>0?opt.result:1) < multiple) %}
+        {% set multiple = 1/(opt.result>0?opt.result:1) %}
     {% endif %}
 {% endfor %}
 {% for opt in poll.results %}
